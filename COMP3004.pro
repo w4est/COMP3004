@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         login.cpp \
     loggedin.cpp \
-    register.cpp
+    register.cpp \
+    login_control.cpp
 
 HEADERS  += login.h \
     loggedin.h \
-    register.h
+    register.h \
+    login_control.h
 
 FORMS    += login.ui \
     loggedin.ui \

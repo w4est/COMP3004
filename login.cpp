@@ -8,6 +8,7 @@ Login::Login(QWidget *parent) :
 {
     Window = parent;
     ui->setupUi(this);
+    ui->UsernameBox->setPlaceholderText("Enter Username...");
 }
 
 
@@ -19,7 +20,16 @@ Login::~Login()
 
 void Login::on_LoginButton_clicked()
 {
-    ui->UsernameBox->setText("HELLO");
+    std::string name = ui->UsernameBox->text().toStdString();
+
+    if(control.validUsername(name)){
+        //TODO: CHANGE THIS LATER
+        ui->UsernameBox->setText("VALID");
+    }
+    else{
+        //CHANGE THIS ALSO
+        ui->UsernameBox->setText("WRONG");
+    }
 }
 
 void Login::on_RegisterButton_clicked()

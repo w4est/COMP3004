@@ -2,6 +2,7 @@
 #define LOGIN_H
 
 #include <QMainWindow>
+#include "login_control.h"
 
 namespace Ui {
 class Login;
@@ -25,6 +26,8 @@ private slots:
 private:
     Ui::Login *ui;
     QWidget *Window;
+
+    Login_Control control;
 };
 
 #endif // LOGIN_H
