@@ -3,8 +3,8 @@
 #include <string>
 #include <fstream>
 #include <streambuf>
+#include <stdio.h>
 #include <iostream>
-#include <QDir>
 #include "rapidxml-1.13/rapidxml.hpp"
 
 using namespace rapidxml;
@@ -15,10 +15,14 @@ public:
     ~Login_Control();
 
     bool validUsername(std::string _name);
+    bool registerTempUsername(std::string _name);
     void registerUsername(std::string _name);
+    void unregisterTempUsername(std::string _name);
 
 private:
-    std::fstream file;
+    std::string temp_PostSig;
+
+    std::ifstream ifile;
     xml_document<> doc;
 };
 

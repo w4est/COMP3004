@@ -137,7 +137,7 @@
          <set>Qt::AlignCenter</set>
         </property>
         <property name="placeholderText">
-         <string>enter desired username</string>
+         <string>Enter Desired Username</string>
         </property>
        </widget>
       </item>
@@ -186,8 +186,6 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <zorder>Username_Container</zorder>
-     <zorder>Username_Container</zorder>
     </widget>
    </item>
    <item row="3" column="2">

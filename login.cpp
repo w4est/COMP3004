@@ -8,9 +8,9 @@ Login::Login(QWidget *parent, int _x, int _y) :
 {
     Window = parent;
 
-    this->move(_x, _y);
+    this->move(_x, _y - 28);
+
     ui->setupUi(this);
-    ui->UsernameBox->setPlaceholderText("Enter Username...");
 }
 
 
@@ -36,7 +36,8 @@ void Login::on_LoginButton_clicked()
 
 void Login::on_RegisterButton_clicked()
 {
-    Window = new Register(Window, this->pos().x(), this->pos().y());
+    QPoint childPos = this->mapToGlobal(QPoint(0,0));
+    Window = new Register(Window, childPos.x(), childPos.y());
     Window->show();
     delete(this);
 }

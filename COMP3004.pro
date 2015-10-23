@@ -16,7 +16,8 @@ SOURCES += main.cpp\
         login.cpp \
     loggedin.cpp \
     register.cpp \
-    login_control.cpp
+    login_control.cpp \
+    editqualifications.cpp
 
 HEADERS  += login.h \
     loggedin.h \
@@ -25,8 +26,10 @@ HEADERS  += login.h \
     /rapidxml-1.13/rapidxml.hpp \
     /rapidxml-1.13/rapidxml_iterators.hpp \
     /rapidxml-1.13/rapidxml_print.hpp \
-    /rapidxml-1.13/rapidxml_utils.hpp
+    /rapidxml-1.13/rapidxml_utils.hpp \
+    editqualifications.h
 
 FORMS    += login.ui \
     loggedin.ui \
-    register.ui
+    register.ui \
+    editqualifications.ui
