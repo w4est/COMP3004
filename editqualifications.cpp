@@ -21,7 +21,7 @@ EditQualifications::~EditQualifications()
 
 void EditQualifications::on_EditQualifications_destroyed()
 {
-    delete(this);
+    delete(this); //Make sure pointer dies.
 }
 
 void EditQualifications::reject()
@@ -37,7 +37,7 @@ void EditQualifications::on_ContinueButton_clicked()
 
 void EditQualifications::on_BackButton_clicked()
 {
-    QPoint childPos = this->mapToGlobal(QPoint(0,0));
+    QPoint childPos = this->mapToGlobal(QPoint(0,0)); //Map the coordinates for next window.
     Window = new Register(Window, childPos.x(), childPos.y(), validUsername);
     Window->show();
     control.unregisterTempUsername(validUsername.toStdString());

@@ -3,16 +3,18 @@
 
 int main(int argc, char *argv[])
 {
+    //Create Application
     QApplication a(argc, argv);
-    //Login w;
+    //Create the window container as a passable pointer
     QWidget *Window;
     Window = NULL;
+
+    //Pass the window container to the login page and show it
     Window = new Login(Window);
     Window->show();
-    //w.show();
 
 
 
-    return a.exec();
-    delete (Window);
+
+    return a.exec(); //Execute
 }

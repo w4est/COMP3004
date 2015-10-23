@@ -1,6 +1,16 @@
 # Bill's Branch Log
 ## COMP3004 
 
+--------------------------------------------------------------------------------------------
+### Iteration v0.004 2:10pm Oct 23rd
+
+_Evil hitler looks for his next victim. Having commented small portions of the code, he hungrily looks for the next bit of work to pretend to do, and then claim credit for it. No one is safe from his gaze_
+
+-Added ViewProfile Window.
+
+
+
+
 ---------------------------------------------------------------------------------------------------------
 ### Iteration v0.003  5:06am Oct 23rd
 - Changing windows messed up the repositioning somehow, fixed now (though it may differ due to titlebar height and edge
