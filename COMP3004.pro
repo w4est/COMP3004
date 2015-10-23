@@ -21,7 +21,11 @@ SOURCES += main.cpp\
 HEADERS  += login.h \
     loggedin.h \
     register.h \
-    login_control.h
+    login_control.h \
+    /rapidxml-1.13/rapidxml.hpp \
+    /rapidxml-1.13/rapidxml_iterators.hpp \
+    /rapidxml-1.13/rapidxml_print.hpp \
+    /rapidxml-1.13/rapidxml_utils.hpp
 
 FORMS    += login.ui \
     loggedin.ui \

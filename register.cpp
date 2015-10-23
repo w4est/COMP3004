@@ -3,11 +3,13 @@
 #include "login.h"
 
 
-Register::Register(QWidget *parent) :
+Register::Register(QWidget *parent, int _x, int _y) :
     QDialog(parent),
     ui(new Ui::Register)
 {
     Window = parent;
+
+    this->move(_x, _y);
     ui->setupUi(this);
 }
 
@@ -18,7 +20,7 @@ Register::~Register()
 
 void Register::on_BackButton_clicked()
 {
-    Window = new Login(Window);
+    Window = new Login(Window, this->pos().x(), this->pos().y());
     Window->show();
     delete(this);
 }

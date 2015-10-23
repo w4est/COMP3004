@@ -5,7 +5,9 @@
 #include <streambuf>
 #include <iostream>
 #include <QDir>
+#include "rapidxml-1.13/rapidxml.hpp"
 
+using namespace rapidxml;
 class Login_Control
 {
 public:
@@ -17,7 +19,7 @@ public:
 
 private:
     std::fstream file;
-
+    xml_document<> doc;
 };
 
 #endif // LOGIN_CONTROL_H

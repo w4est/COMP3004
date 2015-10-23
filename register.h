@@ -2,6 +2,7 @@
 #define REGISTER_H
 
 #include <QDialog>
+#include <QDesktopWidget>
 
 namespace Ui {
 class Register;
@@ -12,7 +13,7 @@ class Register : public QDialog
     Q_OBJECT
 
 public:
-    explicit Register(QWidget *parent = 0);
+    explicit Register(QWidget *parent = 0, int _x = 150, int _y = 50);
     ~Register();
 
 private slots:

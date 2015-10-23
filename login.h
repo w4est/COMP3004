@@ -13,7 +13,7 @@ class Login : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Login(QWidget *parent = 0);
+    explicit Login(QWidget *parent = 0, int _x = 150, int _y = 50);
     ~Login();
 
 private slots:
