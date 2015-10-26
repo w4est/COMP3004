@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     register.cpp \
     login_control.cpp \
     editqualifications.cpp \
-    viewprofile.cpp
+    viewprofile.cpp \
+    admincontrol.cpp
 
 HEADERS  += login.h \
     loggedin.h \
@@ -29,10 +30,12 @@ HEADERS  += login.h \
     /rapidxml-1.13/rapidxml_print.hpp \
     /rapidxml-1.13/rapidxml_utils.hpp \
     editqualifications.h \
-    viewprofile.h
+    viewprofile.h \
+    admincontrol.h
 
 FORMS    += login.ui \
     loggedin.ui \
     register.ui \
     editqualifications.ui \
-    viewprofile.ui
+    viewprofile.ui \
+    admincontrol.ui

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "login_control.h"
+#include "admincontrol.h"
 
 namespace Ui {
 class Login;

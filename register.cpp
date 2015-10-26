@@ -21,7 +21,11 @@ Register::~Register()
 {
     delete ui;
 }
-
+/*
+ * Go back to login page,
+ * Destroy self after.
+ *
+ * */
 void Register::on_BackButton_clicked()
 {
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
@@ -46,14 +50,16 @@ void Register::on_ContinueButton_clicked()
     bool comp2 = control->registerTempUsername(ui->UsernameEdit->text().toStdString());
     delete(control);
 
-
+   //Compare that both are ok
    if(!comp && comp2){
+       //Create new window if good, delete this
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new EditQualifications(Window, childPos.x(), childPos.y(), ui->UsernameEdit->text());
     Window->show();
     delete(this);
    }
    else{
+       //Warn user otherwise
        ui->ContinueButton->setEnabled(false);
        ui->Warning_Label->setText("Unavailable");
        ui->UsernameEdit->setStyleSheet("QLineEdit { background: rgb(255, 102, 102); selection-background-color: rgb(0, 0, 0)}");
@@ -98,10 +104,12 @@ void Register::on_CheckButton_clicked()
     delete(control2);
 }
 
+//When editing text, change background colour.
 void Register::on_UsernameEdit_textEdited(const QString &arg1)
 {
     QString junk = arg1;
     junk = "";
+
 
     ui->ContinueButton->setEnabled(false);
     ui->Warning_Label->setText(junk);

@@ -26,9 +26,15 @@ void Login::on_LoginButton_clicked()
     std::string name = ui->UsernameBox->text().toStdString();
     if(control->validUsername(name))
     {
-        delete(control);
-        //Admin goes here!
-        ui->UsernameBox->setText("Admin Account");
+        delete(control); //Make sure it doesnt' go crazy.
+
+
+        QPoint childPos = this->mapToGlobal(QPoint(0,0));
+        Window = new adminControl(Window, childPos.x(), childPos.y(), ui->UsernameBox->text());
+        Window->show();
+        delete(this);
+
+
     }
     else{
         delete(control);
