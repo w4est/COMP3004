@@ -1,6 +1,31 @@
 # Bill's Branch Log
 ## COMP3004 
 
+-------------------------------------------------------------------------------------------
+### Iteration v0.005 3:52am Oct 26th
+
+- Had to revert to commit 5ad875c as *_Iteration v0.04_* was not clean (too many errors to build)
+
+- Added XML Storage and a Control structure (LoginControl, MasterControl, StorageManager) to help direct flow of UI
+  Data should be persisant so long as it is in the right directory
+
+- Some minor issues in converting to new structures but most/all original register flows should be working
+
+- A few extra files are in the commit, later versions will have them gone (wizards) as I experimented and went back to the
+  original QWidget style
+
+_*TODO::* make qualifications, *I NEED THEM* for storage structure and registration pages_
+
+--------------------------------------------------------------------------------------------
+### Iteration v0.004 2:10pm Oct 23rd
+~~
+_Evil hitler looks for his next victim. Having commented small portions of the code, he hungrily looks for the next bit of work to pretend to do, and then claim credit for it. No one is safe from his gaze_
+
+-Added ViewProfile Window.
+~~
+
+@Will[w4est] 
+
 ---------------------------------------------------------------------------------------------------------
 ### Iteration v0.003  5:06am Oct 23rd
 - Changing windows messed up the repositioning somehow, fixed now (though it may differ due to titlebar height and edge
