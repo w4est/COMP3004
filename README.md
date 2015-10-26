@@ -14,15 +14,15 @@
 - A few extra files are in the commit, later versions will have them gone (wizards) as I experimented and went back to the
   original QWidget style
 
-_*TODO::* make qualifications, *I NEED THEM* for storage structure and registration pages_
+_**TODO::** make qualifications, **I NEED THEM** for storage structure and registration pages_
 
 --------------------------------------------------------------------------------------------
 ### Iteration v0.004 2:10pm Oct 23rd
-~~
-_Evil hitler looks for his next victim. Having commented small portions of the code, he hungrily looks for the next bit of work to pretend to do, and then claim credit for it. No one is safe from his gaze_
 
--Added ViewProfile Window.
-~~
+~~_Evil hitler looks for his next victim. Having commented small portions of the code, he hungrily looks for the next bit of work to pretend to do, and then claim credit for it. No one is safe from his gaze_~~
+
+~~-Added ViewProfile Window.~~
+
 
 @Will[w4est] 
 
