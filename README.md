@@ -4,7 +4,7 @@
 -------------------------------------------------------------------------------------------
 ### Iteration v0.005 3:52am Oct 26th
 
-- Had to revert to commit 5ad875c as *_Iteration v0.04_* was not clean (too many errors to build)
+- Had to revert to commit 5ad875c as *_Iteration v0.004_* was not clean (too many errors to build)
 
 - Added XML Storage and a Control structure (LoginControl, MasterControl, StorageManager) to help direct flow of UI
   Data should be persisant so long as it is in the right directory
