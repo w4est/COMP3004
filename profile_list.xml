@@ -1,0 +1,23 @@
+<Profile_List>
+	<Student name="Raul Defrise">
+		<PersonalQualifications>
+			<Qualification id="1" value="3"/>
+			<Qualification id="2" value="77"/>
+		</PersonalQualifications>
+		<DesiredQualifications>
+			<Qualification id="1" value="5"/>
+			<Qualification id="2" value="2"/>
+		</DesiredQualifications>
+	</Student>
+	<Student name="~~Flogin">
+		<PersonalQualifications>
+			<Qualification id="1" value="3"/>
+			<Qualification id="2" value="77"/>
+		</PersonalQualifications>
+		<DesiredQualifications>
+			<Qualification id="1" value="5"/>
+			<Qualification id="2" value="2"/>
+		</DesiredQualifications>
+	</Student>
+</Profile_List>
+
