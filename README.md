@@ -1,5 +1,14 @@
-# Bill's Branch Log
+# Will's Branch Log
 ## COMP3004 
+
+--------------------------------------------------------------------------------------------
+### Iteration vW.005 1:53pm Oct 26th
+
+=Added the ability to check for admin accounts when creating a new account
+
+-Admins can be logged in now
+
+-Fixes. Comments. Ugly code.
 
 --------------------------------------------------------------------------------------------
 ### Iteration v0.004 2:10pm Oct 23rd

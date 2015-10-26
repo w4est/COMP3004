@@ -46,7 +46,7 @@ void Register::on_ContinueButton_clicked()
     bool comp2 = control->registerTempUsername(ui->UsernameEdit->text().toStdString());
     delete(control);
 
-    std::cout << comp << comp2 << std::endl;
+
    if(!comp && comp2){
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new EditQualifications(Window, childPos.x(), childPos.y(), ui->UsernameEdit->text());
