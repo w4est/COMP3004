@@ -22,15 +22,30 @@ Login::~Login()
 
 void Login::on_LoginButton_clicked()
 {
+    control = new Login_Control("admin_list.txt");
     std::string name = ui->UsernameBox->text().toStdString();
-
-    if(control.validUsername(name)){
-        //TODO: CHANGE THIS LATER
-        ui->UsernameBox->setText("VALID");
+    if(control->validUsername(name))
+    {
+        delete(control);
+        //Admin goes here!
+        ui->UsernameBox->setText("Admin Account");
     }
     else{
-        //CHANGE THIS ALSO
-        ui->UsernameBox->setText("WRONG");
+        delete(control);
+
+
+
+    control = new Login_Control("username_list.txt");
+
+        if(control->validUsername(name)){
+            //TODO: CHANGE THIS LATER
+            ui->UsernameBox->setText("VALID");
+        }
+        else{
+            //CHANGE THIS ALSO
+            ui->UsernameBox->setText("WRONG");
+        }
+        delete (control);
     }
 }
 

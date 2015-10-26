@@ -27,7 +27,8 @@ private:
     Ui::Login *ui;
     QWidget *Window;
 
-    Login_Control control;
+    Login_Control *control;
+
 };
 
 #endif // LOGIN_H

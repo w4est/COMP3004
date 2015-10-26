@@ -1,15 +1,20 @@
 #include "login_control.h"
 
-Login_Control::Login_Control()
+Login_Control::Login_Control(std::string file)
 {
     temp_PostSig = "~~";
-    ifile.open("username_list.txt");
+    ifile.open(file.c_str());
 }
 
 Login_Control::~Login_Control()
 {
     ifile.close();
 }
+
+/*
+ * Returns TRUE if the username is valid and in USE.
+ *
+ * */
 
 bool Login_Control::validUsername(std::string _name)
 {
@@ -33,8 +38,11 @@ void Login_Control::registerUsername(std::string _name)
 
 }
 
+
+
 /* Used as a safety measure if/when multisystem use is involved, more than
  * one instance at similar times
+ * RETURNS TRUE WHEN GOOD.
  */
 bool Login_Control::registerTempUsername(std::string _name)
 {

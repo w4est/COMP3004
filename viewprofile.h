@@ -18,7 +18,6 @@ public:
 
 private slots:
     void on_ViewProfile_destroyed();
-
     void on_BackButton_clicked();
 
 private:

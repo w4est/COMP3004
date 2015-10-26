@@ -37,9 +37,17 @@ void Register::on_Register_destroyed()
 
 void Register::on_ContinueButton_clicked()
 {
-    bool comp = control.registerTempUsername(ui->UsernameEdit->text().toStdString());
+    //Check admin, then check user.
+    control = new Login_Control("admin_list.txt");
+    bool comp = control->validUsername(ui->UsernameEdit->text().toStdString());
+    delete(control);
 
-   if(comp){
+    control = new Login_Control("username_list.txt");
+    bool comp2 = control->registerTempUsername(ui->UsernameEdit->text().toStdString());
+    delete(control);
+
+    std::cout << comp << comp2 << std::endl;
+   if(!comp && comp2){
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new EditQualifications(Window, childPos.x(), childPos.y(), ui->UsernameEdit->text());
     Window->show();
@@ -53,14 +61,30 @@ void Register::on_ContinueButton_clicked()
    }
 }
 
+/*
+ * Check for username availability
+ *
+ * Create a second login control to check the admin list,
+ * and check the username list with the existing.
+ *
+ * Make sure to cleanup.
+ *
+ * */
+
+
 void Register::on_CheckButton_clicked()
 {
     std::string name = ui->UsernameEdit->text().toStdString();
 
+    Login_Control *control2 = new Login_Control("admin_list.txt");
+
+
+
+    control = new Login_Control("username_list.txt");
     if(name.compare("") == 0){
 
     }
-    else if(!control.validUsername(name)){
+    else if(!control->validUsername(name) && !control2->validUsername(name)){
         ui->ContinueButton->setEnabled(true);
         ui->Warning_Label->setText("Available");
         ui->UsernameEdit->setStyleSheet("QLineEdit { background: rgb(0, 204, 51); selection-background-color: rgb(0, 0, 0)}");
@@ -70,8 +94,8 @@ void Register::on_CheckButton_clicked()
        ui->Warning_Label->setText("Unavailable");
        ui->UsernameEdit->setStyleSheet("QLineEdit { background: rgb(255, 102, 102); selection-background-color: rgb(0, 0, 0)}");
     }
-
-
+    delete(control);
+    delete(control2);
 }
 
 void Register::on_UsernameEdit_textEdited(const QString &arg1)

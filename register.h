@@ -31,7 +31,7 @@ private:
     Ui::Register *ui;
     QWidget *Window;
 
-    Login_Control control;
+    Login_Control *control;
 };
 
 #endif // REGISTER_H
