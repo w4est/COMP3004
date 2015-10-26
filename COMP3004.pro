@@ -4,7 +4,10 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui \
+     sql
+
+QMAKE_CXXFLAGS += -std=c++11
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,19 +20,37 @@ SOURCES += main.cpp\
     loggedin.cpp \
     register.cpp \
     login_control.cpp \
-    editqualifications.cpp
+    editqualifications.cpp \
+    registerwizard.cpp \
+    mainwizard.cpp \
+    ProfileEntity.cpp \
+    StorageObject.cpp \
+    SimpleFileStorage.cpp \
+    StorageManager.cpp \
+    MasterControl.cpp \
+    LoginControl.cpp \
 
 HEADERS  += login.h \
     loggedin.h \
     register.h \
     login_control.h \
-    /rapidxml-1.13/rapidxml.hpp \
-    /rapidxml-1.13/rapidxml_iterators.hpp \
-    /rapidxml-1.13/rapidxml_print.hpp \
-    /rapidxml-1.13/rapidxml_utils.hpp \
-    editqualifications.h
+    rapidxml.hpp \
+    rapidxml_iterators.hpp \
+    rapidxml_print.hpp \
+    rapidxml_utils.hpp \
+    editqualifications.h \
+    registerwizard.h \
+    mainwizard.h \
+    ProfileEntity.h \
+    StorageObject.h \
+    SimpleFileStorage.h \
+    StorageManager.h \
+    MasterControl.h \
+    LoginControl.h \
 
 FORMS    += login.ui \
     loggedin.ui \
     register.ui \
-    editqualifications.ui
+    editqualifications.ui \
+    registerwizard.ui \
+    mainwizard.ui

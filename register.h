@@ -2,7 +2,9 @@
 #define REGISTER_H
 
 #include <QDialog>
-#include "login_control.h"
+#include "LoginControl.h"
+
+class LoginControl;
 
 namespace Ui {
 class Register;
@@ -13,7 +15,7 @@ class Register : public QDialog
     Q_OBJECT
 
 public:
-    explicit Register(QWidget *parent = 0, int _x = 150, int _y = 50, QString _username = "");
+    explicit Register(LoginControl *_control, QWidget *parent = 0, int _x = 150, int _y = 50, QString _username = "");
     ~Register();
 
 private slots:
@@ -31,7 +33,7 @@ private:
     Ui::Register *ui;
     QWidget *Window;
 
-    Login_Control control;
+    LoginControl *control;
 };
 
 #endif // REGISTER_H

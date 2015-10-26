@@ -2,7 +2,9 @@
 #define EDITQUALIFICATIONS_H
 
 #include <QDialog>
-#include "login_control.h"
+#include "LoginControl.h"
+
+class LoginControl;
 
 namespace Ui {
 class EditQualifications;
@@ -13,7 +15,7 @@ class EditQualifications : public QDialog
     Q_OBJECT
 
 public:
-    explicit EditQualifications(QWidget *parent = 0, int _x = 150, int _y = 50, QString _username = "");
+    explicit EditQualifications(LoginControl *_control, QWidget *parent = 0, int _x = 150, int _y = 50, QString _username = "");
     ~EditQualifications();
 
 private slots:
@@ -28,7 +30,7 @@ private slots:
 private:
     Ui::EditQualifications *ui;
     QWidget *Window;
-    Login_Control control;
+    LoginControl *control;
 
     QString validUsername;
 };

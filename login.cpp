@@ -2,11 +2,14 @@
 #include "ui_login.h"
 #include "register.h"
 
-Login::Login(QWidget *parent, int _x, int _y) :
+
+Login::Login(LoginControl *_control, QWidget *parent, int _x, int _y) :
     QMainWindow(parent),
     ui(new Ui::Login)
 {
     Window = parent;
+    control = _control;
+    regWizard = 0;
 
     this->move(_x, _y - 28);
 
@@ -17,6 +20,8 @@ Login::Login(QWidget *parent, int _x, int _y) :
 
 Login::~Login()
 {
+    control = 0;
+    delete regWizard;
     delete ui;
 }
 
@@ -24,7 +29,7 @@ void Login::on_LoginButton_clicked()
 {
     std::string name = ui->UsernameBox->text().toStdString();
 
-    if(control.validUsername(name)){
+    if(control->userExists(name)){
         //TODO: CHANGE THIS LATER
         ui->UsernameBox->setText("VALID");
     }
@@ -36,13 +41,34 @@ void Login::on_LoginButton_clicked()
 
 void Login::on_RegisterButton_clicked()
 {
+    /*generateWizard();
+    regWizard->show();
+    this->setEnabled(false);*/
+
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new Register(Window, childPos.x(), childPos.y());
+    Window = new Register(control, 0, childPos.x(), childPos.y());
     Window->show();
+    this->setEnabled(false);
     delete(this);
+
 }
 
 void Login::on_Login_destroyed()
 {
     delete(this);
+}
+
+void Login::reEnable()
+{
+    this->setEnabled(true);
+}
+
+void Login::generateWizard()
+{
+    if(!regWizard)
+    {
+        regWizard = new MainWizard();
+        connect(regWizard, SIGNAL(on_MainWizard_kill()), this, SLOT(reEnable()));
+
+    }
 }
