@@ -9,7 +9,6 @@ Login::Login(LoginControl *_control, QWidget *parent, int _x, int _y) :
 {
     Window = parent;
     control = _control;
-    regWizard = 0;
 
     this->move(_x, _y - 28);
 
@@ -21,7 +20,6 @@ Login::Login(LoginControl *_control, QWidget *parent, int _x, int _y) :
 Login::~Login()
 {
     control = 0;
-    delete regWizard;
     delete ui;
 }
 
@@ -61,14 +59,4 @@ void Login::on_Login_destroyed()
 void Login::reEnable()
 {
     this->setEnabled(true);
-}
-
-void Login::generateWizard()
-{
-    if(!regWizard)
-    {
-        regWizard = new MainWizard();
-        connect(regWizard, SIGNAL(on_MainWizard_kill()), this, SLOT(reEnable()));
-
-    }
 }

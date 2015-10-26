@@ -19,10 +19,7 @@ SOURCES += main.cpp\
         login.cpp \
     loggedin.cpp \
     register.cpp \
-    login_control.cpp \
     editqualifications.cpp \
-    registerwizard.cpp \
-    mainwizard.cpp \
     ProfileEntity.cpp \
     StorageObject.cpp \
     SimpleFileStorage.cpp \
@@ -33,14 +30,11 @@ SOURCES += main.cpp\
 HEADERS  += login.h \
     loggedin.h \
     register.h \
-    login_control.h \
     rapidxml.hpp \
     rapidxml_iterators.hpp \
     rapidxml_print.hpp \
     rapidxml_utils.hpp \
     editqualifications.h \
-    registerwizard.h \
-    mainwizard.h \
     ProfileEntity.h \
     StorageObject.h \
     SimpleFileStorage.h \
@@ -51,6 +45,4 @@ HEADERS  += login.h \
 FORMS    += login.ui \
     loggedin.ui \
     register.ui \
-    editqualifications.ui \
-    registerwizard.ui \
-    mainwizard.ui
+    editqualifications.ui

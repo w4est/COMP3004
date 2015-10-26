@@ -2,8 +2,6 @@
 #define LOGIN_H
 
 #include <QMainWindow>
-#include "registerwizard.h"
-#include "mainwizard.h"
 
 #include "LoginControl.h"
 
@@ -33,11 +31,8 @@ private slots:
 private:
     Ui::Login *ui;
     QWidget *Window;
-    MainWizard *regWizard;
 
     LoginControl *control;
-
-    void generateWizard();
 };
 
 #endif // LOGIN_H
