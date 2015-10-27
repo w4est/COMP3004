@@ -20,8 +20,6 @@ public:
 private slots:
     void on_RunPPID_destroyed();
 
-    void on_pushButton_clicked();
-
     void on_comboBox_activated(int index);
 
     void on_groupSize_valueChanged(int arg1);

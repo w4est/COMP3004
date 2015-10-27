@@ -4,7 +4,7 @@
 #include <QDialog>
 #include "login.h"
 #include "createproject.h"
-
+#include "runppid.h"
 
 namespace Ui {
 class adminControl;
@@ -24,6 +24,8 @@ private slots:
     void on_LogoutButton_clicked();
 
     void on_CreateProject_clicked();
+
+    void on_RunPPID_clicked();
 
 private:
     Ui::adminControl *ui;

@@ -40,10 +40,33 @@ void adminControl::on_LogoutButton_clicked()
     delete(this);
 }
 
+/*
+ * Create a new Project
+ *
+ * */
 void adminControl::on_CreateProject_clicked()
 {
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new CreateProject(Window, childPos.x(), childPos.y(), username.c_str());
     Window->show();
     delete(this);
+}
+
+/*
+ * Run the PPID
+ *
+ * */
+
+void adminControl::on_RunPPID_clicked()
+{
+
+    //Get selected project. If multiple are selected, take the highest.
+    //ui->ProjectList->selectedItems();
+
+    QPoint childPos = this->mapToGlobal(QPoint(0,0));
+    Window = new RunPPID(Window, childPos.x(), childPos.y(), username.c_str());
+    Window->show();
+    delete(this);
+
+
 }

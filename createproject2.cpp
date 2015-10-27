@@ -12,7 +12,6 @@ CreateProject2::CreateProject2(QWidget *parent, int _x, int _y, QString _usernam
     projectDescription = Description.toStdString();
     projectName = Name.toStdString();
     username = _username.toStdString(); //Pass the current user.
-    std::cout << projectName << std::endl;
 
     ui->setupUi(this);
 
