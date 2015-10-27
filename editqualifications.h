@@ -6,6 +6,7 @@
 #include <QScrollBar>
 #include <QVBoxLayout>
 #include "LoginControl.h"
+#include "login.h"
 
 class LoginControl;
 
@@ -18,7 +19,7 @@ class EditQualifications : public QDialog
     Q_OBJECT
 
 public:
-    explicit EditQualifications(LoginControl *_control, QWidget *parent = 0, int _x = 150, int _y = 50, QString _username = "");
+    explicit EditQualifications(LoginControl *_control, QWidget *parent = 0, int _x = 150, int _y = 50, QString _username = "", int _page = 0);
     ~EditQualifications();
 
 private slots:
@@ -35,11 +36,14 @@ private:
     QWidget *Window;
     LoginControl *control;
 
+    int page; // WHETHER PERSONAL_QUAL OR DESIRED_QUAL
+
     //
     QVBoxLayout *layout, *scrollBoxLayout;
     QWidget *widget;
 
     QString validUsername;
+    int qualSize;
 
     void buildQualList();
     QWidget* buildQualWidget(QString, QString, int);

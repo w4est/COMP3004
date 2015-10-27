@@ -4,12 +4,7 @@ MasterControl::MasterControl()
     :storage_control(0), login_control(0)
 {
     storage_control = new StorageManager();
-    if(storage_control){
-        cout << "storage made" << endl;
-    }
-    else{
-        cout << "storage not made" << endl;
-    }
+
     login_control = new LoginControl(this);
 
 }

@@ -122,6 +122,35 @@ void SimpleFileStorage::getProfileList(vector<ProfileEntity*>&)
 
 ProfileEntity* SimpleFileStorage::getProfile(string _username)
 {
+    ProfileEntity* newProf = new ProfileEntity(_username);
+    vector<qualLayout> tempPers, tempDes;
+
+
+    for (rapidxml::xml_node<> * stuNode = prof_root->first_node("Student"); stuNode; stuNode = stuNode->next_sibling())
+    {
+        if (_username.compare(stuNode->first_attribute("name")->value()) == 0)
+        {
+            rapidxml::xml_node<> * typeNode = stuNode->first_node("PersonalQualifications");
+
+            for(rapidxml::xml_node<> * qualNode = typeNode->first_node(); qualNode; qualNode = typeNode->next_sibling())
+            {
+                tempPers.push_back(make_tuple(std::stoi(qualNode->first_attribute()->value()), std::stoi(qualNode->last_attribute()->value())));
+
+            }
+
+            typeNode = stuNode->first_node("DesiredQualifications");
+            for(rapidxml::xml_node<> * qualNode = typeNode->first_node(); qualNode; qualNode = typeNode->next_sibling())
+            {
+                tempDes.push_back(make_tuple(std::stoi(qualNode->first_attribute()->value()), std::stoi(qualNode->last_attribute()->value())));
+            }
+            //cout << "type" << tempPers.size() << "||" << tempDes.size() << endl;
+
+            newProf->setPersonalQual(tempPers);
+            newProf->setDesiredQual(tempDes);
+
+            return newProf;
+        }
+    }
 	return nullptr;
 }
 

@@ -4,6 +4,8 @@
 ProfileEntity::ProfileEntity(string _username)
 {
 	m_username = _username;
+    personalQual = vector<tuple<int, int>>();
+    desiredQual = vector<tuple<int, int>>();
 }
 
 
@@ -11,14 +13,19 @@ ProfileEntity::~ProfileEntity()
 {
 }
 
-void ProfileEntity::setPersonalQual(vector<qualLayout>& _perQualList)
+void ProfileEntity::setPersonalQual(vector<tuple<int, int>>& _perQualList)
 {
-	for (int i = 0; i < _perQualList.size(); i++)
-	{
-		qualLayout temp = _perQualList[i];
+    personalQual = _perQualList;
 
-		personalQual.push_back(temp);
-	}
+    /*for (int i = 0; i < _perQualList.size(); i++)
+	{
+        tuple<int, int> tpair;
+
+        get<0>(tpair) = get<0>(_perQualList[i]);
+        get<1>(tpair) = get<1>(_perQualList[i]);
+
+        personalQual.push_back(tpair);
+    }*/
 }
 
 /**/
@@ -32,12 +39,12 @@ void ProfileEntity::setDesiredQual(vector<qualLayout>& _desQualList)
 	}
 }
 
-const vector<qualLayout>& ProfileEntity::getPersonalQual()
+vector<qualLayout>& ProfileEntity::getPersonalQual()
 {
 	return personalQual;
 }
 
-const vector<qualLayout>& ProfileEntity::getDesiredQual()
+vector<qualLayout>& ProfileEntity::getDesiredQual()
 {
 	return desiredQual;
 }

@@ -5,6 +5,7 @@ class Login;
 LoginControl::LoginControl(MasterControl* _parent)
 {
 	m_Parent = _parent;
+    user = 0;
     login_window = new Login(this, NULL);
     login_window->show();
 }
@@ -39,6 +40,11 @@ bool LoginControl::registerTempUser(string _username)
     else{
         return false;
     }
+}
+
+ProfileEntity* LoginControl::getCurrentUser()
+{
+    return user;
 }
 
 void LoginControl::unregisterTempUser(string _username)

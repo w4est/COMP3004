@@ -33,6 +33,7 @@ public:
 
 private:
 	StorageObject* dbObject;
+    vector<ProfileEntity*> outEntities;
 
 };
 

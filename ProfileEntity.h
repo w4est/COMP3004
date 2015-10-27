@@ -18,8 +18,8 @@ public:
 	void setPersonalQual(vector<qualLayout>&);
 	void setDesiredQual(vector<qualLayout>&);
 
-	const vector<qualLayout>& getPersonalQual();
-	const vector<qualLayout>& getDesiredQual();
+    vector<qualLayout>& getPersonalQual();
+    vector<qualLayout>& getDesiredQual();
 	string getUsername();
 
 private:

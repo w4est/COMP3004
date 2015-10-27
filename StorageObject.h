@@ -13,7 +13,8 @@ class StorageObject
 public:
 	enum Qual_Types {slide_range = 1,
 					 list_range,
-					 true_false};
+                     true_false,
+                     grade};
 
 	StorageObject();
     virtual ~StorageObject();

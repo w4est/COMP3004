@@ -2,17 +2,19 @@
 #include "ui_editqualifications.h"
 #include "register.h"
 #include "qualframe.h"
+#include <tuple>
 
 
-EditQualifications::EditQualifications(LoginControl *_control, QWidget *parent, int _x, int _y, QString _username) :
+EditQualifications::EditQualifications(LoginControl *_control, QWidget *parent, int _x, int _y, QString _username, int _page) :
     QDialog(parent),
     ui(new Ui::EditQualifications)
 {
     Window = parent;
     control = _control;
     validUsername = _username;
+    page = _page;
 
-    this->move(_x, _y);
+    this->move(_x, _y - 28);
 
     ui->setupUi(this);
     buildQualList();
@@ -31,26 +33,64 @@ EditQualifications::~EditQualifications()
 
 void EditQualifications::on_EditQualifications_destroyed()
 {
-    control->unregisterTempUser(validUsername.toStdString());
     delete(this);
 }
 
 void EditQualifications::reject()
 {
-    control->unregisterTempUser(validUsername.toStdString());
+    if(page == 0){
+        control->unregisterTempUser(validUsername.toStdString());
+    }
     QDialog::reject();
 }
 
 void EditQualifications::on_ContinueButton_clicked()
 {
+    vector<std::tuple<int, int>> newVec;
+    QualFrame* temp;
 
+    for(int i = 0; i < qualSize; i++){
+        temp = (QualFrame*)layout->itemAt(i)->widget();
+        newVec.push_back(make_tuple(i+1, temp->getSliderValue()));
+    }
+    if(page == 0){
+        if(control->getCurrentUser()){
+            control->getCurrentUser()->setPersonalQual(newVec);
+        }
+    }
+    else if(page == 1){
+        if(control->getCurrentUser()){
+            control->getCurrentUser()->setDesiredQual(newVec);
+        }
+    }
+    else{
+    }
+    //
+    QPoint childPos = this->mapToGlobal(QPoint(0,0));
+    if(page == 0){
+        Window = new EditQualifications(control, Window, childPos.x(), childPos.y(), validUsername, 1);
+        Window->show();
+        delete(this);
+    }
+    else if(page == 1)
+    {
+        Window = new Login(control, Window, childPos.x(), childPos.y());
+        Window->show();
+        delete(this);
+    }
 }
 
 void EditQualifications::on_BackButton_clicked()
 {
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    control->unregisterTempUser(validUsername.toStdString());
-    Window = new Register(control, Window, childPos.x(), childPos.y(), validUsername);
+    if(page == 0){
+        control->unregisterTempUser(validUsername.toStdString());
+        Window = new Register(control, Window, childPos.x(), childPos.y(), validUsername);
+    }
+    else{
+        Window = new EditQualifications(control, Window, childPos.x(), childPos.y(), validUsername, 0);
+    }
+
     Window->show();
     delete(this);
 }
@@ -59,8 +99,15 @@ void EditQualifications::on_BackButton_clicked()
 
 void EditQualifications::buildQualList()
 {
+    if(page == 1){
+        ui->page_title->setText("Desired Qualification Submission:");
+        ui->ContinueButton->setText("Register");
+    }
+
     vector<pair<string, tuple<int, int, int, int>>> qualList;
     control->getQualList(qualList);
+
+    qualSize = qualList.size();
 
    ui->scrollArea->verticalScrollBar()->setSingleStep(256);
 
@@ -72,10 +119,10 @@ void EditQualifications::buildQualList()
    pair<string, tuple<int, int, int, int>> temp;
 
 
-
     for(unsigned int i = 0; i < qualList.size(); i++)
     {
         temp = qualList[i];
+        //TODO :: change Description to proper
         form = buildQualWidget(QString(std::to_string(get<0>(temp.second)).c_str()), QString(temp.first.c_str()), get<2>(temp.second));
 
         layout->addWidget(form);

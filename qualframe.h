@@ -19,11 +19,14 @@ public:
 
     void setDescription(QString);
     void setId(QString);
+    int getSliderValue();
 protected:
     void wheelEvent(QWheelEvent*e);
 
 private slots:
     void on_horizontalSlider_sliderPressed();
+
+    void on_horizontalSlider_sliderMoved(int position);
 
 private:
     Ui::QualFrame *ui;

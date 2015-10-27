@@ -32,3 +32,13 @@ void QualFrame::on_horizontalSlider_sliderPressed()
 {
 
 }
+
+void QualFrame::on_horizontalSlider_sliderMoved(int position)
+{
+    ui->Center_Label->setText(std::to_string(position).c_str());
+}
+
+int QualFrame::getSliderValue()
+{
+    return ui->horizontalSlider->value();
+}
