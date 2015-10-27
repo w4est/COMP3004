@@ -1,6 +1,19 @@
 # Bill's Branch Log
 ## COMP3004 
 
+-------------------------------------------------------------------
+### Iteration c0.006 5:09am Oct 27th
+
+- cleaned repo of uneeded Wizard files
+
+- made qualification frame and have a (somewhat) working list on the register qualifications page
+  _(mind, it doesn't do anything yet, but it displays a list of controllable qualification frames)_
+
+- messed with the qualFrame stylesheet so that the QSlider didn't look like _ass_ though due to QT issues (bugs) the ticks 
+  aren't there anymore
+
+_The list was utter **BS** until I finally got it to work_
+
 -------------------------------------------------------------------------------------------
 ### Iteration v0.005 3:52am Oct 26th
 

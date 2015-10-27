@@ -19,6 +19,210 @@
 		<Range>99</Range>
 		<Value>-1</Value>
 	</Qualification>
+	<Qualification id="3">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="4">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="5">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="6">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="7">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="8">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="9">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="10">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="11">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="12">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="13">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="14">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="15">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="16">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="17">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="18">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="19">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="20">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="21">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="22">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="23">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="24">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="25">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="26">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="27">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="28">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="29">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="30">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="31">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="32">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="33">
+		<Description>...</Description>
+		<Type>slide_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="34">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="35">
+		<Description>...</Description>
+		<Type>list_range</Type>
+		<Range>7</Range>
+		<Value>-1</Value>
+	</Qualification>
+	<Qualification id="36">
+		<Description>And In The Beginning...</Description>
+		<Type>true_false</Type>
+		<Range>99</Range>
+		<Value>-1</Value>
+	</Qualification>
 </Qualification_List>
 
 

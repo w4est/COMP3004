@@ -18,6 +18,7 @@ public:
 	void loginUser(string);
     bool registerTempUser(string);
     void unregisterTempUser(string);
+    void getQualList(vector<pair<string, tuple<int, int, int, int>>>&);
 
 private:
 	MasterControl *m_Parent;

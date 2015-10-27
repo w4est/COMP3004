@@ -2,6 +2,9 @@
 #define EDITQUALIFICATIONS_H
 
 #include <QDialog>
+#include <QListWidgetItem>
+#include <QScrollBar>
+#include <QVBoxLayout>
 #include "LoginControl.h"
 
 class LoginControl;
@@ -32,7 +35,14 @@ private:
     QWidget *Window;
     LoginControl *control;
 
+    //
+    QVBoxLayout *layout, *scrollBoxLayout;
+    QWidget *widget;
+
     QString validUsername;
+
+    void buildQualList();
+    QWidget* buildQualWidget(QString, QString, int);
 };
 
 #endif // EDITQUALIFICATIONS_H

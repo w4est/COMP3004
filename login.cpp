@@ -39,10 +39,6 @@ void Login::on_LoginButton_clicked()
 
 void Login::on_RegisterButton_clicked()
 {
-    /*generateWizard();
-    regWizard->show();
-    this->setEnabled(false);*/
-
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new Register(control, 0, childPos.x(), childPos.y());
     Window->show();

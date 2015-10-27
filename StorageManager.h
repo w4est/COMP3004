@@ -28,6 +28,9 @@ public:
 
 	bool userNameExists(std::string);
 
+    /**/
+    void getQualificationList(vector<pair<string, tuple<int, int, int, int>>>&);
+
 private:
 	StorageObject* dbObject;
 

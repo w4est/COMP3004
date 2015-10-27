@@ -65,3 +65,8 @@ bool StorageManager::userNameExists(std::string _username)
 {
 	return dbObject->profileExists(_username) || dbObject->profileExists(POST_Placeholder + _username);
 }
+
+void StorageManager::getQualificationList(vector<pair<string, tuple<int, int, int, int>>>& _list)
+{
+    _list = dbObject->getQualificationList();
+}

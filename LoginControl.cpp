@@ -45,3 +45,8 @@ void LoginControl::unregisterTempUser(string _username)
 {
     m_Parent->getStorageAccess().removeNamePlaceholder(_username);
 }
+
+void LoginControl::getQualList(vector<pair<string, tuple<int, int, int, int>>>& _list)
+{
+    m_Parent->getStorageAccess().getQualificationList(_list);
+}

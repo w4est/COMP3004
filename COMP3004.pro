@@ -26,7 +26,7 @@ SOURCES += main.cpp\
     StorageManager.cpp \
     MasterControl.cpp \
     LoginControl.cpp \
-    qualification_form.cpp
+    qualframe.cpp
 
 HEADERS  += login.h \
     loggedin.h \
@@ -42,10 +42,10 @@ HEADERS  += login.h \
     StorageManager.h \
     MasterControl.h \
     LoginControl.h \
-    qualification_form.h
+    qualframe.h
 
 FORMS    += login.ui \
     loggedin.ui \
     register.ui \
     editqualifications.ui \
-    qualification_form.ui
+    qualframe.ui
