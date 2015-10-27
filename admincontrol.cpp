@@ -13,7 +13,7 @@ adminControl::adminControl(QWidget *parent, int _x, int _y, QString _username) :
     username = _username.toStdString(); //Set username
 
     //Load projects into array.
-
+    //ProjectHolder = some array from simpletStorage
 
     ui->ProjectList->addItem("PROJECTNAME");
 
@@ -28,6 +28,8 @@ adminControl::~adminControl()
 
 void adminControl::on_adminControl_destroyed()
 {
+
+    //delete(projectHolder);
     delete(this);
 }
 
@@ -41,6 +43,7 @@ void adminControl::on_LogoutButton_clicked()
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new Login(Window, childPos.x(), childPos.y());
     Window->show();
+    //delete(projectHolder);
     delete(this);
 }
 
@@ -53,7 +56,9 @@ void adminControl::on_CreateProject_clicked()
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new CreateProject(Window, childPos.x(), childPos.y(), username.c_str());
     Window->show();
+    //delete(projectHolder);
     delete(this);
+
 }
 
 /*
@@ -70,6 +75,8 @@ void adminControl::on_RunPPID_clicked()
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new RunPPID(Window, childPos.x(), childPos.y(), username.c_str());
     Window->show();
+
+    //delete(projectHolder);
     delete(this);
 
 
@@ -84,6 +91,8 @@ void adminControl::on_EditProject_clicked()
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new EditProject(Window, childPos.x(), childPos.y(), username.c_str());
     Window->show();
+
+    //delete(projectHolder);
     delete(this);
 
 }

@@ -35,6 +35,7 @@ private:
     Ui::adminControl *ui;
     QWidget *Window;
     std::string username;
+    Project *projectHolder;
 };
 
 #endif // ADMINCONTROL_H

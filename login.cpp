@@ -65,10 +65,12 @@ void Login::on_RegisterButton_clicked()
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new Register(Window, childPos.x(), childPos.y());
     Window->show();
+
     delete(this);
 }
 
 void Login::on_Login_destroyed()
 {
+
     delete(this);
 }
