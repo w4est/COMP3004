@@ -1,14 +1,20 @@
 #ifndef QUALIFICATION_H
 #define QUALIFICATION_H
 
+#include <string>
+#include <vector>
+#include <tuple>
+
+using namespace std;
+
 class Qualification
 {
 public:
     Qualification();
-    Qualification(std::string pD, std::string dD, std::aD, tuple<int, int, int, int> qL);
-    std::string getPersonalDescription();
-    std::string getDesiredDescription();
-    std::string getAdminDescription();
+    Qualification(string pD, string dD, string aD, tuple<int, int, int, int> qL);
+    string getPersonalDescription();
+    string getDesiredDescription();
+    string getAdminDescription();
     tuple<int, int, int, int> getQVals();
     void setPersonalDescription(std::string pD);
     void setDesiredDescription(std::string dD);

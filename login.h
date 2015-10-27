@@ -2,7 +2,9 @@
 #define LOGIN_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 #include "login_control.h"
+#include "admincontrol.h"
 
 namespace Ui {
 class Login;
@@ -27,7 +29,8 @@ private:
     Ui::Login *ui;
     QWidget *Window;
 
-    Login_Control control;
+    Login_Control *control;
+
 };
 
 #endif // LOGIN_H

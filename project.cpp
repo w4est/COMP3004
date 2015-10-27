@@ -8,51 +8,51 @@ Project::Project()
 
 }
 
-Project::Project(std::name, std::string owner, std::string dec, std::vector<string> qList){
+Project::Project(string name, string owner, string dec, vector<Qualification> qList){
     ProjectName = name;
     ProjectDescription = dec;
     Owner = owner;
-    qualificationList =qList;
+    qualificationList = qList;
 }
 
-std::string Project::getProjectName()
+string Project::getProjectName()
 {
     return ProjectName;
 }
 
-std::string Project::getProjectDescription(){
+string Project::getProjectDescription(){
     return ProjectDescription;
 }
 
-std::string Project::getOwner(){
+string Project::getOwner(){
     return Owner;
 }
 
-std::vector<Qualification> Project::getQualifications(){
+vector<Qualification> Project::getQualifications(){
     return qualificationList;
 }
 
-std::vector<string> Project::getStudents(){
+vector<string> Project::getStudents(){
     return students;
 }
 
-void Project::setProjectName(std::string name){
+void Project::setProjectName(string name){
     ProjectName = name;
 }
 
-void Project::setProjectDescription(std::string description){
+void Project::setProjectDescription(string description){
     ProjectDescription = description;
 }
 
-void Project::setOwner(std::string owner){
+void Project::setOwner(string owner){
     Owner  = owner;
 }
 
-void Project::setQualifications(std::vector<Qualification> qList){
+void Project::setQualifications(vector<Qualification> qList){
     qualificationList = qList;
 }
 
-void Project::setStudents(std::vector<string> sList){
+void Project::setStudents(vector<string> sList){
     students = sList;
 }
 

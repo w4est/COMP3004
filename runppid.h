@@ -2,6 +2,8 @@
 #define RUNPPID_H
 
 #include <QDialog>
+#include <QWidget>
+#include "admincontrol.h"
 
 namespace Ui {
 class RunPPID;
@@ -12,7 +14,7 @@ class RunPPID : public QDialog
     Q_OBJECT
 
 public:
-    explicit RunPPID(QWidget *parent = 0);
+    explicit RunPPID(QWidget *parent = 0, int _x = 150, int _y = 50, QString _projectName = "");
     ~RunPPID();
 
 private slots:
@@ -29,6 +31,7 @@ private slots:
 
 private:
     Ui::RunPPID *ui;
+    QWidget *Window;
 };
 
 #endif // RUNPPID_H

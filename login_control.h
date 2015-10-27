@@ -11,7 +11,7 @@ using namespace rapidxml;
 class Login_Control
 {
 public:
-    Login_Control();
+    Login_Control(std::string);
     ~Login_Control();
 
     bool validUsername(std::string _name);

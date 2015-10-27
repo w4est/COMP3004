@@ -1,5 +1,26 @@
+<<<<<<< HEAD
+# Will's Branch Log
+=======
 # Joe's log
+>>>>>>> COMP3004/master
 ## COMP3004 
+--------------------------------------------------------------------------------------------
+### Iteration vW.006 2:53pm Oct 26th
+
+-Made adminControl.
+
+-login should be completed.
+
+
+
+--------------------------------------------------------------------------------------------
+### Iteration vW.005 1:53pm Oct 26th
+
+=Added the ability to check for admin accounts when creating a new account
+
+-Admins can be logged in now
+
+-Fixes. Comments. Ugly code.
 
 --------------------------------------------------------------------------------------------
 ### Iteration vJ0.001 2:10pm Oct 25th
