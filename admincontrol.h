@@ -5,6 +5,7 @@
 #include "login.h"
 #include "createproject.h"
 #include "runppid.h"
+#include "editproject.h"
 
 namespace Ui {
 class adminControl;
@@ -26,6 +27,8 @@ private slots:
     void on_CreateProject_clicked();
 
     void on_RunPPID_clicked();
+
+    void on_EditProject_clicked();
 
 private:
     Ui::adminControl *ui;

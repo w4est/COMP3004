@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     createproject.cpp \
     createproject2.cpp \
     project.cpp \
-    qualification.cpp
+    qualification.cpp \
+    editproject.cpp
 
 
 HEADERS  += login.h \
@@ -44,7 +45,8 @@ HEADERS  += login.h \
     createproject.h \
     createproject2.h \
     project.h \
-    qualification.h
+    qualification.h \
+    editproject.h
 
 
 FORMS    += login.ui \
@@ -55,4 +57,5 @@ FORMS    += login.ui \
     admincontrol.ui \
     runppid.ui \
     createproject.ui \
-    createproject2.ui
+    createproject2.ui \
+    editproject.ui
