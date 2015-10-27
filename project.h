@@ -1,6 +1,7 @@
 #ifndef PROJECT_H
 #define PROJECT_H
 
+#include <QListWidgetItem>
 #include <string>
 #include <vector>
 #include "qualification.h"

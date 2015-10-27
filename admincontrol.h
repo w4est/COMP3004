@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "login.h"
+#include "project.h"
 #include "createproject.h"
 #include "runppid.h"
 #include "editproject.h"

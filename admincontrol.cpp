@@ -11,11 +11,14 @@ adminControl::adminControl(QWidget *parent, int _x, int _y, QString _username) :
     this->move(_x,_y-28);
     ui->setupUi(this);
     username = _username.toStdString(); //Set username
-    model = new QStringlistModel(this);
-    QStringList List;
-    List << "Test1" << "Test2";
-            model->setStringList(List);
-    ui->ProjectList->setModel(model);
+
+    //Load projects into array.
+
+
+    ui->ProjectList->addItem("PROJECTNAME");
+
+
+
 }
 
 adminControl::~adminControl()
@@ -74,12 +77,12 @@ void adminControl::on_RunPPID_clicked()
 
 void adminControl::on_EditProject_clicked()
 {
-    QListWidgetItem currentList = ui->ProjectList->currentItem();
-    Project currentProject = (Project)currentList.;
+    //ListWidgetItem currentList = ui->ProjectList->currentItem();
+    //Project currentProject = (Project)currentList.;
 
 
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new EditProject(Window, childPos.x(), childPos.y(), currentProject);
+    Window = new EditProject(Window, childPos.x(), childPos.y(), username.c_str());
     Window->show();
     delete(this);
 
