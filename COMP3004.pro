@@ -19,7 +19,9 @@ SOURCES += main.cpp\
     login_control.cpp \
     editqualifications.cpp \
     viewprofile.cpp \
-    runppid.cpp
+    runppid.cpp \
+    project.cpp \
+    qualification.cpp
 
 HEADERS  += login.h \
     loggedin.h \
@@ -31,7 +33,9 @@ HEADERS  += login.h \
     /rapidxml-1.13/rapidxml_utils.hpp \
     editqualifications.h \
     viewprofile.h \
-    runppid.h
+    runppid.h \
+    project.h \
+    qualification.h
 
 FORMS    += login.ui \
     loggedin.ui \
