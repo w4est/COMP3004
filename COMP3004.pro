@@ -6,6 +6,8 @@
 
 QT       += core gui
 
+QMAKE_CXXFLAGS += -std=c++11
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = COMP3004
@@ -19,7 +21,13 @@ SOURCES += main.cpp\
     login_control.cpp \
     editqualifications.cpp \
     viewprofile.cpp \
-    admincontrol.cpp
+    admincontrol.cpp \
+    runppid.cpp \
+    createproject.cpp \
+    createproject2.cpp \
+    project.cpp \
+    qualification.cpp
+
 
 HEADERS  += login.h \
     loggedin.h \
@@ -31,11 +39,20 @@ HEADERS  += login.h \
     /rapidxml-1.13/rapidxml_utils.hpp \
     editqualifications.h \
     viewprofile.h \
-    admincontrol.h
+    admincontrol.h \
+    runppid.h \
+    createproject.h \
+    createproject2.h \
+    project.h \
+    qualification.h
+
 
 FORMS    += login.ui \
     loggedin.ui \
     register.ui \
     editqualifications.ui \
     viewprofile.ui \
-    admincontrol.ui
+    admincontrol.ui \
+    runppid.ui \
+    createproject.ui \
+    createproject2.ui

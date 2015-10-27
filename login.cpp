@@ -28,6 +28,11 @@ void Login::on_LoginButton_clicked()
     {
         delete(control); //Make sure it doesnt' go crazy.
 
+        std::string Message = "Hello " + name;
+        QMessageBox::StandardButton reply;
+          reply = QMessageBox::information(this, "Welcome", Message.c_str() ,
+                                        QMessageBox::Ok);
+
 
         QPoint childPos = this->mapToGlobal(QPoint(0,0));
         Window = new adminControl(Window, childPos.x(), childPos.y(), ui->UsernameBox->text());

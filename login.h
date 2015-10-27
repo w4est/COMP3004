@@ -2,6 +2,7 @@
 #define LOGIN_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 #include "login_control.h"
 #include "admincontrol.h"
 

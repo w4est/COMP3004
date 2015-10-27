@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include "login.h"
+#include "createproject.h"
+
 
 namespace Ui {
 class adminControl;
@@ -20,6 +22,8 @@ private slots:
     void on_adminControl_destroyed();
 
     void on_LogoutButton_clicked();
+
+    void on_CreateProject_clicked();
 
 private:
     Ui::adminControl *ui;
