@@ -1,8 +1,17 @@
 # Bill's Branch Log
-## COMP3004 
+## COMP3004
+
+------------------------------------------------------------------
+### Iteration v0.007 5:24pm 27
+
+- added second qual register page
+
+- (may need to add saving, i forget if it works)
+
+- list / slider works and is read to temp profile atleast...
 
 -------------------------------------------------------------------
-### Iteration c0.006 5:09am Oct 27th
+### Iteration v0.006 5:09am Oct 27th
 
 - cleaned repo of uneeded Wizard files
 
