@@ -28,7 +28,7 @@ public:
 	virtual ProfileEntity* getProfile(string) = 0;
 	virtual void getProfileList(vector<ProfileEntity*>&) = 0;
 	const vector<pair<string, qualLayout_4>>& getQualificationList();
-	virtual bool profileExists(string)  = 0;
+    virtual int profileExists(string)  = 0;
 	virtual void algorithmIntelligence(vector<ProfileEntity*>&) = 0;
 
 protected:

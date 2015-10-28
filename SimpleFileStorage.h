@@ -29,7 +29,7 @@ public:
 
 	ProfileEntity* getProfile(string);
 	void getProfileList(vector<ProfileEntity*>&);
-	bool profileExists(string);
+    int profileExists(string);
 	void algorithmIntelligence(vector<ProfileEntity*>&);
 
 private:

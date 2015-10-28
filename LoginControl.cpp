@@ -2,32 +2,34 @@
 
 class Login;
 
-LoginControl::LoginControl(MasterControl* _parent)
+LoginControl::LoginControl(MasterControl* _control, QWidget* _parent)
 {
-	m_Parent = _parent;
+    m_Parent = _control;
     user = 0;
-    login_window = new Login(this, NULL);
+
+    login_window = new Login(this, _parent);
     login_window->show();
 }
 
 
 LoginControl::~LoginControl()
 {
-	m_Parent = 0;
+    m_Parent = 0;
 	user = 0;
+    if(login_window) delete login_window;
 }
 
-bool LoginControl::userExists(string _username)
+int LoginControl::userExists(string _username)
 {
     return m_Parent->getStorageAccess().userNameExists(_username);
 }
 
-void LoginControl::loginUser(string _username)
+void LoginControl::loginUser(string _username, QPoint* _point)
 {
 	if (userExists(_username)){
-		 user = &(m_Parent->getStorageAccess().getProfile(_username));
+         user = &(m_Parent->getStorageAccess().getProfile(_username));
 		 m_Parent->setUserProfile(*user);
-		 m_Parent->completeLogin();
+         m_Parent->completeLogin(_point);
 	}
 }
 
@@ -45,6 +47,14 @@ bool LoginControl::registerTempUser(string _username)
 ProfileEntity* LoginControl::getCurrentUser()
 {
     return user;
+}
+
+void LoginControl::registerUser()
+{
+    if(user){
+        m_Parent->getStorageAccess().removeNamePlaceholder(user->getUsername());
+        m_Parent->getStorageAccess().registerUser(*user);
+    }
 }
 
 void LoginControl::unregisterTempUser(string _username)

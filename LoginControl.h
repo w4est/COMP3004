@@ -1,5 +1,5 @@
-#ifndef LOGIN_CONTROL_H
-#define LOGIN_CONTROL_H
+#ifndef LOGINCONTROL_H
+#define LOGINCONTROL_H
 
 #include "MasterControl.h"
 #include "ProfileEntity.h"
@@ -11,11 +11,12 @@ class MasterControl;
 class LoginControl
 {
 public:
-	LoginControl(MasterControl*);
+    LoginControl(MasterControl*, QWidget*);
 	~LoginControl();
 
-	bool userExists(string);
-	void loginUser(string);
+    int userExists(string);
+    void loginUser(string, QPoint*);
+    void registerUser();
     bool registerTempUser(string);
     void unregisterTempUser(string);
     ProfileEntity* getCurrentUser();

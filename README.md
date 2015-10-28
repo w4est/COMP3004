@@ -1,8 +1,17 @@
-# Bill's Branch Log
-## COMP3004
+-----------------------------------------------------------------
+# COMP3004 
+
+## Merged Log v0.007
+-----------------------------------------------------------------
+
+Branch Author | version style
+------------- | -------------
+Bill	      | v**B**_0.00x_
+Joe           | v**J**_0.00x_
+Will          | v**W**_0.00x_
 
 ------------------------------------------------------------------
-### Iteration v0.007 5:24pm 27
+### Iteration vB0.007 5:24pm 27
 
 - added second qual register page
 
@@ -10,8 +19,9 @@
 
 - list / slider works and is read to temp profile atleast...
 
+
 -------------------------------------------------------------------
-### Iteration v0.006 5:09am Oct 27th
+### Iteration vB0.006 5:09am Oct 27th
 
 - cleaned repo of uneeded Wizard files
 
@@ -22,9 +32,17 @@
   aren't there anymore
 
 _The list was utter **BS** until I finally got it to work_
+--------------------------------------------------------------------------------------------
+### Iteration vW.006 2:53pm Oct 26th
+
+-Made adminControl.
+
+-login should be completed.
+
+
 
 -------------------------------------------------------------------------------------------
-### Iteration v0.005 3:52am Oct 26th
+### Iteration vB0.005 3:52am Oct 26th
 
 - Had to revert to commit 5ad875c as *_Iteration v0.004_* was not clean (too many errors to build)
 
@@ -38,18 +56,32 @@ _The list was utter **BS** until I finally got it to work_
 
 _**TODO::** make qualifications, **I NEED THEM** for storage structure and registration pages_
 
+-------------------------------------------------------------------------------------------
+### Iteration vW.005 1:53pm Oct 26th
+
+=Added the ability to check for admin accounts when creating a new account
+
+-Admins can be logged in now
+
+-Fixes. Comments. Ugly code.
+
 --------------------------------------------------------------------------------------------
-### Iteration v0.004 2:10pm Oct 23rd
+### Iteration vJ0.001 2:10pm Oct 25th
+
+-created RunPPID class
+
+>>>>>>> COMP3004/master
+
+--------------------------------------------------------------------------------------------
+### Iteration vW0.004 2:10pm Oct 23rd
 
 ~~_Evil hitler looks for his next victim. Having commented small portions of the code, he hungrily looks for the next bit of work to pretend to do, and then claim credit for it. No one is safe from his gaze_~~
 
 ~~-Added ViewProfile Window.~~
 
 
-@Will[w4est] 
-
 ---------------------------------------------------------------------------------------------------------
-### Iteration v0.003  5:06am Oct 23rd
+### Iteration vB0.003  5:06am Oct 23rd
 - Changing windows messed up the repositioning somehow, fixed now (though it may differ due to titlebar height and edge
   thickness)
 
@@ -64,14 +96,14 @@ _**TODO::** make qualifications, **I NEED THEM** for storage structure and regis
 _That should be everything so far... I'm off to bed_
 
 ----------------------------------------------------------------------------------------------------------
-### Iteration v0.002 12:32am Oct 23rd
+### Iteration vB0.002 12:32am Oct 23rd
 - Can now drag a window around and upon "changing" windows (destroying and creating) the child/new window will be in about 
    the same location as the original
 
 - layouts for the Login and the Register windows changed, now they flow with the resize (and don't look like garbage after)
 
 ----------------------------------------------------------------------------------------------------------
-### Iteration v0.001  6:09pm Oct 22nd
+### Iteration vB0.001  6:09pm Oct 22nd
 - _FYI username_list.txt is required to be in the debug directory (where the executable is) for the current iteration of 'Login' to work [change from empty to VALID if username is in the list, otherwise WRONG]_
 
 - also changed the line edit to have placeholder text (light grey) as opposed to set text

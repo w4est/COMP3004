@@ -30,9 +30,9 @@ ProfileEntity& StorageManager::getProfile(string _username)
 /**/
 void StorageManager::registerUser(ProfileEntity& _profile)
 {
-	if (dbObject->profileExists(_profile.getUsername())){
+    if (dbObject->profileExists(_profile.getUsername())){
 		return;
-	}
+    }
 	dbObject->addProfile(_profile);
 }
 
@@ -51,11 +51,14 @@ ProfileEntity& StorageManager::setNamePlaceholder(std::string _username)
 {
     ProfileEntity* newEnt = new ProfileEntity(POST_Placeholder + _username);
     dbObject->addProfile(*newEnt);
-    outEntities.push_back(dbObject->getProfile(POST_Placeholder + _username));
+    delete newEnt;
+    newEnt = new ProfileEntity(_username);
+    outEntities.push_back(newEnt);
 
     return *outEntities.back();
 }
 
+/**/
 void StorageManager::removeNamePlaceholder(std::string _username)
 {
     if(userNameExists(_username)){
@@ -64,7 +67,7 @@ void StorageManager::removeNamePlaceholder(std::string _username)
     return;
 }
 
-bool StorageManager::userNameExists(std::string _username)
+int StorageManager::userNameExists(std::string _username)
 {
 	return dbObject->profileExists(_username) || dbObject->profileExists(POST_Placeholder + _username);
 }

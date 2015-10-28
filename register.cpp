@@ -22,7 +22,11 @@ Register::~Register()
 {
     delete ui;
 }
-
+/*
+ * Go back to login page,
+ * Destroy self after.
+ *
+ * */
 void Register::on_BackButton_clicked()
 {
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
@@ -47,12 +51,24 @@ void Register::on_ContinueButton_clicked()
     delete(this);
    }
    else{
+       //Warn user otherwise
        ui->ContinueButton->setEnabled(false);
        ui->Warning_Label->setText("Unavailable");
        ui->UsernameEdit->setStyleSheet("QLineEdit { background: rgb(255, 102, 102); selection-background-color: rgb(0, 0, 0)}");
 
    }
 }
+
+/*
+ * Check for username availability
+ *
+ * Create a second login control to check the admin list,
+ * and check the username list with the existing.
+ *
+ * Make sure to cleanup.
+ *
+ * */
+
 
 void Register::on_CheckButton_clicked()
 {
@@ -71,14 +87,14 @@ void Register::on_CheckButton_clicked()
        ui->Warning_Label->setText("Unavailable");
        ui->UsernameEdit->setStyleSheet("QLineEdit { background: rgb(255, 102, 102); selection-background-color: rgb(0, 0, 0)}");
     }
-
-
 }
 
+//When editing text, change background colour.
 void Register::on_UsernameEdit_textEdited(const QString &arg1)
 {
     QString junk = arg1;
     junk = "";
+
 
     ui->ContinueButton->setEnabled(false);
     ui->Warning_Label->setText(junk);

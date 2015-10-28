@@ -9,6 +9,8 @@ QT       += core gui \
 
 QMAKE_CXXFLAGS += -std=c++11
 
+QMAKE_CXXFLAGS += -std=c++11
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = COMP3004
@@ -25,8 +27,20 @@ SOURCES += main.cpp\
     SimpleFileStorage.cpp \
     StorageManager.cpp \
     MasterControl.cpp \
+    AdminControl.cpp \
+    StudentControl.cpp \
     LoginControl.cpp \
-    qualframe.cpp
+    qualframe.cpp \
+    login_control.cpp \
+    admincontrol.cpp \
+    runppid.cpp \
+    createproject.cpp \
+    createproject2.cpp \
+    project.cpp \
+    qualification.cpp \
+    editproject.cpp \
+    adminview.cpp \
+    profileview.cpp
 
 HEADERS  += login.h \
     loggedin.h \
@@ -41,11 +55,31 @@ HEADERS  += login.h \
     SimpleFileStorage.h \
     StorageManager.h \
     MasterControl.h \
+    AdminControl.h \
+    StudentControl.h \
     LoginControl.h \
-    qualframe.h
+    qualframe.h \
+    login_control.h \
+    admincontrol.h \
+    runppid.h \
+    createproject.h \
+    createproject2.h \
+    project.h \
+    qualification.h \
+    editproject.h \
+    adminview.h \
+    profileview.h
+
 
 FORMS    += login.ui \
     loggedin.ui \
     register.ui \
     editqualifications.ui \
-    qualframe.ui
+    qualframe.ui \
+    admincontrol.ui \
+    runppid.ui \
+    createproject.ui \
+    createproject2.ui \
+    editproject.ui \
+    adminview.ui \
+    profileview.ui

@@ -3,9 +3,9 @@
 
 SimpleFileStorage::SimpleFileStorage()
 {
-	reloadXMLFile(0);
-	reloadXMLFile(1);
-	loadQualifications();
+    reloadXMLFile(0);
+    reloadXMLFile(1);
+    loadQualifications();
 }
 
 
@@ -133,21 +133,29 @@ ProfileEntity* SimpleFileStorage::getProfile(string _username)
     ProfileEntity* newProf = new ProfileEntity(_username);
     vector<qualLayout> tempPers, tempDes;
 
+    for(rapidxml::xml_node<> * adminNode = prof_root->first_node("Admin"); adminNode; adminNode = adminNode->next_sibling("Admin"))
+    {
+        if(_username.compare(adminNode->first_attribute("name")->value()) == 0)
+        {
+            newProf->setAdminPrivilege(true);
+            return newProf;
+        }
+    }
 
-    for (rapidxml::xml_node<> * stuNode = prof_root->first_node("Student"); stuNode; stuNode = stuNode->next_sibling())
+    for (rapidxml::xml_node<> * stuNode = prof_root->first_node("Student"); stuNode; stuNode = stuNode->next_sibling("Student"))
     {
         if (_username.compare(stuNode->first_attribute("name")->value()) == 0)
         {
+
             rapidxml::xml_node<> * typeNode = stuNode->first_node("PersonalQualifications");
 
-            for(rapidxml::xml_node<> * qualNode = typeNode->first_node(); qualNode; qualNode = typeNode->next_sibling())
+            for(rapidxml::xml_node<> * qualNode = typeNode->first_node("Qualification"); qualNode; qualNode = qualNode->next_sibling())
             {
                 tempPers.push_back(make_tuple(std::stoi(qualNode->first_attribute()->value()), std::stoi(qualNode->last_attribute()->value())));
-
             }
 
             typeNode = stuNode->first_node("DesiredQualifications");
-            for(rapidxml::xml_node<> * qualNode = typeNode->first_node(); qualNode; qualNode = typeNode->next_sibling())
+            for(rapidxml::xml_node<> * qualNode = typeNode->first_node(); qualNode; qualNode = qualNode->next_sibling())
             {
                 tempDes.push_back(make_tuple(std::stoi(qualNode->first_attribute()->value()), std::stoi(qualNode->last_attribute()->value())));
             }
@@ -159,19 +167,27 @@ ProfileEntity* SimpleFileStorage::getProfile(string _username)
             return newProf;
         }
     }
+    delete newProf;
 	return nullptr;
 }
 
-bool SimpleFileStorage::profileExists(string _username)
+int SimpleFileStorage::profileExists(string _username)
 {
-	for (rapidxml::xml_node<> * stuNode = prof_root->first_node("Student"); stuNode; stuNode = stuNode->next_sibling())
+    for (rapidxml::xml_node<> * stuNode = prof_root->first_node("Admin"); stuNode; stuNode = stuNode->next_sibling())
+    {
+        if (_username.compare(stuNode->first_attribute("name")->value()) == 0)
+        {
+            return -1;
+        }
+    }
+    for (rapidxml::xml_node<> * stuNode = prof_root->first_node("Student"); stuNode; stuNode = stuNode->next_sibling())
 	{
 		if (_username.compare(stuNode->first_attribute("name")->value()) == 0)
 		{
-			return true;
+            return 1;
 		}
 	}
-	return false;
+    return 0;
 }
 
 void SimpleFileStorage::algorithmIntelligence(vector<ProfileEntity*>&)

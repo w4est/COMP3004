@@ -1,4 +1,5 @@
 <Profile_List>
+	<Admin name="Christine"/>
 	<Student name="Raul Defrise">
 		<PersonalQualifications>
 			<Qualification id="1" value="3"/>
@@ -9,51 +10,97 @@
 			<Qualification id="2" value="2"/>
 		</DesiredQualifications>
 	</Student>
-	<Student name="~~Flogin">
+	<Student name="~~asfgag">
+		<PersonalQualifications/>
+		<DesiredQualifications/>
+	</Student>
+	<Student name="~~lkj">
+		<PersonalQualifications/>
+		<DesiredQualifications/>
+	</Student>
+	<Student name="~~vdsdvs">
+		<PersonalQualifications/>
+		<DesiredQualifications/>
+	</Student>
+	<Student name="cheese">
 		<PersonalQualifications>
-			<Qualification id="1" value="3"/>
-			<Qualification id="2" value="77"/>
+			<Qualification id="1" value="0"/>
+			<Qualification id="2" value="0"/>
+			<Qualification id="3" value="0"/>
+			<Qualification id="4" value="0"/>
+			<Qualification id="5" value="0"/>
+			<Qualification id="6" value="0"/>
+			<Qualification id="7" value="0"/>
+			<Qualification id="8" value="0"/>
+			<Qualification id="9" value="0"/>
+			<Qualification id="10" value="0"/>
+			<Qualification id="11" value="0"/>
+			<Qualification id="12" value="0"/>
+			<Qualification id="13" value="0"/>
+			<Qualification id="14" value="0"/>
+			<Qualification id="15" value="0"/>
+			<Qualification id="16" value="0"/>
+			<Qualification id="17" value="0"/>
+			<Qualification id="18" value="0"/>
+			<Qualification id="19" value="0"/>
+			<Qualification id="20" value="0"/>
+			<Qualification id="21" value="0"/>
+			<Qualification id="22" value="0"/>
+			<Qualification id="23" value="0"/>
+			<Qualification id="24" value="0"/>
+			<Qualification id="25" value="0"/>
+			<Qualification id="26" value="0"/>
+			<Qualification id="27" value="0"/>
+			<Qualification id="28" value="0"/>
+			<Qualification id="29" value="0"/>
+			<Qualification id="30" value="0"/>
+			<Qualification id="31" value="0"/>
+			<Qualification id="32" value="0"/>
+			<Qualification id="33" value="0"/>
+			<Qualification id="34" value="0"/>
+			<Qualification id="35" value="0"/>
+			<Qualification id="36" value="0"/>
+			<Qualification id="37" value="0"/>
 		</PersonalQualifications>
 		<DesiredQualifications>
-			<Qualification id="1" value="5"/>
-			<Qualification id="2" value="2"/>
+			<Qualification id="1" value="0"/>
+			<Qualification id="2" value="0"/>
+			<Qualification id="3" value="0"/>
+			<Qualification id="4" value="0"/>
+			<Qualification id="5" value="0"/>
+			<Qualification id="6" value="0"/>
+			<Qualification id="7" value="0"/>
+			<Qualification id="8" value="0"/>
+			<Qualification id="9" value="0"/>
+			<Qualification id="10" value="0"/>
+			<Qualification id="11" value="0"/>
+			<Qualification id="12" value="0"/>
+			<Qualification id="13" value="0"/>
+			<Qualification id="14" value="0"/>
+			<Qualification id="15" value="0"/>
+			<Qualification id="16" value="0"/>
+			<Qualification id="17" value="0"/>
+			<Qualification id="18" value="0"/>
+			<Qualification id="19" value="0"/>
+			<Qualification id="20" value="0"/>
+			<Qualification id="21" value="0"/>
+			<Qualification id="22" value="0"/>
+			<Qualification id="23" value="0"/>
+			<Qualification id="24" value="0"/>
+			<Qualification id="25" value="0"/>
+			<Qualification id="26" value="0"/>
+			<Qualification id="27" value="0"/>
+			<Qualification id="28" value="0"/>
+			<Qualification id="29" value="0"/>
+			<Qualification id="30" value="0"/>
+			<Qualification id="31" value="0"/>
+			<Qualification id="32" value="0"/>
+			<Qualification id="33" value="0"/>
+			<Qualification id="34" value="0"/>
+			<Qualification id="35" value="0"/>
+			<Qualification id="36" value="0"/>
+			<Qualification id="37" value="0"/>
 		</DesiredQualifications>
-	</Student>
-	<Student name="~~qwe">
-		<PersonalQualifications/>
-		<DesiredQualifications/>
-	</Student>
-	<Student name="~~Rww">
-		<PersonalQualifications/>
-		<DesiredQualifications/>
-	</Student>
-	<Student name="~~asda">
-		<PersonalQualifications/>
-		<DesiredQualifications/>
-	</Student>
-	<Student name="~~asdas">
-		<PersonalQualifications/>
-		<DesiredQualifications/>
-	</Student>
-	<Student name="~~aas">
-		<PersonalQualifications/>
-		<DesiredQualifications/>
-	</Student>
-	<Student name="~~arrr">
-		<PersonalQualifications/>
-		<DesiredQualifications/>
-	</Student>
-	<Student name="~~asfa">
-		<PersonalQualifications/>
-		<DesiredQualifications/>
-	</Student>
-	<Student name="~~asdaa">
-		<PersonalQualifications/>
-		<DesiredQualifications/>
-	</Student>
-	<Student name="~~3">
-		<PersonalQualifications/>
-		<DesiredQualifications/>
 	</Student>
 </Profile_List>
 

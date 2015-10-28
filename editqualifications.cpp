@@ -21,13 +21,11 @@ EditQualifications::EditQualifications(LoginControl *_control, QWidget *parent, 
 
 EditQualifications::~EditQualifications()
 {
-    cout << "start cycle " << sizeof(frameList) << " || " << frameList.size() << endl;
     while(!frameList.empty())
     {
         delete frameList.back();
         frameList.pop_back();
     }
-    cout << "end cycle " << sizeof(frameList) << " || " << frameList.size() << endl;
     delete layout;
     delete widget;
     delete scrollBoxLayout;
@@ -57,11 +55,13 @@ void EditQualifications::on_ContinueButton_clicked()
         newVec.push_back(make_tuple(i+1, temp->getSliderValue()));
     }
     if(page == 0){
+        cout << "edit:: register :: " << control->getCurrentUser()<<endl;
         if(control->getCurrentUser()){
             control->getCurrentUser()->setPersonalQual(newVec);
         }
     }
     else if(page == 1){
+        cout << "edit:: register :: " << control->getCurrentUser()<<endl;
         if(control->getCurrentUser()){
             control->getCurrentUser()->setDesiredQual(newVec);
         }
@@ -77,6 +77,8 @@ void EditQualifications::on_ContinueButton_clicked()
     }
     else if(page == 1)
     {
+        cout << control->getCurrentUser()->getPersonalQual().size() << " || " << control->getCurrentUser()->getDesiredQual().size() << " || " << control->getCurrentUser()->getUsername() << endl;
+        control->registerUser();
         Window = new Login(control, Window, childPos.x(), childPos.y());
         Window->show();
         delete(this);
@@ -148,4 +150,9 @@ QWidget* EditQualifications::buildQualWidget(QString _id, QString _desc, int _ra
     frame->setId(_id);
 
     return frame;
+}
+
+void EditQualifications::on_EditQualifications_rejected()
+{
+    this->reject();
 }

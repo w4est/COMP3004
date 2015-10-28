@@ -32,6 +32,8 @@ private slots:
 
     void reject();
 
+    void on_EditQualifications_rejected();
+
 private:
     Ui::EditQualifications *ui;
     QWidget *Window;

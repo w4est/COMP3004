@@ -26,7 +26,7 @@ public:
     ProfileEntity& setNamePlaceholder(std::string);
 	void removeNamePlaceholder(std::string);
 
-	bool userNameExists(std::string);
+    int userNameExists(std::string);
 
     /**/
     void getQualificationList(vector<pair<string, tuple<int, int, int, int>>>&);

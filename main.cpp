@@ -6,16 +6,17 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     //Login w;
-    //QWidget *Window;
-    //Window = NULL;
+    QWidget *Window;
+    Window = NULL;
     //Window = new Login(Window);
     //Window->show();
     //w.show();
-    MasterControl();
+    MasterControl* control = new MasterControl(Window);
 
 
     //TODO UNDO THIS
     return a.exec();
     //return 0;
-    //delete (Window);
+    delete (Window);
+    delete (control);
 }

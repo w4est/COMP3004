@@ -4,6 +4,7 @@
 ProfileEntity::ProfileEntity(string _username)
 {
 	m_username = _username;
+    adminPriv = false;
     personalQual = vector<tuple<int, int>>();
     desiredQual = vector<tuple<int, int>>();
 }
@@ -39,6 +40,11 @@ void ProfileEntity::setDesiredQual(vector<qualLayout>& _desQualList)
 	}
 }
 
+void ProfileEntity::setAdminPrivilege(bool _right)
+{
+    adminPriv = _right;
+}
+
 vector<qualLayout>& ProfileEntity::getPersonalQual()
 {
 	return personalQual;
@@ -52,4 +58,9 @@ vector<qualLayout>& ProfileEntity::getDesiredQual()
 string ProfileEntity::getUsername()
 {
 	return m_username;
+}
+
+bool ProfileEntity::isAdmin()
+{
+    return adminPriv;
 }

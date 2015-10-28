@@ -2,8 +2,8 @@
 #define LOGIN_H
 
 #include <QMainWindow>
-
 #include "LoginControl.h"
+#include <QMessageBox>
 
 class LoginControl;
 
@@ -27,6 +27,12 @@ private slots:
     void on_Login_destroyed();
 
     void reEnable();
+
+    void reject();
+
+    void on_UsernameBox_textEdited(const QString &arg1);
+
+    void on_UsernameBox_returnPressed();
 
 private:
     Ui::Login *ui;

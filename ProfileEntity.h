@@ -17,13 +17,16 @@ public:
 
 	void setPersonalQual(vector<qualLayout>&);
 	void setDesiredQual(vector<qualLayout>&);
+    void setAdminPrivilege(bool);
 
     vector<qualLayout>& getPersonalQual();
     vector<qualLayout>& getDesiredQual();
 	string getUsername();
+    bool isAdmin();
 
 private:
 	string m_username;
+    bool adminPriv;
 
 	vector<qualLayout> personalQual, desiredQual;
 };
