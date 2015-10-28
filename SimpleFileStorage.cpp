@@ -11,6 +11,14 @@ SimpleFileStorage::SimpleFileStorage()
 
 SimpleFileStorage::~SimpleFileStorage()
 {
+    proj_root->remove_all_nodes();
+    prof_root->remove_all_nodes();
+    root_node->remove_all_nodes();
+    doc.clear();
+
+    vector<char> empty, empty1;
+    empty.swap(profileBuffer);
+    empty1.swap(projectBuffer);
 }
 
 void SimpleFileStorage::addProfile(ProfileEntity& _profile)

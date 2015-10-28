@@ -1,7 +1,6 @@
 #include "editqualifications.h"
 #include "ui_editqualifications.h"
 #include "register.h"
-#include "qualframe.h"
 #include <tuple>
 
 
@@ -22,10 +21,14 @@ EditQualifications::EditQualifications(LoginControl *_control, QWidget *parent, 
 
 EditQualifications::~EditQualifications()
 {
-    while(!layout->isEmpty())
+    cout << "start cycle " << sizeof(frameList) << " || " << frameList.size() << endl;
+    while(!frameList.empty())
     {
-        delete layout->takeAt(0);
+        delete frameList.back();
+        frameList.pop_back();
     }
+    cout << "end cycle " << sizeof(frameList) << " || " << frameList.size() << endl;
+    delete layout;
     delete widget;
     delete scrollBoxLayout;
     delete ui;
@@ -140,6 +143,7 @@ void EditQualifications::buildQualList()
 QWidget* EditQualifications::buildQualWidget(QString _id, QString _desc, int _range)
 {
     QualFrame* frame = new QualFrame(Window);
+    frameList.push_back(frame);
     frame->setDescription(_desc);
     frame->setId(_id);
 

@@ -7,6 +7,7 @@
 #include <QVBoxLayout>
 #include "LoginControl.h"
 #include "login.h"
+#include "qualframe.h"
 
 class LoginControl;
 
@@ -41,6 +42,7 @@ private:
     //
     QVBoxLayout *layout, *scrollBoxLayout;
     QWidget *widget;
+    vector<QualFrame*> frameList;
 
     QString validUsername;
     int qualSize;
