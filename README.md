@@ -1,5 +1,21 @@
 -----------------------------------------------------------------
 # COMP3004 
+## Merged Log v0.009 3:00am Oct 29th
+
+- fixed some of the glitching windows when changing controllers
+
+- implemented selective admin project display (based on which admin signs in)
+
+- hopefully smoothened out the storage things, **NEED TO ADD PROJECT SAVING**
+
+- project layout xml made, profile xml has new node <Admin> to dictate admin privilege when being made
+
+- added a minor controller and starting window for the student view
+
+- **TO DO:: - qualification form for the admin project maker **
+  **        - reimplement the edit project button and stuff **
+  **        - determine what is making the windows lag and loose focus **
+  _         - something I really don't want to do, but find a way to clean up the lost memory _
 
 -----------------------------------------------------------------
 ## Merged Log v0.008
