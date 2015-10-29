@@ -29,11 +29,15 @@ private slots:
 
     void on_UsernameEdit_textEdited(const QString &arg1);
 
+    void on_UsernameEdit_returnPressed();
+
 private:
     Ui::Register *ui;
     QWidget *Window;
 
     LoginControl *control;
+
+    bool preventReturn_back;
 };
 
 #endif // REGISTER_H

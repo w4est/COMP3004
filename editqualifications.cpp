@@ -109,8 +109,8 @@ void EditQualifications::buildQualList()
         ui->ContinueButton->setText("Register");
     }
 
-    vector<pair<string, tuple<int, int, int, int>>> qualList;
-    control->getQualList(qualList);
+    vector<Qualification*> qualList;
+    qualList = control->getQualList();
 
     qualSize = qualList.size();
 
@@ -121,18 +121,23 @@ void EditQualifications::buildQualList()
 
    layout = new QVBoxLayout();
 
-   pair<string, tuple<int, int, int, int>> temp;
-
+    Qualification* temp;
 
     for(unsigned int i = 0; i < qualList.size(); i++)
     {
         temp = qualList[i];
-        //TODO :: change Description to proper
-        form = buildQualWidget(QString(std::to_string(get<0>(temp.second)).c_str()), QString(temp.first.c_str()), get<2>(temp.second));
+
+        if(page == 0){
+            form = buildQualWidget(QString(std::to_string(temp->getId()).c_str()), QString(temp->getPersonalDescription().c_str()), temp->getRange());
+        }
+        else if(page == 1){
+            form = buildQualWidget(QString(std::to_string(temp->getId()).c_str()), QString(temp->getDesiredDescription().c_str()), temp->getRange());
+        }
 
         layout->addWidget(form);
     }
 
+    temp = 0;
     widget->setLayout(layout);
 
     scrollBoxLayout = new QVBoxLayout();

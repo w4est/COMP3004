@@ -3,6 +3,9 @@
 
 #include <QDialog>
 #include "AdminControl.h"
+#include "runppid.h"
+#include "editproject.h"
+#include "createproject.h"
 
 class AdminControl;
 
@@ -33,11 +36,17 @@ private slots:
 
     void reject();
 
+    void on_ProjectList_itemClicked(QListWidgetItem *item);
+
 private:
     Ui::AdminView *ui;
     QWidget *Window;
-
     AdminControl *control;
+
+    vector<QListWidgetItem*> wList;
+    vector<QListWidgetItem*> sList;
+
+    void buildProjectList();
 };
 
 #endif // ADMINVIEW_H

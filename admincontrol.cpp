@@ -54,8 +54,8 @@ void adminControl::on_LogoutButton_clicked()
 void adminControl::on_CreateProject_clicked()
 {
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new CreateProject(Window, childPos.x(), childPos.y(), username.c_str());
-    Window->show();
+    //Window = new CreateProject(Window, childPos.x(), childPos.y(), username.c_str());
+    //Window->show();
     //delete(projectHolder);
     delete(this);
 
@@ -73,8 +73,8 @@ void adminControl::on_RunPPID_clicked()
     //ui->ProjectList->selectedItems();
 
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new RunPPID(Window, childPos.x(), childPos.y(), username.c_str());
-    Window->show();
+    //Window = new RunPPID(Window, childPos.x(), childPos.y(), username.c_str());
+    //Window->show();
 
     //delete(projectHolder);
     delete(this);

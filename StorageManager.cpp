@@ -3,7 +3,11 @@
 
 StorageManager::StorageManager()
 {
-	dbObject = new SimpleFileStorage();
+    //dbObject = new SqlStorage();
+    dbObject = new SimpleFileStorage();
+
+    this->loadQualifications();
+    this->loadProjects();
 }
 
 
@@ -14,17 +18,28 @@ StorageManager::~StorageManager()
 
 int StorageManager::getProjectCount()
 {
-	return 0;
+    return projectList.size();
 }
 
-int StorageManager::getUserCount()
+int StorageManager::getQualificationCount()
 {
-	return 0;
+    return qualList.size();
 }
 
 ProfileEntity& StorageManager::getProfile(string _username)
 {
 	return *(dbObject->getProfile(_username));
+}
+
+void StorageManager::createProject(Project& _project)
+{
+    projectList.push_back(&_project);
+    cout << "created project :: " << getProjectCount() << endl;
+}
+
+void StorageManager::testClear()
+{
+    dbObject->clearProfiles();
 }
 
 /**/
@@ -72,7 +87,42 @@ int StorageManager::userNameExists(std::string _username)
 	return dbObject->profileExists(_username) || dbObject->profileExists(POST_Placeholder + _username);
 }
 
-void StorageManager::getQualificationList(vector<pair<string, tuple<int, int, int, int>>>& _list)
+Project* StorageManager::getProject(int _index, string _name)
 {
-    _list = dbObject->getQualificationList();
+    if(_index < 0 || _index > getProjectCount())
+    {
+        for(int i = 0; i < getProjectCount(); i++)
+        {
+            Project* temp = projectList.at(i);
+            if(_name.compare(temp->getProjectName()) == 0)
+            {
+                return temp;
+            }
+        }
+        return nullptr;
+    }
+    else
+    {
+        return projectList.at(_index);
+    }
+}
+
+vector<Qualification*>& StorageManager::getQualificationList()
+{
+    return qualList;
+}
+
+vector<Project*>& StorageManager::getProjectList()
+{
+    return projectList;
+}
+
+void StorageManager::loadQualifications()
+{
+    dbObject->getQualificationList(&qualList);
+}
+
+void StorageManager::loadProjects()
+{
+    dbObject->getProjectList(&projectList);
 }

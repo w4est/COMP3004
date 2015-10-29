@@ -15,7 +15,7 @@ class StudentControl;
 class MasterControl
 {
 public:
-    MasterControl(QWidget*);
+    MasterControl(QWidget* _parent = 0);
 	~MasterControl();
 
 	StorageManager& getStorageAccess();
@@ -23,7 +23,10 @@ public:
 	void setUserProfile(ProfileEntity&);
     void completeLogin(QPoint* _point = 0);
     void logout(QPoint* _point = 0);
+    void kill();
     const QPoint* getLastPoint();
+
+    ProfileEntity* getLoggedUser();
 
 private:
     StorageManager* storage_control;
@@ -34,12 +37,13 @@ private:
 
 	ProfileEntity* current_user_profile;
     QPoint* lastPoint;
-    QWidget *parent, *twin;
+    QWidget *parent;
 
     void changePoint(QPoint*);
     void createLoginControl();
     void createAdminControl();
     void createStudentControl();
+
 
 };
 

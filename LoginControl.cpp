@@ -16,7 +16,7 @@ LoginControl::~LoginControl()
 {
     m_Parent = 0;
 	user = 0;
-    if(login_window) delete login_window;
+    if(login_window) login_window = NULL;
 }
 
 int LoginControl::userExists(string _username)
@@ -62,7 +62,7 @@ void LoginControl::unregisterTempUser(string _username)
     m_Parent->getStorageAccess().removeNamePlaceholder(_username);
 }
 
-void LoginControl::getQualList(vector<pair<string, tuple<int, int, int, int>>>& _list)
+const vector<Qualification*>& LoginControl::getQualList()
 {
-    m_Parent->getStorageAccess().getQualificationList(_list);
+    return m_Parent->getStorageAccess().getQualificationList();
 }

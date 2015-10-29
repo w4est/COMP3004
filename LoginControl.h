@@ -4,6 +4,7 @@
 #include "MasterControl.h"
 #include "ProfileEntity.h"
 #include "login.h"
+#include "qualification.h"
 
 
 class MasterControl;
@@ -20,7 +21,7 @@ public:
     bool registerTempUser(string);
     void unregisterTempUser(string);
     ProfileEntity* getCurrentUser();
-    void getQualList(vector<pair<string, tuple<int, int, int, int>>>&);
+    const vector<Qualification*>& getQualList();
 
 private:
 	MasterControl *m_Parent;

@@ -40,7 +40,8 @@ SOURCES += main.cpp\
     qualification.cpp \
     editproject.cpp \
     adminview.cpp \
-    profileview.cpp
+    profileview.cpp \
+    sqlstorage.cpp
 
 HEADERS  += login.h \
     loggedin.h \
@@ -68,7 +69,8 @@ HEADERS  += login.h \
     qualification.h \
     editproject.h \
     adminview.h \
-    profileview.h
+    profileview.h \
+    sqlstorage.h
 
 
 FORMS    += login.ui \
@@ -82,4 +84,5 @@ FORMS    += login.ui \
     createproject2.ui \
     editproject.ui \
     adminview.ui \
-    profileview.ui
+    profileview.ui \
+    masterwindow.ui

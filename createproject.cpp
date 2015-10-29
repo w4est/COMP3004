@@ -1,22 +1,28 @@
 #include "createproject.h"
 #include "ui_createproject.h"
 
-CreateProject::CreateProject(QWidget *parent, int _x, int _y, QString _username) :
+CreateProject::CreateProject(AdminControl* _control, QWidget *parent, int _x, int _y, QString _username) :
     QDialog(parent),
     ui(new Ui::CreateProject)
 {
     Window = parent;
+    control = _control;
+
+    username = _username.toStdString();
+
     this->move(_x,_y-28);
     ui->setupUi(this);
 
 }
 
-CreateProject::CreateProject(QWidget *parent, int _x, int _y, QString _username, QString Name, QString Description) :
+CreateProject::CreateProject(AdminControl* _control, QWidget *parent, int _x, int _y, QString _username, QString Name, QString Description) :
     QDialog(parent),
     ui(new Ui::CreateProject)
 {
     //Construct with the previous values
     Window = parent;
+    control = _control;
+
     this->move(_x,_y-28);
     ui->setupUi(this);
 
@@ -52,7 +58,7 @@ void CreateProject::on_NextButton_clicked()
 
     //make next window
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new CreateProject2(Window, childPos.x(), childPos.y(), username.c_str(), projectName.c_str(), projectDescription.c_str());
+    Window = new CreateProject2(control, Window, childPos.x(), childPos.y(), username.c_str(), projectName.c_str(), projectDescription.c_str());
     Window->show();
     delete(this);
 }
@@ -61,7 +67,7 @@ void CreateProject::on_BackButton_clicked()
 {
     //Go back
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new adminControl(Window, childPos.x(), childPos.y());
+    Window = new AdminView(control, Window, childPos.x(), childPos.y());
     Window->show();
     delete(this);
 }

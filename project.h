@@ -12,22 +12,27 @@ class Project
 {
 public:
     Project();
-    Project(string name, string owner, string dec, vector<Qualification> qList);
+    Project(string name, string owner, string dec, vector<pair<int, int>> qList);
+
     string getProjectName();
     string getProjectDescription();
     string getOwner();
-    vector<Qualification> getQualifications();
-    vector<string> getStudents();
+
+    const vector<pair<int, int>>& getQualifications();
+    const vector<string>& getStudents();
+
     void setProjectName(string name);
     void setProjectDescription(string description);
     void setOwner(string owner);
-    void setQualifications(vector<Qualification> qList);
+    void setQualifications(vector<pair<int, int>> qList);
     void setStudents(vector<string> sList);
+
 private:
     string ProjectName;
     string ProjectDescription;
     string Owner;
-    vector<Qualification> qualificationList;
+
+    vector<pair<int, int>> qualificationList;
     vector<string> students;
 
 };

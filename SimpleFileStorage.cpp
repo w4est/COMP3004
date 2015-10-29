@@ -5,7 +5,6 @@ SimpleFileStorage::SimpleFileStorage()
 {
     reloadXMLFile(0);
     reloadXMLFile(1);
-    loadQualifications();
 }
 
 
@@ -19,6 +18,114 @@ SimpleFileStorage::~SimpleFileStorage()
     vector<char> empty, empty1;
     empty.swap(profileBuffer);
     empty1.swap(projectBuffer);
+}
+
+void SimpleFileStorage::clearProjects()
+{
+    isProjectModified = true;
+    reloadXMLFile(1);
+
+    vector<rapidxml::xml_node<>*> to_del;
+
+    for(rapidxml::xml_node<>* stuNode = proj_root->first_node("Project"); stuNode; stuNode = stuNode->next_sibling("Project"))
+    {
+        to_del.push_back(stuNode);
+    }
+
+    for(int i = 0; i < to_del.size(); i++)
+    {
+        proj_root->remove_node(to_del.back());
+        to_del.pop_back();
+    }
+
+    string text = "\r\n";
+    rapidxml::print(back_inserter(text), doc, 0);
+
+    ofstream out(projectFile);
+    out << doc;
+    out.close();
+}
+
+void SimpleFileStorage::addProject(Project &_project)
+{
+
+}
+
+void SimpleFileStorage::modifyProject(Project &_project)
+{
+    removeProject(_project.getProjectName());
+    addProject(_project);
+}
+
+void SimpleFileStorage::removeProject(string _name)
+{
+    ifstream temp(projectFile);
+
+    if (!temp.is_open())
+    {
+        cout << "ERROR: Project_List.xml non-existant" << endl;
+        return;
+    }
+
+    vector<char> proBuffer;
+    proBuffer = vector<char>(istreambuf_iterator<char>(temp), istreambuf_iterator<char>());
+    proBuffer.push_back('\0');
+
+    doc.parse<0>(&proBuffer[0]);
+    proj_root = doc.first_node("Project_List");
+
+
+    rapidxml::xml_node<> *to_del = 0;
+
+    for (rapidxml::xml_node<> * stuNode = proj_root->first_node("Project"); stuNode; stuNode = stuNode->next_sibling())
+    {
+        if (_name.compare(stuNode->first_attribute("name")->value()) == 0)
+        {
+            to_del = stuNode;
+            break;
+        }
+    }
+
+    if (!to_del){
+        return;
+    }
+
+    proj_root->remove_node(to_del);
+    string text = "\r\n";
+    rapidxml::print(back_inserter(text), doc, 0);
+
+    ofstream out(projectFile);
+    out << doc;
+    out.close();
+}
+
+void SimpleFileStorage::clearProfiles()
+{
+    isProfileModified = true;
+    reloadXMLFile(0);
+
+    vector<rapidxml::xml_node<>*> to_del;
+
+    for(rapidxml::xml_node<>* stuNode = prof_root->first_node("Student"); stuNode; stuNode = stuNode->next_sibling("Student"))
+    {
+       to_del.push_back(stuNode);
+    }
+
+    for(int i = 0; i < to_del.size(); i++)
+    {
+        prof_root->remove_node(to_del.back());
+        to_del.pop_back();
+    }
+
+    string text = "\r\n";
+    rapidxml::print(back_inserter(text), doc, 0);
+
+    ofstream out(profileFile);
+    out << doc;
+    out.close();
+
+    isProfileModified = true;
+    reloadXMLFile(0);
 }
 
 void SimpleFileStorage::addProfile(ProfileEntity& _profile)
@@ -96,8 +203,8 @@ void SimpleFileStorage::modifyProfile(ProfileEntity& _profile)
 
 void SimpleFileStorage::removeProfile(string _username)
 {
-	isProfileModified = true;
-	reloadXMLFile(0);
+    isProfileModified = true;
+    reloadXMLFile(0);
 
 	rapidxml::xml_node<> *to_del = 0;
 
@@ -171,6 +278,137 @@ ProfileEntity* SimpleFileStorage::getProfile(string _username)
 	return nullptr;
 }
 
+
+
+void SimpleFileStorage::getProjectList(vector<Project *> *_pList)
+{
+    ifstream temp(projectFile);
+
+    if (!temp.is_open())
+    {
+        cout << "ERROR: Project_List.xml non-existant" << endl;
+        return;
+    }
+
+    vector<char> proBuffer;
+    proBuffer = vector<char>(istreambuf_iterator<char>(temp), istreambuf_iterator<char>());
+    proBuffer.push_back('\0');
+
+    doc.parse<0>(&proBuffer[0]);
+    proj_root = doc.first_node("Project_List");
+
+    Project* newPro;
+
+    for (rapidxml::xml_node<> * proNode = proj_root->first_node("Project"); proNode; proNode = proNode->next_sibling("Project"))
+    {
+        newPro = new Project();
+        newPro->setOwner(proNode->first_attribute("owner")->value());
+        newPro->setProjectName(proNode->first_attribute("name")->value());
+
+        for (rapidxml::xml_node<> * stuNode = proNode->first_node(); stuNode; stuNode = stuNode->next_sibling())
+        {
+            string comp = stuNode->name();
+
+            if(comp.compare("Description") == 0)
+            {
+                newPro->setProjectDescription(stuNode->value());
+            }
+            else if(comp.compare("Student_List") == 0)
+            {
+                vector<string> sList;
+                for (rapidxml::xml_node<> * lNode = stuNode->first_node("Student"); lNode; lNode = lNode->next_sibling("Student"))
+                {
+                    sList.push_back(lNode->value());
+                }
+
+                newPro->setStudents(sList);
+            }
+            else if(comp.compare("Qualification_List") == 0)
+            {
+                vector<pair<int, int>> qList;
+                for (rapidxml::xml_node<> * lNode = stuNode->first_node("Qualification"); lNode; lNode = lNode->next_sibling("Qualification"))
+                {
+                    qList.push_back(make_pair<int, int>(std::atoi(lNode->first_attribute("id")->value()), std::atoi(lNode->value())));
+                }
+
+                newPro->setQualifications(qList);
+            }
+        }
+    }
+
+    _pList->push_back(newPro);
+}
+
+void SimpleFileStorage::getQualificationList(vector<Qualification *> *_qList)
+{
+    ifstream temp(qualFile);
+
+    if (!temp.is_open())
+    {
+        cout << "ERROR: Qualifications_List.xml non-existant" << endl;
+        return;
+    }
+
+    vector<char> qualBuffer;
+    qualBuffer = vector<char>(istreambuf_iterator<char>(temp), istreambuf_iterator<char>());
+    qualBuffer.push_back('\0');
+
+    doc.parse<0>(&qualBuffer[0]);
+    root_node = doc.first_node("Qualification_List");
+
+    Qualification* newQual;
+
+    for (rapidxml::xml_node<> * qualNode = root_node->first_node("Qualification"); qualNode; qualNode = qualNode->next_sibling())
+    {
+        newQual = new Qualification();
+        int id = 0, type = 0, range = 0, value = 0;
+
+        id = std::atoi(qualNode->first_attribute("id")->value());
+
+        for (rapidxml::xml_node<> * attriNode = qualNode->first_node(); attriNode; attriNode = attriNode->next_sibling())
+        {
+            string _comp = attriNode->name();
+
+            if (_comp.compare("PersonalDescription") == 0){
+                newQual->setPersonalDescription(attriNode->value());
+            }
+            else if (_comp.compare("DesiredDescription") == 0){
+                newQual->setDesiredDescription(attriNode->value());
+            }
+            else if (_comp.compare("AdminDescription") == 0){
+                newQual->setAdminDescription(attriNode->value());
+            }
+            else if (_comp.compare("Type") == 0){
+                type = typeMap.find(attriNode->value())->second;
+            }
+            else if (_comp.compare("Range") == 0){
+                range = std::atoi(attriNode->value());
+            }
+            else if (_comp.compare("Value") == 0){
+                value = std::atoi(attriNode->value());
+            }
+        }
+
+        newQual->setQVals(id, type, range, value);
+
+        _qList->push_back(newQual);
+    }
+
+    root_node = 0;
+    temp.close();
+}
+
+
+
+
+
+
+
+
+
+
+
+
 int SimpleFileStorage::profileExists(string _username)
 {
     for (rapidxml::xml_node<> * stuNode = prof_root->first_node("Admin"); stuNode; stuNode = stuNode->next_sibling())
@@ -194,6 +432,18 @@ void SimpleFileStorage::algorithmIntelligence(vector<ProfileEntity*>&)
 {
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Private
 
@@ -245,56 +495,4 @@ void SimpleFileStorage::reloadXMLFile(int _which, int _flag) //0 = profile, 1 = 
 		doc.parse<0>(&projectBuffer[0]);
 		proj_root = doc.first_node("Project_List");
 	}
-}
-
-void SimpleFileStorage::loadQualifications()
-{
-	if (qualList.size() > 0)return;
-	
-	ifstream temp(qualFile);
-
-	if (!temp.is_open())
-	{
-		cout << "ERROR: Qualifications_List.xml non-existant" << endl;
-		return;
-	}
-
-	vector<char> qualBuffer;
-	qualBuffer = vector<char>(istreambuf_iterator<char>(temp), istreambuf_iterator<char>());
-	qualBuffer.push_back('\0');
-
-	doc.parse<0>(&qualBuffer[0]);
-	root_node = doc.first_node("Qualification_List");
-
-	
-	for (rapidxml::xml_node<> * qualNode = root_node->first_node("Qualification"); qualNode; qualNode = qualNode->next_sibling())
-	{
-		pair<string, qualLayout_4> tempPair;
-
-		get<0>(tempPair.second) = stoi(qualNode->first_attribute("id")->value());
-		
-		for (rapidxml::xml_node<> * attriNode = qualNode->first_node(); attriNode; attriNode = attriNode->next_sibling())
-		{
-			string _comp = attriNode->name();
-			
-			if (_comp.compare("Description") == 0){
-				tempPair.first = attriNode->value();
-			}
-			else if (_comp.compare("Type") == 0){
-				get<1>(tempPair.second) = typeMap.find(attriNode->value())->second;
-			}
-			else if (_comp.compare("Range") == 0){
-				get<2>(tempPair.second) = stoi(attriNode->value());
-			}
-			else if (_comp.compare("Value") == 0){
-				get<3>(tempPair.second) = stoi(attriNode->value());
-			}
-		}
-
-		qualList.push_back(tempPair);
-		
-	}
-	
-	root_node = 0;
-	temp.close();
 }

@@ -13,8 +13,3 @@ StorageObject::StorageObject()
 StorageObject::~StorageObject()
 {
 }
-
-const vector<pair<string, qualLayout_4>>& StorageObject::getQualificationList()
-{
-	return qualList;
-}

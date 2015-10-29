@@ -2,8 +2,10 @@
 #define CREATEPROJECT_H
 
 #include <QDialog>
-#include "admincontrol.h"
+#include "AdminControl.h"
 #include "createproject2.h"
+
+class AdminControl;
 
 namespace Ui {
 class CreateProject;
@@ -14,8 +16,8 @@ class CreateProject : public QDialog
     Q_OBJECT
 
 public:
-    explicit CreateProject(QWidget *parent = 0, int _x = 150, int _y = 50, QString _username = "");
-    CreateProject(QWidget*,int, int, QString, QString, QString);
+    explicit CreateProject(AdminControl* _control, QWidget *parent = 0, int _x = 150, int _y = 50, QString _username = "");
+    CreateProject(AdminControl* _control, QWidget*,int, int, QString, QString, QString);
     ~CreateProject();
 
 private slots:
@@ -26,10 +28,12 @@ private slots:
 
 private:
     Ui::CreateProject *ui;
+    QWidget *Window;
+    AdminControl* control;
+
     std::string projectDescription;
     std::string projectName;
     std::string username;
-    QWidget *Window;
 };
 
 #endif // CREATEPROJECT_H

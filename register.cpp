@@ -10,6 +10,7 @@ Register::Register(LoginControl *_control, QWidget *parent, int _x, int _y, QStr
 {
     Window = parent;
     control = _control;
+    preventReturn_back = false;
 
     this->move(_x, _y - 28);
 
@@ -29,6 +30,11 @@ Register::~Register()
  * */
 void Register::on_BackButton_clicked()
 {
+    if(preventReturn_back){
+        preventReturn_back = false;
+        return;
+    }
+
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new Login(control, Window, childPos.x(), childPos.y());
     Window->show();
@@ -100,4 +106,10 @@ void Register::on_UsernameEdit_textEdited(const QString &arg1)
     ui->Warning_Label->setText(junk);
     ui->UsernameEdit->setStyleSheet("QLineEdit { background: rgb(255, 255, 255); selection-background-color: default}");
 
+}
+
+void Register::on_UsernameEdit_returnPressed()
+{
+    preventReturn_back = true;
+    this->on_CheckButton_clicked();
 }

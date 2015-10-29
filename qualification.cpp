@@ -6,11 +6,12 @@ Qualification::Qualification()
     DesiredDescription = "";
     AdminDescription = "";
 }
-Qualification::Qualification(string pD, string dD, string aD, tuple<int, int, int, int> qL){
+Qualification::Qualification(string pD, string dD, string aD, int _id, int _type, int _range, int _value){
     PersonalDescription = pD;
     DesiredDescription = dD;
     AdminDescription = aD;
-    qVals = qL;
+
+    setQVals(_id, _type, _range, _value);
 }
 
 string Qualification::getPersonalDescription(){
@@ -25,8 +26,24 @@ string Qualification::getAdminDescription(){
     return AdminDescription;
 }
 
-tuple<int, int, int, int> Qualification::getQVals(){
-    return qVals;
+int Qualification::getId()
+{
+    return id;
+}
+
+int Qualification::getType()
+{
+    return type;
+}
+
+int Qualification::getRange()
+{
+    return range;
+}
+
+int Qualification::getValue()
+{
+    return value;
 }
 
 void Qualification::setPersonalDescription(string pD){
@@ -37,10 +54,13 @@ void Qualification::setDesiredDescription(string dD){
     DesiredDescription = dD;
 }
 
-void Qualification::getAdminDescription(string aD){
+void Qualification::setAdminDescription(string aD){
     AdminDescription = aD;
 }
 
-void Qualification::setQVals(tuple<int, int, int,int>qL){
-    qVals = qL;
+void Qualification::setQVals(int _id, int _type, int _range, int _value){
+    id = _id;
+    type = _type;
+    range = _range;
+    value = _value;
 }

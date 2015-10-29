@@ -9,7 +9,7 @@ Project::Project()
 
 }
 
-Project::Project(string name, string owner, string dec, vector<Qualification> qList){
+Project::Project(string name, string owner, string dec, vector<pair<int, int>> qList){
     ProjectName = name;
     ProjectDescription = dec;
     Owner = owner;
@@ -29,11 +29,11 @@ string Project::getOwner(){
     return Owner;
 }
 
-vector<Qualification> Project::getQualifications(){
+const vector<pair<int, int>>& Project::getQualifications(){
     return qualificationList;
 }
 
-vector<string> Project::getStudents(){
+const vector<string>& Project::getStudents(){
     return students;
 }
 
@@ -49,7 +49,7 @@ void Project::setOwner(string owner){
     Owner  = owner;
 }
 
-void Project::setQualifications(vector<Qualification> qList){
+void Project::setQualifications(vector<pair<int, int>> qList){
     qualificationList = qList;
 }
 

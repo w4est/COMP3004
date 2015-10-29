@@ -23,12 +23,22 @@ public:
 	SimpleFileStorage();
 	~SimpleFileStorage();
 
+    void clearProjects();
+    void addProject(Project&);
+    void modifyProject(Project&);
+    void removeProject(string);
+
+    void clearProfiles();
 	void addProfile(ProfileEntity&);
 	void modifyProfile(ProfileEntity&);
 	void removeProfile(string);
 
 	ProfileEntity* getProfile(string);
 	void getProfileList(vector<ProfileEntity*>&);
+
+    void getProjectList(vector<Project*> *_pList);
+    void getQualificationList(vector<Qualification*> *_qList);
+
     int profileExists(string);
 	void algorithmIntelligence(vector<ProfileEntity*>&);
 
@@ -41,7 +51,6 @@ private:
 	bool isProfileModified = true;
 
 	void reloadXMLFile(int, int _flag = 0);
-	void loadQualifications();
 };
 
 #endif
