@@ -10,14 +10,56 @@ SimpleFileStorage::SimpleFileStorage()
 
 SimpleFileStorage::~SimpleFileStorage()
 {
+    doc.clear();
+    for(rapidxml::xml_node<>* proNode = proj_root->first_node("Project"); proNode; proNode = proNode->next_sibling("Project"))
+    {
+        //<Project>
+        for(rapidxml::xml_node<>* stuNode = proNode->first_node(); stuNode; stuNode = stuNode->next_sibling())
+        {
+            string comp = stuNode->name();
+
+            if(comp.compare("Student_List") == 0)
+            {
+                for(rapidxml::xml_node<>* lNode = stuNode->first_node("Student"); lNode; lNode = lNode->next_sibling("Student"))
+                {
+                    lNode->remove_all_attributes();
+                    lNode->remove_all_nodes();
+                }
+                stuNode->remove_all_attributes();
+                stuNode->remove_all_nodes();
+            }
+            else if(comp.compare("Qualification_List") == 0)
+            {
+                for(rapidxml::xml_node<>* lNode = stuNode->first_node("Qualification"); lNode; lNode = lNode->next_sibling("Qualification"))
+                {
+                    lNode->remove_all_attributes();
+                    lNode->remove_all_nodes();
+
+                }
+                stuNode->remove_all_attributes();
+                stuNode->remove_all_nodes();
+            }
+            else{
+                stuNode->remove_all_attributes();
+                stuNode->remove_all_nodes();
+            }
+        }
+        proNode->remove_all_attributes();
+        proNode->remove_all_nodes();
+    }
+
     proj_root->remove_all_nodes();
+
+
     prof_root->remove_all_nodes();
     root_node->remove_all_nodes();
-    doc.clear();
 
-    vector<char> empty, empty1;
-    empty.swap(profileBuffer);
-    empty1.swap(projectBuffer);
+
+    projectBuffer.clear();
+    profileBuffer.clear();
+    //vector<char> empty, empty1;
+    //empty.swap(profileBuffer);
+    //empty1.swap(projectBuffer);
 }
 
 void SimpleFileStorage::clearProjects()
@@ -232,7 +274,7 @@ void SimpleFileStorage::removeProfile(string _username)
 
 void SimpleFileStorage::getProfileList(vector<ProfileEntity*>&)
 {
-
+    cout << "getProfileList() does not exist" << endl;
 }
 
 ProfileEntity* SimpleFileStorage::getProfile(string _username)
@@ -379,7 +421,13 @@ void SimpleFileStorage::getQualificationList(vector<Qualification *> *_qList)
                 newQual->setAdminDescription(attriNode->value());
             }
             else if (_comp.compare("Type") == 0){
-                type = typeMap.find(attriNode->value())->second;
+                for(int i = 0; i < 4; i++){
+                    if(typeMap[i].compare(attriNode->value()) == 0)
+                    {
+                        type = i;
+                    }
+                }
+
             }
             else if (_comp.compare("Range") == 0){
                 range = std::atoi(attriNode->value());
@@ -459,9 +507,16 @@ void SimpleFileStorage::reloadXMLFile(int _which, int _flag) //0 = profile, 1 = 
 				profileStream.open(profileFile);
 			}
 		}
+        profileStream.seekg(0, std::ios::end);
+        std::streampos length(profileStream.tellg());
+        profileStream.seekg(0, std::ios::beg);
 
-		profileBuffer = vector<char>(istreambuf_iterator<char>(profileStream), istreambuf_iterator<char>());
-		profileBuffer.push_back('\0');
+        profileBuffer.clear();
+
+        //profileBuffer = vector<char>(istreambuf_iterator<char>(profileStream), istreambuf_iterator<char>());
+        profileBuffer.resize(static_cast<std::size_t>(length));
+        profileStream.read(&profileBuffer[0], length);
+        profileBuffer.push_back('\0');
 
 		profileStream.close();
 		isProfileModified = false;
@@ -485,8 +540,17 @@ void SimpleFileStorage::reloadXMLFile(int _which, int _flag) //0 = profile, 1 = 
 				projectStream.open(projectFile);
 			}
 		}
+        projectStream.seekg(0, std::ios::end);
+        std::streampos length(projectStream.tellg());
+        projectStream.seekg(0, std::ios::beg);
 
-		projectBuffer = vector<char>(istreambuf_iterator<char>(projectStream), istreambuf_iterator<char>());
+        cout << length << endl;
+        projectBuffer.clear();
+
+        projectBuffer.resize(static_cast<std::size_t>(length));
+        projectStream.read(&projectBuffer[0], length);
+        cout << projectBuffer.size() << endl;
+        //projectBuffer = vector<char>(istreambuf_iterator<char>(projectStream), istreambuf_iterator<char>());
 		projectBuffer.push_back('\0');
 
 		projectStream.close();
@@ -494,5 +558,6 @@ void SimpleFileStorage::reloadXMLFile(int _which, int _flag) //0 = profile, 1 = 
 
 		doc.parse<0>(&projectBuffer[0]);
 		proj_root = doc.first_node("Project_List");
+        cout << "ending" << proj_root<< endl;
 	}
 }

@@ -13,7 +13,28 @@ StorageManager::StorageManager()
 
 StorageManager::~StorageManager()
 {
-	if (dbObject) delete dbObject;
+    delete dbObject;
+
+    while(!qualList.empty())
+    {
+        Qualification* temp = qualList.back();
+        qualList.pop_back();
+        delete temp;
+    }
+
+    while(!projectList.empty())
+    {
+        Project* temp = projectList.back();
+        projectList.pop_back();
+        delete temp;
+    }
+
+    while(!outEntities.empty())
+    {
+        ProfileEntity* temp = outEntities.back();
+        outEntities.pop_back();
+        delete temp;
+    }
 }
 
 int StorageManager::getProjectCount()
@@ -35,6 +56,25 @@ void StorageManager::createProject(Project& _project)
 {
     projectList.push_back(&_project);
     cout << "created project :: " << getProjectCount() << endl;
+}
+
+void StorageManager::modifyProject(Project & _project)
+{
+
+}
+
+void StorageManager::removeProject(string)
+{
+
+}
+
+void StorageManager::saveProjects()
+{
+    dbObject->clearProjects();
+    for(int i = 0; i < projectList.size(); i++){
+        //dbObject->addProject(projectList.at(i));
+    }
+
 }
 
 void StorageManager::testClear()

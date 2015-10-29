@@ -2,7 +2,6 @@
 #define STORAGEOBJECT_H
 
 #include <vector>
-#include <map>
 #include "ProfileEntity.h"
 #include "qualification.h"
 #include "project.h"
@@ -13,7 +12,7 @@ using namespace std;
 class StorageObject
 {
 public:
-	enum Qual_Types {slide_range = 1,
+    enum Qual_Types {slide_range = 0,
 					 list_range,
                      true_false,
                      grade};
@@ -45,7 +44,7 @@ public:
 	virtual void algorithmIntelligence(vector<ProfileEntity*>&) = 0;
 
 protected:
-	map<string, Qual_Types> typeMap;
+    string typeMap[4];
 };
 
 #endif

@@ -10,7 +10,7 @@ MasterControl::MasterControl(QWidget* _parent)
 
     parent = _parent;
     storage_control = new StorageManager();
-    setUserProfile(storage_control->getProfile("Christine"));
+    /*setUserProfile(storage_control->getProfile("Christine"));
 
     //createLoginControl();
 
@@ -38,8 +38,10 @@ MasterControl::MasterControl(QWidget* _parent)
     std::cout << z.front()->getQualifications().size() <<std::endl;
     std::cout << z.front()->getStudents().size() <<std::endl;
     */
-    cout << "here " << endl;
-    createAdminControl();
+    //cout << "here " << endl;
+    //createAdminControl();
+    //storage_control = new SimpleFileStorage();
+    createLoginControl();
 }
 
 

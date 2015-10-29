@@ -20,4 +20,5 @@ int main(int argc, char *argv[])
 
     delete (Window);
     delete (control);
+    return 0;
 }

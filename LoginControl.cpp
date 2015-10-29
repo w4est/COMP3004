@@ -16,7 +16,8 @@ LoginControl::~LoginControl()
 {
     m_Parent = 0;
 	user = 0;
-    if(login_window) login_window = NULL;
+    if(login_window) delete login_window;
+    login_window = NULL;
 }
 
 int LoginControl::userExists(string _username)
