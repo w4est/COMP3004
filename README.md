@@ -1,8 +1,21 @@
 -----------------------------------------------------------------
 # COMP3004 
 
-## Merged Log v0.007
 -----------------------------------------------------------------
+## Merged Log v0.008
+
+- Somewhat merged (or moreso adapted) wills admin stuff to the MasterControl and flow entities
+
+- **NOTE:: DO NOT MESS WITH THE DELETES IN profileview AND adminview, THEY MAKE SURE IT ACTUALLY RENDERS WHEN MADE**
+
+- memory foot-print is still a pain in the a&&
+
+- most of the storage functions are done, except for anything connected to projects themselves
+
+- **TODO** 3 versions of the descriptions of the qualifications
+
+-----------------------------------------------------------------
+## Merged Log v0.007
 
 Branch Author | version style
 ------------- | -------------
