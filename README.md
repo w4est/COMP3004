@@ -12,10 +12,10 @@
 
 - added a minor controller and starting window for the student view
 
-- **TO DO:: - qualification form for the admin project maker **
-  **        - reimplement the edit project button and stuff **
-  **        - determine what is making the windows lag and loose focus **
-  _         - something I really don't want to do, but find a way to clean up the lost memory _
+**TO DO:: - qualification form for the admin project maker **
+**        - reimplement the edit project button and stuff **
+**        - determine what is making the windows lag and loose focus **
+_         - something I really don't want to do, but find a way to clean up the lost memory _
 
 -----------------------------------------------------------------
 ## Merged Log v0.008
