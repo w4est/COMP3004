@@ -43,6 +43,8 @@ private:
     QWidget *Window;
     AdminControl *control;
 
+    Project* selected = 0;
+
     vector<QListWidgetItem*> wList;
     vector<QListWidgetItem*> sList;
 

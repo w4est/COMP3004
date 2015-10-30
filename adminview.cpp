@@ -1,6 +1,7 @@
 #include "adminview.h"
 #include "ui_adminview.h"
 #include "QStringList"
+#include "editproject.h"
 
 AdminView::AdminView(AdminControl *_control, QWidget *parent, int _x, int _y) :
     QDialog(parent),
@@ -19,6 +20,7 @@ AdminView::AdminView(AdminControl *_control, QWidget *parent, int _x, int _y) :
 AdminView::~AdminView()
 {
     control = 0;
+    selected = 0;
 
     while(!sList.empty())
     {
@@ -62,7 +64,12 @@ void AdminView::on_RunPPID_clicked()
 
 void AdminView::on_EditProject_clicked()
 {
-
+    if(control->getSelectedProject()){
+        QPoint childPos = this->mapToGlobal(QPoint(0,0));
+        Window = new EditProject(control, Window, childPos.x(), childPos.y());
+        Window->show();
+        delete(this);
+    }
 }
 
 void AdminView::on_AdminView_destroyed()
@@ -104,7 +111,10 @@ void AdminView::on_ProjectList_itemClicked(QListWidgetItem *item)
         sList.pop_back();
     }
 
-    vector<string> t = control->getProject(-1, item->text().toStdString())->getStudents();
+
+    selected = control->getProject(-1, item->text().toStdString());
+    control->setSelectedProject(selected);
+    vector<string> t = selected->getStudents();
 
     for(int i = 0; i < t.size(); i++)
     {

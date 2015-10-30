@@ -69,7 +69,8 @@ SOURCES       = main.cpp \
 		editproject.cpp \
 		adminview.cpp \
 		profileview.cpp \
-		sqlstorage.cpp moc_login.cpp \
+		sqlstorage.cpp \
+		projectframe.cpp moc_login.cpp \
 		moc_loggedin.cpp \
 		moc_register.cpp \
 		moc_editqualifications.cpp \
@@ -80,7 +81,8 @@ SOURCES       = main.cpp \
 		moc_createproject2.cpp \
 		moc_editproject.cpp \
 		moc_adminview.cpp \
-		moc_profileview.cpp
+		moc_profileview.cpp \
+		moc_projectframe.cpp
 OBJECTS       = main.o \
 		login.o \
 		loggedin.o \
@@ -106,6 +108,7 @@ OBJECTS       = main.o \
 		adminview.o \
 		profileview.o \
 		sqlstorage.o \
+		projectframe.o \
 		moc_login.o \
 		moc_loggedin.o \
 		moc_register.o \
@@ -117,7 +120,8 @@ OBJECTS       = main.o \
 		moc_createproject2.o \
 		moc_editproject.o \
 		moc_adminview.o \
-		moc_profileview.o
+		moc_profileview.o \
+		moc_projectframe.o
 DIST          = /usr/lib/i386-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/i386-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/i386-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -209,7 +213,7 @@ first: all
 
 all: Makefile $(TARGET)
 
-$(TARGET): ui_login.h ui_loggedin.h ui_register.h ui_editqualifications.h ui_qualframe.h ui_admincontrol.h ui_runppid.h ui_createproject.h ui_createproject2.h ui_editproject.h ui_adminview.h ui_profileview.h ui_masterwindow.h $(OBJECTS)  
+$(TARGET): ui_login.h ui_loggedin.h ui_register.h ui_editqualifications.h ui_qualframe.h ui_admincontrol.h ui_runppid.h ui_createproject.h ui_createproject2.h ui_editproject.h ui_adminview.h ui_profileview.h ui_masterwindow.h ui_projectframe.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 	{ test -n "$(DESTDIR)" && DESTDIR="$(DESTDIR)" || DESTDIR=.; } && test $$(gdb --version | sed -e 's,[^0-9][^0-9]*\([0-9]\)\.\([0-9]\).*,\1\2,;q') -gt 72 && gdb --nx --batch --quiet -ex 'set confirm off' -ex "save gdb-index $$DESTDIR" -ex quit '$(TARGET)' && test -f $(TARGET).gdb-index && objcopy --add-section '.gdb_index=$(TARGET).gdb-index' --set-section-flags '.gdb_index=readonly' '$(TARGET)' '$(TARGET)' && rm -f $(TARGET).gdb-index || true
 
@@ -351,7 +355,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/COMP30041.0.0 || mkdir -p .tmp/COMP30041.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/COMP30041.0.0/ && $(COPY_FILE) --parents login.h loggedin.h register.h rapidxml.hpp rapidxml_iterators.hpp rapidxml_print.hpp rapidxml_utils.hpp editqualifications.h ProfileEntity.h StorageObject.h SimpleFileStorage.h StorageManager.h MasterControl.h AdminControl.h StudentControl.h LoginControl.h qualframe.h login_control.h admincontrol.h runppid.h createproject.h createproject2.h project.h qualification.h editproject.h adminview.h profileview.h sqlstorage.h .tmp/COMP30041.0.0/ && $(COPY_FILE) --parents main.cpp login.cpp loggedin.cpp register.cpp editqualifications.cpp ProfileEntity.cpp StorageObject.cpp SimpleFileStorage.cpp StorageManager.cpp MasterControl.cpp AdminControl.cpp StudentControl.cpp LoginControl.cpp qualframe.cpp login_control.cpp admincontrol.cpp runppid.cpp createproject.cpp createproject2.cpp project.cpp qualification.cpp editproject.cpp adminview.cpp profileview.cpp sqlstorage.cpp .tmp/COMP30041.0.0/ && $(COPY_FILE) --parents login.ui loggedin.ui register.ui editqualifications.ui qualframe.ui admincontrol.ui runppid.ui createproject.ui createproject2.ui editproject.ui adminview.ui profileview.ui masterwindow.ui .tmp/COMP30041.0.0/ && (cd `dirname .tmp/COMP30041.0.0` && $(TAR) COMP30041.0.0.tar COMP30041.0.0 && $(COMPRESS) COMP30041.0.0.tar) && $(MOVE) `dirname .tmp/COMP30041.0.0`/COMP30041.0.0.tar.gz . && $(DEL_FILE) -r .tmp/COMP30041.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/COMP30041.0.0/ && $(COPY_FILE) --parents login.h loggedin.h register.h rapidxml.hpp rapidxml_iterators.hpp rapidxml_print.hpp rapidxml_utils.hpp editqualifications.h ProfileEntity.h StorageObject.h SimpleFileStorage.h StorageManager.h MasterControl.h AdminControl.h StudentControl.h LoginControl.h qualframe.h login_control.h admincontrol.h runppid.h createproject.h createproject2.h project.h qualification.h editproject.h adminview.h profileview.h sqlstorage.h projectframe.h .tmp/COMP30041.0.0/ && $(COPY_FILE) --parents main.cpp login.cpp loggedin.cpp register.cpp editqualifications.cpp ProfileEntity.cpp StorageObject.cpp SimpleFileStorage.cpp StorageManager.cpp MasterControl.cpp AdminControl.cpp StudentControl.cpp LoginControl.cpp qualframe.cpp login_control.cpp admincontrol.cpp runppid.cpp createproject.cpp createproject2.cpp project.cpp qualification.cpp editproject.cpp adminview.cpp profileview.cpp sqlstorage.cpp projectframe.cpp .tmp/COMP30041.0.0/ && $(COPY_FILE) --parents login.ui loggedin.ui register.ui editqualifications.ui qualframe.ui admincontrol.ui runppid.ui createproject.ui createproject2.ui editproject.ui adminview.ui profileview.ui masterwindow.ui projectframe.ui .tmp/COMP30041.0.0/ && (cd `dirname .tmp/COMP30041.0.0` && $(TAR) COMP30041.0.0.tar COMP30041.0.0 && $(COMPRESS) COMP30041.0.0.tar) && $(MOVE) `dirname .tmp/COMP30041.0.0`/COMP30041.0.0.tar.gz . && $(DEL_FILE) -r .tmp/COMP30041.0.0
 
 
 clean:compiler_clean 
@@ -374,9 +378,9 @@ check: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_login.cpp moc_loggedin.cpp moc_register.cpp moc_editqualifications.cpp moc_qualframe.cpp moc_admincontrol.cpp moc_runppid.cpp moc_createproject.cpp moc_createproject2.cpp moc_editproject.cpp moc_adminview.cpp moc_profileview.cpp
+compiler_moc_header_make_all: moc_login.cpp moc_loggedin.cpp moc_register.cpp moc_editqualifications.cpp moc_qualframe.cpp moc_admincontrol.cpp moc_runppid.cpp moc_createproject.cpp moc_createproject2.cpp moc_editproject.cpp moc_adminview.cpp moc_profileview.cpp moc_projectframe.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_login.cpp moc_loggedin.cpp moc_register.cpp moc_editqualifications.cpp moc_qualframe.cpp moc_admincontrol.cpp moc_runppid.cpp moc_createproject.cpp moc_createproject2.cpp moc_editproject.cpp moc_adminview.cpp moc_profileview.cpp
+	-$(DEL_FILE) moc_login.cpp moc_loggedin.cpp moc_register.cpp moc_editqualifications.cpp moc_qualframe.cpp moc_admincontrol.cpp moc_runppid.cpp moc_createproject.cpp moc_createproject2.cpp moc_editproject.cpp moc_adminview.cpp moc_profileview.cpp moc_projectframe.cpp
 moc_login.cpp: /usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/qmainwindow.h \
 		/usr/include/qt5/QtWidgets/qwidget.h \
@@ -498,10 +502,8 @@ moc_login.cpp: /usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/qdialog.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
-		login.h \
-		/usr/include/qt5/QtWidgets/QMessageBox \
-		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		createproject.h \
+		createproject2.h \
 		project.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
@@ -522,8 +524,6 @@ moc_login.cpp: /usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
 		qualification.h \
-		createproject.h \
-		createproject2.h \
 		ProfileEntity.h \
 		StudentControl.h \
 		profileview.h \
@@ -533,6 +533,9 @@ moc_login.cpp: /usr/include/qt5/QtWidgets/QMainWindow \
 		rapidxml.hpp \
 		rapidxml_print.hpp \
 		rapidxml_utils.hpp \
+		login.h \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		login.h
 	/usr/lib/i386-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/i386-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/i686-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed -I/usr/include/i386-linux-gnu -I/usr/include login.h -o moc_login.cpp
 
@@ -765,14 +768,8 @@ moc_register.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
-		login.h \
-		/usr/include/qt5/QtWidgets/QMainWindow \
-		/usr/include/qt5/QtWidgets/qmainwindow.h \
-		/usr/include/qt5/QtWidgets/qtabwidget.h \
-		/usr/include/qt5/QtGui/qicon.h \
-		/usr/include/qt5/QtWidgets/QMessageBox \
-		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		createproject.h \
+		createproject2.h \
 		project.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
@@ -787,14 +784,14 @@ moc_register.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
 		/usr/include/qt5/QtGui/qvalidator.h \
 		/usr/include/qt5/QtCore/qregularexpression.h \
+		/usr/include/qt5/QtGui/qicon.h \
 		/usr/include/qt5/QtWidgets/qslider.h \
 		/usr/include/qt5/QtWidgets/qabstractslider.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
 		qualification.h \
-		createproject.h \
-		createproject2.h \
 		ProfileEntity.h \
 		StudentControl.h \
 		profileview.h \
@@ -804,6 +801,11 @@ moc_register.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		rapidxml.hpp \
 		rapidxml_print.hpp \
 		rapidxml_utils.hpp \
+		login.h \
+		/usr/include/qt5/QtWidgets/QMainWindow \
+		/usr/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		register.h
 	/usr/lib/i386-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/i386-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/i686-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed -I/usr/include/i386-linux-gnu -I/usr/include register.h -o moc_register.cpp
 
@@ -951,16 +953,10 @@ moc_editqualifications.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
-		login.h \
-		/usr/include/qt5/QtWidgets/QMainWindow \
-		/usr/include/qt5/QtWidgets/qmainwindow.h \
-		/usr/include/qt5/QtWidgets/QMessageBox \
-		/usr/include/qt5/QtWidgets/qmessagebox.h \
-		project.h \
-		qualification.h \
 		createproject.h \
 		createproject2.h \
+		project.h \
+		qualification.h \
 		ProfileEntity.h \
 		StudentControl.h \
 		profileview.h \
@@ -970,6 +966,11 @@ moc_editqualifications.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		rapidxml.hpp \
 		rapidxml_print.hpp \
 		rapidxml_utils.hpp \
+		login.h \
+		/usr/include/qt5/QtWidgets/QMainWindow \
+		/usr/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		qualframe.h \
 		/usr/include/qt5/QtWidgets/QFrame \
 		/usr/include/qt5/QtGui/QWheelEvent \
@@ -1211,7 +1212,8 @@ moc_admincontrol.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
+		createproject.h \
+		createproject2.h \
 		project.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
@@ -1232,8 +1234,6 @@ moc_admincontrol.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
 		qualification.h \
-		createproject.h \
-		createproject2.h \
 		ProfileEntity.h \
 		StudentControl.h \
 		profileview.h \
@@ -1401,7 +1401,6 @@ moc_runppid.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
 		createproject.h \
 		createproject2.h \
 		runppid.h
@@ -1560,7 +1559,6 @@ moc_createproject.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
 		createproject.h \
 		createproject2.h \
 		createproject.h
@@ -1719,7 +1717,6 @@ moc_createproject2.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
 		createproject.h \
 		createproject2.h \
 		createproject2.h
@@ -1834,22 +1831,23 @@ moc_editproject.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		/usr/include/qt5/QtCore/qfiledevice.h \
 		/usr/include/qt5/QtGui/qvector2d.h \
 		/usr/include/qt5/QtGui/qtouchdevice.h \
-		admincontrol.h \
+		AdminControl.h \
+		MasterControl.h \
+		/usr/include/qt5/QtCore/QPoint \
+		/usr/include/qt5/QtWidgets/QWidget \
+		LoginControl.h \
+		ProfileEntity.h \
 		login.h \
 		/usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/qmainwindow.h \
 		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtGui/qicon.h \
-		LoginControl.h \
-		MasterControl.h \
-		/usr/include/qt5/QtCore/QPoint \
-		/usr/include/qt5/QtWidgets/QWidget \
-		AdminControl.h \
-		adminview.h \
-		runppid.h \
-		editproject.h \
-		createproject.h \
-		createproject2.h \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		qualification.h \
+		StudentControl.h \
+		profileview.h \
+		StorageManager.h \
 		project.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
@@ -1869,18 +1867,16 @@ moc_editproject.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
-		qualification.h \
-		ProfileEntity.h \
-		StudentControl.h \
-		profileview.h \
-		StorageManager.h \
 		StorageObject.h \
 		SimpleFileStorage.h \
 		rapidxml.hpp \
 		rapidxml_print.hpp \
 		rapidxml_utils.hpp \
-		/usr/include/qt5/QtWidgets/QMessageBox \
-		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		adminview.h \
+		runppid.h \
+		editproject.h \
+		createproject.h \
+		createproject2.h \
 		editproject.h
 	/usr/lib/i386-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/i386-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/i686-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed -I/usr/include/i386-linux-gnu -I/usr/include editproject.h -o moc_editproject.cpp
 
@@ -2037,7 +2033,6 @@ moc_adminview.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
 		createproject.h \
 		createproject2.h \
 		adminview.h
@@ -2170,7 +2165,8 @@ moc_profileview.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
+		createproject.h \
+		createproject2.h \
 		project.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
@@ -2190,8 +2186,6 @@ moc_profileview.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
-		createproject.h \
-		createproject2.h \
 		StorageManager.h \
 		StorageObject.h \
 		SimpleFileStorage.h \
@@ -2202,11 +2196,123 @@ moc_profileview.cpp: /usr/include/qt5/QtWidgets/QDialog \
 		profileview.h
 	/usr/lib/i386-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/i386-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/i686-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed -I/usr/include/i386-linux-gnu -I/usr/include profileview.h -o moc_profileview.cpp
 
+moc_projectframe.cpp: /usr/include/qt5/QtWidgets/QFrame \
+		/usr/include/qt5/QtWidgets/qframe.h \
+		/usr/include/qt5/QtWidgets/qwidget.h \
+		/usr/include/qt5/QtGui/qwindowdefs.h \
+		/usr/include/qt5/QtCore/qglobal.h \
+		/usr/include/qt5/QtCore/qconfig.h \
+		/usr/include/qt5/QtCore/qfeatures.h \
+		/usr/include/qt5/QtCore/qsystemdetection.h \
+		/usr/include/qt5/QtCore/qprocessordetection.h \
+		/usr/include/qt5/QtCore/qcompilerdetection.h \
+		/usr/include/qt5/QtCore/qglobalstatic.h \
+		/usr/include/qt5/QtCore/qatomic.h \
+		/usr/include/qt5/QtCore/qbasicatomic.h \
+		/usr/include/qt5/QtCore/qatomic_bootstrap.h \
+		/usr/include/qt5/QtCore/qgenericatomic.h \
+		/usr/include/qt5/QtCore/qatomic_msvc.h \
+		/usr/include/qt5/QtCore/qatomic_integrity.h \
+		/usr/include/qt5/QtCore/qoldbasicatomic.h \
+		/usr/include/qt5/QtCore/qatomic_vxworks.h \
+		/usr/include/qt5/QtCore/qatomic_power.h \
+		/usr/include/qt5/QtCore/qatomic_alpha.h \
+		/usr/include/qt5/QtCore/qatomic_armv7.h \
+		/usr/include/qt5/QtCore/qatomic_armv6.h \
+		/usr/include/qt5/QtCore/qatomic_armv5.h \
+		/usr/include/qt5/QtCore/qatomic_bfin.h \
+		/usr/include/qt5/QtCore/qatomic_ia64.h \
+		/usr/include/qt5/QtCore/qatomic_mips.h \
+		/usr/include/qt5/QtCore/qatomic_s390.h \
+		/usr/include/qt5/QtCore/qatomic_sh4a.h \
+		/usr/include/qt5/QtCore/qatomic_sparc.h \
+		/usr/include/qt5/QtCore/qatomic_gcc.h \
+		/usr/include/qt5/QtCore/qatomic_x86.h \
+		/usr/include/qt5/QtCore/qatomic_cxx11.h \
+		/usr/include/qt5/QtCore/qatomic_unix.h \
+		/usr/include/qt5/QtCore/qmutex.h \
+		/usr/include/qt5/QtCore/qlogging.h \
+		/usr/include/qt5/QtCore/qflags.h \
+		/usr/include/qt5/QtCore/qtypeinfo.h \
+		/usr/include/qt5/QtCore/qtypetraits.h \
+		/usr/include/qt5/QtCore/qsysinfo.h \
+		/usr/include/qt5/QtCore/qobjectdefs.h \
+		/usr/include/qt5/QtCore/qnamespace.h \
+		/usr/include/qt5/QtCore/qobjectdefs_impl.h \
+		/usr/include/qt5/QtGui/qwindowdefs_win.h \
+		/usr/include/qt5/QtCore/qobject.h \
+		/usr/include/qt5/QtCore/qstring.h \
+		/usr/include/qt5/QtCore/qchar.h \
+		/usr/include/qt5/QtCore/qbytearray.h \
+		/usr/include/qt5/QtCore/qrefcount.h \
+		/usr/include/qt5/QtCore/qarraydata.h \
+		/usr/include/qt5/QtCore/qstringbuilder.h \
+		/usr/include/qt5/QtCore/qlist.h \
+		/usr/include/qt5/QtCore/qalgorithms.h \
+		/usr/include/qt5/QtCore/qiterator.h \
+		/usr/include/qt5/QtCore/qcoreevent.h \
+		/usr/include/qt5/QtCore/qscopedpointer.h \
+		/usr/include/qt5/QtCore/qmetatype.h \
+		/usr/include/qt5/QtCore/qvarlengtharray.h \
+		/usr/include/qt5/QtCore/qcontainerfwd.h \
+		/usr/include/qt5/QtCore/qisenum.h \
+		/usr/include/qt5/QtCore/qobject_impl.h \
+		/usr/include/qt5/QtCore/qmargins.h \
+		/usr/include/qt5/QtCore/qrect.h \
+		/usr/include/qt5/QtCore/qsize.h \
+		/usr/include/qt5/QtCore/qpoint.h \
+		/usr/include/qt5/QtGui/qpaintdevice.h \
+		/usr/include/qt5/QtGui/qpalette.h \
+		/usr/include/qt5/QtGui/qcolor.h \
+		/usr/include/qt5/QtGui/qrgb.h \
+		/usr/include/qt5/QtCore/qstringlist.h \
+		/usr/include/qt5/QtCore/qdatastream.h \
+		/usr/include/qt5/QtCore/qiodevice.h \
+		/usr/include/qt5/QtCore/qpair.h \
+		/usr/include/qt5/QtCore/qregexp.h \
+		/usr/include/qt5/QtCore/qstringmatcher.h \
+		/usr/include/qt5/QtGui/qbrush.h \
+		/usr/include/qt5/QtCore/qvector.h \
+		/usr/include/qt5/QtGui/qmatrix.h \
+		/usr/include/qt5/QtGui/qpolygon.h \
+		/usr/include/qt5/QtGui/qregion.h \
+		/usr/include/qt5/QtCore/qline.h \
+		/usr/include/qt5/QtGui/qtransform.h \
+		/usr/include/qt5/QtGui/qpainterpath.h \
+		/usr/include/qt5/QtGui/qimage.h \
+		/usr/include/qt5/QtGui/qpixmap.h \
+		/usr/include/qt5/QtCore/qsharedpointer.h \
+		/usr/include/qt5/QtCore/qshareddata.h \
+		/usr/include/qt5/QtCore/qsharedpointer_impl.h \
+		/usr/include/qt5/QtCore/qhash.h \
+		/usr/include/qt5/QtGui/qfont.h \
+		/usr/include/qt5/QtGui/qfontmetrics.h \
+		/usr/include/qt5/QtGui/qfontinfo.h \
+		/usr/include/qt5/QtWidgets/qsizepolicy.h \
+		/usr/include/qt5/QtGui/qcursor.h \
+		/usr/include/qt5/QtGui/qkeysequence.h \
+		/usr/include/qt5/QtGui/qevent.h \
+		/usr/include/qt5/QtCore/qvariant.h \
+		/usr/include/qt5/QtCore/qmap.h \
+		/usr/include/qt5/QtCore/qdebug.h \
+		/usr/include/qt5/QtCore/qtextstream.h \
+		/usr/include/qt5/QtCore/qlocale.h \
+		/usr/include/qt5/QtCore/qset.h \
+		/usr/include/qt5/QtCore/qcontiguouscache.h \
+		/usr/include/qt5/QtCore/qurl.h \
+		/usr/include/qt5/QtCore/qurlquery.h \
+		/usr/include/qt5/QtCore/qfile.h \
+		/usr/include/qt5/QtCore/qfiledevice.h \
+		/usr/include/qt5/QtGui/qvector2d.h \
+		/usr/include/qt5/QtGui/qtouchdevice.h \
+		projectframe.h
+	/usr/lib/i386-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/i386-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/i686-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed -I/usr/include/i386-linux-gnu -I/usr/include projectframe.h -o moc_projectframe.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_login.h ui_loggedin.h ui_register.h ui_editqualifications.h ui_qualframe.h ui_admincontrol.h ui_runppid.h ui_createproject.h ui_createproject2.h ui_editproject.h ui_adminview.h ui_profileview.h ui_masterwindow.h
+compiler_uic_make_all: ui_login.h ui_loggedin.h ui_register.h ui_editqualifications.h ui_qualframe.h ui_admincontrol.h ui_runppid.h ui_createproject.h ui_createproject2.h ui_editproject.h ui_adminview.h ui_profileview.h ui_masterwindow.h ui_projectframe.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_login.h ui_loggedin.h ui_register.h ui_editqualifications.h ui_qualframe.h ui_admincontrol.h ui_runppid.h ui_createproject.h ui_createproject2.h ui_editproject.h ui_adminview.h ui_profileview.h ui_masterwindow.h
+	-$(DEL_FILE) ui_login.h ui_loggedin.h ui_register.h ui_editqualifications.h ui_qualframe.h ui_admincontrol.h ui_runppid.h ui_createproject.h ui_createproject2.h ui_editproject.h ui_adminview.h ui_profileview.h ui_masterwindow.h ui_projectframe.h
 ui_login.h: login.ui
 	/usr/lib/i386-linux-gnu/qt5/bin/uic login.ui -o ui_login.h
 
@@ -2245,6 +2351,9 @@ ui_profileview.h: profileview.ui
 
 ui_masterwindow.h: masterwindow.ui
 	/usr/lib/i386-linux-gnu/qt5/bin/uic masterwindow.ui -o ui_masterwindow.h
+
+ui_projectframe.h: projectframe.ui
+	/usr/lib/i386-linux-gnu/qt5/bin/uic projectframe.ui -o ui_projectframe.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -2382,7 +2491,8 @@ main.o: main.cpp MasterControl.h \
 		/usr/include/qt5/QtWidgets/QDialog \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
+		createproject.h \
+		createproject2.h \
 		project.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
@@ -2402,8 +2512,6 @@ main.o: main.cpp MasterControl.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
-		createproject.h \
-		createproject2.h \
 		StudentControl.h \
 		profileview.h \
 		StorageManager.h \
@@ -2543,7 +2651,8 @@ login.o: login.cpp login.h \
 		/usr/include/qt5/QtWidgets/qdialog.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
+		createproject.h \
+		createproject2.h \
 		project.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
@@ -2564,8 +2673,6 @@ login.o: login.cpp login.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
 		qualification.h \
-		createproject.h \
-		createproject2.h \
 		ProfileEntity.h \
 		StudentControl.h \
 		profileview.h \
@@ -2879,14 +2986,8 @@ register.o: register.cpp register.h \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
-		login.h \
-		/usr/include/qt5/QtWidgets/QMainWindow \
-		/usr/include/qt5/QtWidgets/qmainwindow.h \
-		/usr/include/qt5/QtWidgets/qtabwidget.h \
-		/usr/include/qt5/QtGui/qicon.h \
-		/usr/include/qt5/QtWidgets/QMessageBox \
-		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		createproject.h \
+		createproject2.h \
 		project.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
@@ -2901,14 +3002,14 @@ register.o: register.cpp register.h \
 		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
 		/usr/include/qt5/QtGui/qvalidator.h \
 		/usr/include/qt5/QtCore/qregularexpression.h \
+		/usr/include/qt5/QtGui/qicon.h \
 		/usr/include/qt5/QtWidgets/qslider.h \
 		/usr/include/qt5/QtWidgets/qabstractslider.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
 		qualification.h \
-		createproject.h \
-		createproject2.h \
 		ProfileEntity.h \
 		StudentControl.h \
 		profileview.h \
@@ -2918,6 +3019,11 @@ register.o: register.cpp register.h \
 		rapidxml.hpp \
 		rapidxml_print.hpp \
 		rapidxml_utils.hpp \
+		login.h \
+		/usr/include/qt5/QtWidgets/QMainWindow \
+		/usr/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		ui_register.h \
 		/usr/include/qt5/QtCore/QVariant \
 		/usr/include/qt5/QtWidgets/QAction \
@@ -3105,16 +3211,10 @@ editqualifications.o: editqualifications.cpp editqualifications.h \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
-		login.h \
-		/usr/include/qt5/QtWidgets/QMainWindow \
-		/usr/include/qt5/QtWidgets/qmainwindow.h \
-		/usr/include/qt5/QtWidgets/QMessageBox \
-		/usr/include/qt5/QtWidgets/qmessagebox.h \
-		project.h \
-		qualification.h \
 		createproject.h \
 		createproject2.h \
+		project.h \
+		qualification.h \
 		ProfileEntity.h \
 		StudentControl.h \
 		profileview.h \
@@ -3124,6 +3224,11 @@ editqualifications.o: editqualifications.cpp editqualifications.h \
 		rapidxml.hpp \
 		rapidxml_print.hpp \
 		rapidxml_utils.hpp \
+		login.h \
+		/usr/include/qt5/QtWidgets/QMainWindow \
+		/usr/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		qualframe.h \
 		/usr/include/qt5/QtWidgets/QFrame \
 		/usr/include/qt5/QtGui/QWheelEvent \
@@ -3692,7 +3797,8 @@ MasterControl.o: MasterControl.cpp MasterControl.h \
 		/usr/include/qt5/QtWidgets/QDialog \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
+		createproject.h \
+		createproject2.h \
 		project.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
@@ -3712,8 +3818,6 @@ MasterControl.o: MasterControl.cpp MasterControl.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
-		createproject.h \
-		createproject2.h \
 		StudentControl.h \
 		profileview.h \
 		StorageManager.h \
@@ -3877,7 +3981,6 @@ AdminControl.o: AdminControl.cpp AdminControl.h \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
 		createproject.h \
 		createproject2.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AdminControl.o AdminControl.cpp
@@ -4009,7 +4112,8 @@ StudentControl.o: StudentControl.cpp StudentControl.h \
 		/usr/include/qt5/QtWidgets/QDialog \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
+		createproject.h \
+		createproject2.h \
 		project.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
@@ -4029,8 +4133,6 @@ StudentControl.o: StudentControl.cpp StudentControl.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
-		createproject.h \
-		createproject2.h \
 		StorageManager.h \
 		StorageObject.h \
 		SimpleFileStorage.h \
@@ -4157,14 +4259,8 @@ LoginControl.o: LoginControl.cpp LoginControl.h \
 		/usr/include/qt5/QtWidgets/qdialog.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
-		login.h \
-		/usr/include/qt5/QtWidgets/QMainWindow \
-		/usr/include/qt5/QtWidgets/qmainwindow.h \
-		/usr/include/qt5/QtWidgets/qtabwidget.h \
-		/usr/include/qt5/QtGui/qicon.h \
-		/usr/include/qt5/QtWidgets/QMessageBox \
-		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		createproject.h \
+		createproject2.h \
 		project.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
@@ -4179,14 +4275,14 @@ LoginControl.o: LoginControl.cpp LoginControl.h \
 		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
 		/usr/include/qt5/QtGui/qvalidator.h \
 		/usr/include/qt5/QtCore/qregularexpression.h \
+		/usr/include/qt5/QtGui/qicon.h \
 		/usr/include/qt5/QtWidgets/qslider.h \
 		/usr/include/qt5/QtWidgets/qabstractslider.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
 		qualification.h \
-		createproject.h \
-		createproject2.h \
 		ProfileEntity.h \
 		StudentControl.h \
 		profileview.h \
@@ -4195,7 +4291,12 @@ LoginControl.o: LoginControl.cpp LoginControl.h \
 		SimpleFileStorage.h \
 		rapidxml.hpp \
 		rapidxml_print.hpp \
-		rapidxml_utils.hpp
+		rapidxml_utils.hpp \
+		login.h \
+		/usr/include/qt5/QtWidgets/QMainWindow \
+		/usr/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LoginControl.o LoginControl.cpp
 
 qualframe.o: qualframe.cpp qualframe.h \
@@ -4690,7 +4791,6 @@ runppid.o: runppid.cpp runppid.h \
 		rapidxml_utils.hpp \
 		adminview.h \
 		editproject.h \
-		admincontrol.h \
 		createproject.h \
 		createproject2.h \
 		ui_runppid.h \
@@ -4874,7 +4974,6 @@ createproject.o: createproject.cpp createproject.h \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
 		createproject2.h \
 		ui_createproject.h \
 		/usr/include/qt5/QtCore/QVariant \
@@ -5062,7 +5161,6 @@ createproject2.o: createproject2.cpp createproject2.h \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
 		createproject.h \
 		ui_createproject2.h \
 		/usr/include/qt5/QtCore/QVariant \
@@ -5333,21 +5431,23 @@ editproject.o: editproject.cpp editproject.h \
 		/usr/include/qt5/QtCore/qfiledevice.h \
 		/usr/include/qt5/QtGui/qvector2d.h \
 		/usr/include/qt5/QtGui/qtouchdevice.h \
-		admincontrol.h \
+		AdminControl.h \
+		MasterControl.h \
+		/usr/include/qt5/QtCore/QPoint \
+		/usr/include/qt5/QtWidgets/QWidget \
+		LoginControl.h \
+		ProfileEntity.h \
 		login.h \
 		/usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/qmainwindow.h \
 		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtGui/qicon.h \
-		LoginControl.h \
-		MasterControl.h \
-		/usr/include/qt5/QtCore/QPoint \
-		/usr/include/qt5/QtWidgets/QWidget \
-		AdminControl.h \
-		adminview.h \
-		runppid.h \
-		createproject.h \
-		createproject2.h \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		qualification.h \
+		StudentControl.h \
+		profileview.h \
+		StorageManager.h \
 		project.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
@@ -5367,18 +5467,15 @@ editproject.o: editproject.cpp editproject.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
-		qualification.h \
-		ProfileEntity.h \
-		StudentControl.h \
-		profileview.h \
-		StorageManager.h \
 		StorageObject.h \
 		SimpleFileStorage.h \
 		rapidxml.hpp \
 		rapidxml_print.hpp \
 		rapidxml_utils.hpp \
-		/usr/include/qt5/QtWidgets/QMessageBox \
-		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		adminview.h \
+		runppid.h \
+		createproject.h \
+		createproject2.h \
 		ui_editproject.h \
 		/usr/include/qt5/QtCore/QVariant \
 		/usr/include/qt5/QtWidgets/QAction \
@@ -5393,11 +5490,32 @@ editproject.o: editproject.cpp editproject.h \
 		/usr/include/qt5/QtGui/qinputmethod.h \
 		/usr/include/qt5/QtWidgets/QButtonGroup \
 		/usr/include/qt5/QtWidgets/qbuttongroup.h \
+		/usr/include/qt5/QtWidgets/QFrame \
+		/usr/include/qt5/QtWidgets/QGridLayout \
+		/usr/include/qt5/QtWidgets/qgridlayout.h \
+		/usr/include/qt5/QtWidgets/qlayout.h \
+		/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		/usr/include/qt5/QtWidgets/qboxlayout.h \
+		/usr/include/qt5/QtWidgets/QGroupBox \
+		/usr/include/qt5/QtWidgets/qgroupbox.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
 		/usr/include/qt5/QtWidgets/QHeaderView \
 		/usr/include/qt5/QtWidgets/qheaderview.h \
+		/usr/include/qt5/QtWidgets/QLabel \
+		/usr/include/qt5/QtWidgets/qlabel.h \
 		/usr/include/qt5/QtWidgets/QPushButton \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
-		/usr/include/qt5/QtWidgets/qabstractbutton.h
+		/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		/usr/include/qt5/QtWidgets/QScrollArea \
+		/usr/include/qt5/QtWidgets/qscrollarea.h \
+		/usr/include/qt5/QtWidgets/QSpacerItem \
+		/usr/include/qt5/QtWidgets/QTextEdit \
+		/usr/include/qt5/QtWidgets/qtextedit.h \
+		/usr/include/qt5/QtGui/qtextdocument.h \
+		/usr/include/qt5/QtGui/qtextoption.h \
+		/usr/include/qt5/QtGui/qtextcursor.h \
+		/usr/include/qt5/QtGui/qtextformat.h \
+		/usr/include/qt5/QtGui/qpen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o editproject.o editproject.cpp
 
 adminview.o: adminview.cpp adminview.h \
@@ -5553,7 +5671,6 @@ adminview.o: adminview.cpp adminview.h \
 		rapidxml_utils.hpp \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
 		createproject.h \
 		createproject2.h \
 		ui_adminview.h \
@@ -5709,7 +5826,8 @@ profileview.o: profileview.cpp profileview.h \
 		adminview.h \
 		runppid.h \
 		editproject.h \
-		admincontrol.h \
+		createproject.h \
+		createproject2.h \
 		project.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
@@ -5729,8 +5847,6 @@ profileview.o: profileview.cpp profileview.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
-		createproject.h \
-		createproject2.h \
 		StorageManager.h \
 		StorageObject.h \
 		SimpleFileStorage.h \
@@ -6017,6 +6133,119 @@ sqlstorage.o: sqlstorage.cpp sqlstorage.h \
 		/usr/include/qt5/QtWidgets/qlistwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sqlstorage.o sqlstorage.cpp
 
+projectframe.o: projectframe.cpp projectframe.h \
+		/usr/include/qt5/QtWidgets/QFrame \
+		/usr/include/qt5/QtWidgets/qframe.h \
+		/usr/include/qt5/QtWidgets/qwidget.h \
+		/usr/include/qt5/QtGui/qwindowdefs.h \
+		/usr/include/qt5/QtCore/qglobal.h \
+		/usr/include/qt5/QtCore/qconfig.h \
+		/usr/include/qt5/QtCore/qfeatures.h \
+		/usr/include/qt5/QtCore/qsystemdetection.h \
+		/usr/include/qt5/QtCore/qprocessordetection.h \
+		/usr/include/qt5/QtCore/qcompilerdetection.h \
+		/usr/include/qt5/QtCore/qglobalstatic.h \
+		/usr/include/qt5/QtCore/qatomic.h \
+		/usr/include/qt5/QtCore/qbasicatomic.h \
+		/usr/include/qt5/QtCore/qatomic_bootstrap.h \
+		/usr/include/qt5/QtCore/qgenericatomic.h \
+		/usr/include/qt5/QtCore/qatomic_msvc.h \
+		/usr/include/qt5/QtCore/qatomic_integrity.h \
+		/usr/include/qt5/QtCore/qoldbasicatomic.h \
+		/usr/include/qt5/QtCore/qatomic_vxworks.h \
+		/usr/include/qt5/QtCore/qatomic_power.h \
+		/usr/include/qt5/QtCore/qatomic_alpha.h \
+		/usr/include/qt5/QtCore/qatomic_armv7.h \
+		/usr/include/qt5/QtCore/qatomic_armv6.h \
+		/usr/include/qt5/QtCore/qatomic_armv5.h \
+		/usr/include/qt5/QtCore/qatomic_bfin.h \
+		/usr/include/qt5/QtCore/qatomic_ia64.h \
+		/usr/include/qt5/QtCore/qatomic_mips.h \
+		/usr/include/qt5/QtCore/qatomic_s390.h \
+		/usr/include/qt5/QtCore/qatomic_sh4a.h \
+		/usr/include/qt5/QtCore/qatomic_sparc.h \
+		/usr/include/qt5/QtCore/qatomic_gcc.h \
+		/usr/include/qt5/QtCore/qatomic_x86.h \
+		/usr/include/qt5/QtCore/qatomic_cxx11.h \
+		/usr/include/qt5/QtCore/qatomic_unix.h \
+		/usr/include/qt5/QtCore/qmutex.h \
+		/usr/include/qt5/QtCore/qlogging.h \
+		/usr/include/qt5/QtCore/qflags.h \
+		/usr/include/qt5/QtCore/qtypeinfo.h \
+		/usr/include/qt5/QtCore/qtypetraits.h \
+		/usr/include/qt5/QtCore/qsysinfo.h \
+		/usr/include/qt5/QtCore/qobjectdefs.h \
+		/usr/include/qt5/QtCore/qnamespace.h \
+		/usr/include/qt5/QtCore/qobjectdefs_impl.h \
+		/usr/include/qt5/QtGui/qwindowdefs_win.h \
+		/usr/include/qt5/QtCore/qobject.h \
+		/usr/include/qt5/QtCore/qstring.h \
+		/usr/include/qt5/QtCore/qchar.h \
+		/usr/include/qt5/QtCore/qbytearray.h \
+		/usr/include/qt5/QtCore/qrefcount.h \
+		/usr/include/qt5/QtCore/qarraydata.h \
+		/usr/include/qt5/QtCore/qstringbuilder.h \
+		/usr/include/qt5/QtCore/qlist.h \
+		/usr/include/qt5/QtCore/qalgorithms.h \
+		/usr/include/qt5/QtCore/qiterator.h \
+		/usr/include/qt5/QtCore/qcoreevent.h \
+		/usr/include/qt5/QtCore/qscopedpointer.h \
+		/usr/include/qt5/QtCore/qmetatype.h \
+		/usr/include/qt5/QtCore/qvarlengtharray.h \
+		/usr/include/qt5/QtCore/qcontainerfwd.h \
+		/usr/include/qt5/QtCore/qisenum.h \
+		/usr/include/qt5/QtCore/qobject_impl.h \
+		/usr/include/qt5/QtCore/qmargins.h \
+		/usr/include/qt5/QtCore/qrect.h \
+		/usr/include/qt5/QtCore/qsize.h \
+		/usr/include/qt5/QtCore/qpoint.h \
+		/usr/include/qt5/QtGui/qpaintdevice.h \
+		/usr/include/qt5/QtGui/qpalette.h \
+		/usr/include/qt5/QtGui/qcolor.h \
+		/usr/include/qt5/QtGui/qrgb.h \
+		/usr/include/qt5/QtCore/qstringlist.h \
+		/usr/include/qt5/QtCore/qdatastream.h \
+		/usr/include/qt5/QtCore/qiodevice.h \
+		/usr/include/qt5/QtCore/qpair.h \
+		/usr/include/qt5/QtCore/qregexp.h \
+		/usr/include/qt5/QtCore/qstringmatcher.h \
+		/usr/include/qt5/QtGui/qbrush.h \
+		/usr/include/qt5/QtCore/qvector.h \
+		/usr/include/qt5/QtGui/qmatrix.h \
+		/usr/include/qt5/QtGui/qpolygon.h \
+		/usr/include/qt5/QtGui/qregion.h \
+		/usr/include/qt5/QtCore/qline.h \
+		/usr/include/qt5/QtGui/qtransform.h \
+		/usr/include/qt5/QtGui/qpainterpath.h \
+		/usr/include/qt5/QtGui/qimage.h \
+		/usr/include/qt5/QtGui/qpixmap.h \
+		/usr/include/qt5/QtCore/qsharedpointer.h \
+		/usr/include/qt5/QtCore/qshareddata.h \
+		/usr/include/qt5/QtCore/qsharedpointer_impl.h \
+		/usr/include/qt5/QtCore/qhash.h \
+		/usr/include/qt5/QtGui/qfont.h \
+		/usr/include/qt5/QtGui/qfontmetrics.h \
+		/usr/include/qt5/QtGui/qfontinfo.h \
+		/usr/include/qt5/QtWidgets/qsizepolicy.h \
+		/usr/include/qt5/QtGui/qcursor.h \
+		/usr/include/qt5/QtGui/qkeysequence.h \
+		/usr/include/qt5/QtGui/qevent.h \
+		/usr/include/qt5/QtCore/qvariant.h \
+		/usr/include/qt5/QtCore/qmap.h \
+		/usr/include/qt5/QtCore/qdebug.h \
+		/usr/include/qt5/QtCore/qtextstream.h \
+		/usr/include/qt5/QtCore/qlocale.h \
+		/usr/include/qt5/QtCore/qset.h \
+		/usr/include/qt5/QtCore/qcontiguouscache.h \
+		/usr/include/qt5/QtCore/qurl.h \
+		/usr/include/qt5/QtCore/qurlquery.h \
+		/usr/include/qt5/QtCore/qfile.h \
+		/usr/include/qt5/QtCore/qfiledevice.h \
+		/usr/include/qt5/QtGui/qvector2d.h \
+		/usr/include/qt5/QtGui/qtouchdevice.h \
+		ui_projectframe.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o projectframe.o projectframe.cpp
+
 moc_login.o: moc_login.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_login.o moc_login.cpp
 
@@ -6052,6 +6281,9 @@ moc_adminview.o: moc_adminview.cpp
 
 moc_profileview.o: moc_profileview.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_profileview.o moc_profileview.cpp
+
+moc_projectframe.o: moc_projectframe.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_projectframe.o moc_projectframe.cpp
 
 ####### Install
 

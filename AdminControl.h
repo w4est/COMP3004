@@ -5,6 +5,7 @@
 #include "adminview.h"
 #include "ProfileEntity.h"
 #include "project.h"
+#include "projectframe.h"
 
 #include <vector>
 
@@ -17,17 +18,27 @@ public:
 	~AdminControl();
 
     void createProject(Project*);
+    vector<Qualification*> getQualList();
 
     void logout(QPoint*);
     ProfileEntity* getLoggedUser();
 
+    Project* getSelectedProject();
+    void setSelectedProject(Project*);
+
     Project* getProject(int _index = -1, string _name = "");
     int getListSize();
+
+    void setCurrentFrame(projectFrame*);
+    projectFrame* getCurrentFrame();
 
 private:
 	MasterControl *m_Parent;
     QWidget *admin_window;
     vector<Project*> current_projects;
+
+    Project* selected = 0;
+    projectFrame* selected_Frame = 0;
 
     void gatherProjects();
 };

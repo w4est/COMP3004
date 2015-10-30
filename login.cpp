@@ -38,7 +38,7 @@ void Login::on_LoginButton_clicked()
                                         QMessageBox::Ok);
 
         control->loginUser(name, new QPoint(this->mapToGlobal(QPoint(0,0))));
-        delete(this);
+        //delete(this);
     }
     else
     {

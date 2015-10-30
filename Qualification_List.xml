@@ -11,7 +11,7 @@
 	<Qualification id="0">
 		<PersonalDescription>...</PersonalDescription>
 		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
+		<AdminDescription>THIS IS A RIGID TEst</AdminDescription>
 		<Type>grade</Type>
 		<Range>0</Range>
 		<Value>0</Value>

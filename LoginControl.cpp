@@ -31,6 +31,7 @@ void LoginControl::loginUser(string _username, QPoint* _point)
          user = &(m_Parent->getStorageAccess().getProfile(_username));
 		 m_Parent->setUserProfile(*user);
          m_Parent->completeLogin(_point);
+         delete(login_window);
 	}
 }
 

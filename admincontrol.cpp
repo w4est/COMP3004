@@ -89,8 +89,8 @@ void adminControl::on_EditProject_clicked()
 
 
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new EditProject(Window, childPos.x(), childPos.y(), username.c_str());
-    Window->show();
+    //Window = new EditProject(Window, childPos.x(), childPos.y(), username.c_str());
+    //Window->show();
 
     //delete(projectHolder);
     delete(this);

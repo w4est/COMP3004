@@ -2,9 +2,14 @@
 #define CREATEPROJECT2_H
 
 #include <QDialog>
+#include <QListWidgetItem>
+#include <QScrollBar>
+#include <QVBoxLayout>
 #include "AdminControl.h"
 #include "createproject.h"
 #include "project.h"
+#include "projectframe.h"
+#include "qualification.h"
 
 class AdminControl;
 
@@ -21,6 +26,10 @@ public:
     CreateProject2(AdminControl* _comtrol, QWidget*,int, int, QString, QString, QString);
     ~CreateProject2();
 
+    void setNewDescription();
+protected:
+    void mouseReleaseEvent(QMouseEvent *);
+
 private slots:
     void on_BackButton_clicked();
     void on_CreateProject2_destroyed();
@@ -35,6 +44,12 @@ private:
     std::string projectDescription;
     std::string projectName;
     std::string username;
+
+    void buildPage();
+
+    QVBoxLayout *layout, *scrollBoxLayout;
+    QWidget *widget;
+    vector<projectFrame*> frameList;
 };
 
 #endif // CREATEPROJECT2_H

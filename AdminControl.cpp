@@ -23,6 +23,11 @@ void AdminControl::createProject(Project* _project)
     current_projects.push_back(_project);
 }
 
+vector<Qualification*> AdminControl::getQualList()
+{
+    return m_Parent->getStorageAccess().getQualificationList();
+}
+
 void AdminControl::logout(QPoint *_point)
 {
     m_Parent->logout(_point);
@@ -58,4 +63,27 @@ Project* AdminControl::getProject(int _index, string _name)
 int AdminControl::getListSize()
 {
     return current_projects.size();
+}
+
+Project* AdminControl::getSelectedProject()
+{
+    return selected;
+}
+
+void AdminControl::setSelectedProject(Project *_project)
+{
+    selected = _project;
+}
+
+void AdminControl::setCurrentFrame(projectFrame *_frame)
+{
+    if(selected_Frame){
+        selected_Frame->setStyleSheet("");
+    }
+    selected_Frame = _frame;
+}
+
+projectFrame* AdminControl::getCurrentFrame()
+{
+    return selected_Frame;
 }
