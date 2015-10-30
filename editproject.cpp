@@ -1,7 +1,7 @@
 #include "editproject.h"
 #include "ui_editproject.h"
 
-EditProject::EditProject(AdminControl *_control, QWidget *parent, int _x, int _y, QString _username):
+EditProject::EditProject(AdminControl *_control, QWidget *parent, int _x, int _y):
     QDialog(parent),
     ui(new Ui::EditProject)
 {
@@ -10,8 +10,10 @@ EditProject::EditProject(AdminControl *_control, QWidget *parent, int _x, int _y
     control = _control;
 
     this->move(_x,_y-28);
-    ui->setupUi(this);
+    string title = "Edit: " + control->getSelectedProject()->getProjectName();
 
+    ui->setupUi(this);
+    this->setWindowTitle(title.c_str());
     buildPage();
 }
 
@@ -19,19 +21,26 @@ EditProject::~EditProject()
 {
     while(!frameList.empty())
     {
-        delete frameList.back();
+        projectFrame* temp = frameList.back();
+        temp->deleteLater();
         frameList.pop_back();
     }
-    delete layout;
-    delete widget;
-    delete scrollBoxLayout;
+    layout->deleteLater();
+    widget->deleteLater();
+    scrollBoxLayout->deleteLater();
 
     delete ui;
 }
 
+void EditProject::reject()
+{
+    this->deleteLater();
+    control->shutdown();
+}
+
 void EditProject::on_EditProject_destroyed()
 {
-    delete(this);
+    this->deleteLater();
 }
 
 void EditProject::on_BackButton_clicked()
@@ -40,7 +49,7 @@ void EditProject::on_BackButton_clicked()
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new AdminView(control, Window, childPos.x(), childPos.y());
     Window->show();
-    delete(this);
+    this->deleteLater();
 }
 
 void EditProject::buildPage()
@@ -51,37 +60,30 @@ void EditProject::buildPage()
     qualList = control->getQualList();
     projQualList = control->getSelectedProject()->getQualifications();
 
-    QWidget *form;
-
     widget = new QWidget();
 
     layout = new QVBoxLayout();
 
-     Qualification* temp;
-
     for(unsigned i = 0; i < qualList.size(); i++)
     {
-        temp = qualList[i];
-
         projectFrame* frame = new projectFrame(control, Window);
 
-        frameList.push_back(frame);
+
         frame->setDescription(qualList.at(i)->getAdminDescription().c_str());
 
         for(unsigned j = 0; j < projQualList.size(); j++){
             if(int(i) == projQualList.at(j).first){
-                cout << "checked" << endl;
                 frame->setChecked();
             }
         }
+        frame->setId(i);
+        frameList.push_back(frame);
         layout->addWidget(frame);
     }
 
-    temp = 0;
     widget->setLayout(layout);
 
     scrollBoxLayout = new QVBoxLayout();
-    //scrollBoxLayout->setSpacing(25);
 
 
     ui->scrollArea->setWidget(widget);
@@ -91,8 +93,6 @@ void EditProject::buildPage()
 
 void EditProject::setNewDescription()
 {
-    unsigned int o = -1;
-
     for(unsigned int i = 0; i < frameList.size(); i++)
     {
         if(frameList.at(i) == control->getCurrentFrame()){
@@ -103,6 +103,32 @@ void EditProject::setNewDescription()
 
 void EditProject::mouseReleaseEvent(QMouseEvent *_event)
 {
-    std::cout << "edit" << std::endl;
+    if(_event){}
     setNewDescription();
+}
+
+void EditProject::on_SaveButton_clicked()
+{
+    Project* temp = control->getSelectedProject();
+    temp->setProjectDescription(ui->projectDescEdit->toPlainText().toStdString());
+
+    vector<pair<int, int>> tm;
+    for(unsigned int i = 0; i < frameList.size(); i++)
+    {
+        if(frameList.at(i)->isChecked())
+        {
+            tm.push_back(make_pair<int, int>(frameList.at(i)->getId(), 1));
+        }
+    }
+
+    temp->setQualifications(tm);
+
+    control->saveProject();
+
+    std::string Message = ">>>" + control->getSelectedProject()->getProjectName() + " saved. \nNo survivors. <<<";
+    //QMessageBox::StandardButton reply;
+      /*reply =*/QMessageBox::information(this, "kz//select>ndataextract1;", Message.c_str() ,
+                                    QMessageBox::Ok);
+
+    on_BackButton_clicked();
 }

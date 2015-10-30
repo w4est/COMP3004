@@ -32,7 +32,7 @@ void ProfileEntity::setPersonalQual(vector<tuple<int, int>>& _perQualList)
 /**/
 void ProfileEntity::setDesiredQual(vector<qualLayout>& _desQualList)
 {
-	for (int i = 0; i < _desQualList.size(); i++)
+    for (unsigned int i = 0; i < _desQualList.size(); i++)
 	{
 		qualLayout temp = _desQualList[i];
 

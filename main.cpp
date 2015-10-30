@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 
     //Window->show();
     //Window.show();
-    MasterControl* control = new MasterControl(Window);
+    MasterControl* control = new MasterControl(&a, Window);
 
 
     //TODO UNDO THIS

@@ -50,6 +50,7 @@ void Project::setOwner(string owner){
 }
 
 void Project::setQualifications(vector<pair<int, int>> qList){
+    qualificationList.clear();
     qualificationList = qList;
 }
 

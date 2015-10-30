@@ -29,6 +29,9 @@ private slots:
 
 
     void on_BackButton_clicked();
+    void reject();
+
+    void on_RunPPIDButton_clicked();
 
 private:
     Ui::RunPPID *ui;

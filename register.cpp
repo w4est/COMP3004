@@ -23,6 +23,13 @@ Register::~Register()
 {
     delete ui;
 }
+
+void Register::reject()
+{
+    this->deleteLater();
+    control->shutdown();
+}
+
 /*
  * Go back to login page,
  * Destroy self after.
@@ -38,12 +45,12 @@ void Register::on_BackButton_clicked()
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new Login(control, Window, childPos.x(), childPos.y());
     Window->show();
-    delete(this);
+    this->deleteLater();
 }
 
 void Register::on_Register_destroyed()
 {
-    delete(this);
+    this->deleteLater();
 }
 
 void Register::on_ContinueButton_clicked()
@@ -54,7 +61,7 @@ void Register::on_ContinueButton_clicked()
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new EditQualifications(control, Window, childPos.x(), childPos.y(), ui->UsernameEdit->text());
     Window->show();
-    delete(this);
+    this->deleteLater();
    }
    else{
        //Warn user otherwise

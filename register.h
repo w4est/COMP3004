@@ -31,6 +31,8 @@ private slots:
 
     void on_UsernameEdit_returnPressed();
 
+    void reject();
+
 private:
     Ui::Register *ui;
     QWidget *Window;

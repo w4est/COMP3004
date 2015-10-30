@@ -59,7 +59,7 @@ void SqlStorage::removeProject(string)
 
 ProfileEntity* SqlStorage::getProfile(string)
 {
-
+    return nullptr;
 }
 
 void SqlStorage::getProfileList(vector<ProfileEntity*>&)
@@ -79,7 +79,7 @@ void SqlStorage::getQualificationList(vector<Qualification*>*)
 
 int SqlStorage::profileExists(string)
 {
-
+    return -1;
 }
 
 void SqlStorage::algorithmIntelligence(vector<ProfileEntity*>&)

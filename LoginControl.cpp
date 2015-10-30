@@ -7,7 +7,7 @@ LoginControl::LoginControl(MasterControl* _control, QWidget* _parent)
     m_Parent = _control;
     user = 0;
 
-    login_window = new Login(this, _parent);
+    login_window = new Login(this, _parent, m_Parent->getLastPoint()->x(), m_Parent->getLastPoint()->y());
     login_window->show();
 }
 
@@ -16,8 +16,13 @@ LoginControl::~LoginControl()
 {
     m_Parent = 0;
 	user = 0;
-    if(login_window) delete login_window;
+    if(login_window) login_window->deleteLater();
     login_window = NULL;
+}
+
+void LoginControl::shutdown()
+{
+    m_Parent->kill();
 }
 
 int LoginControl::userExists(string _username)
@@ -31,7 +36,7 @@ void LoginControl::loginUser(string _username, QPoint* _point)
          user = &(m_Parent->getStorageAccess().getProfile(_username));
 		 m_Parent->setUserProfile(*user);
          m_Parent->completeLogin(_point);
-         delete(login_window);
+         (login_window)->deleteLater();
 	}
 }
 

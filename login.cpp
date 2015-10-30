@@ -11,7 +11,6 @@ Login::Login(LoginControl *_control, QWidget *parent, int _x, int _y) :
     control = _control;
 
     this->move(_x, _y - 28);
-
     ui->setupUi(this);
 }
 
@@ -23,7 +22,8 @@ Login::~Login()
 
 void Login::reject()
 {
-    delete(this);
+    this->deleteLater();
+    control->shutdown();
 }
 
 void Login::on_LoginButton_clicked()
@@ -33,12 +33,12 @@ void Login::on_LoginButton_clicked()
     if(control->userExists(name)) // if !(0) [-1 or 1] then it exists, 1 == Student, -1 == Admin
     {
         std::string Message = "Hello " + name;
-        QMessageBox::StandardButton reply;
-          reply = QMessageBox::information(this, "Welcome", Message.c_str() ,
+        //QMessageBox::StandardButton reply;
+          /*reply =*/ QMessageBox::information(this, "Welcome", Message.c_str() ,
                                         QMessageBox::Ok);
 
         control->loginUser(name, new QPoint(this->mapToGlobal(QPoint(0,0))));
-        //delete(this);
+        //this->deleteLater();
     }
     else
     {
@@ -52,13 +52,13 @@ void Login::on_RegisterButton_clicked()
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new Register(control, 0, childPos.x(), childPos.y());
     Window->show();
-    delete(this);
+    this->deleteLater();
 
 }
 
 void Login::on_Login_destroyed()
 {
-    delete(this);
+    this->deleteLater();
 }
 
 void Login::reEnable()

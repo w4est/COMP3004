@@ -13,6 +13,7 @@ RunPPID::RunPPID(AdminControl* _control, QWidget *parent, int _x, int _y, QStrin
 
     ui->setupUi(this);
     ui->ProjectName->setText(_projectName);
+    ui->RunPPIDButton->setEnabled(false);
 }
 
 RunPPID::~RunPPID()
@@ -20,9 +21,15 @@ RunPPID::~RunPPID()
     delete ui;
 }
 
+void RunPPID::reject()
+{
+    this->deleteLater();
+    control->shutdown();
+}
+
 void RunPPID::on_RunPPID_destroyed()
 {
-    delete(this);
+    this->deleteLater();
 }
 
 
@@ -38,6 +45,7 @@ void RunPPID::on_comboBox_activated(int index)
 
 void RunPPID::on_groupSize_valueChanged(int arg1)
 {
+    if(arg1){}
     //set group size to arg1
 }
 
@@ -46,5 +54,14 @@ void RunPPID::on_BackButton_clicked()
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new AdminView(control, Window, childPos.x(), childPos.y());
     Window->show();
-    delete(this);
+    this->deleteLater();
+}
+
+void RunPPID::on_RunPPIDButton_clicked()
+{
+    std::string Message = "We'd better turn back now.";
+    //QMessageBox::StandardButton reply;
+      /*reply = */QMessageBox::information(this, "Something Feels Errie...", Message.c_str() ,
+                                    QMessageBox::Ok);
+
 }

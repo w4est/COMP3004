@@ -16,8 +16,11 @@ class AdminControl
 public:
     AdminControl(MasterControl*, QWidget*);
 	~AdminControl();
+    void shutdown();
+
 
     void createProject(Project*);
+    void saveProject();
     vector<Qualification*> getQualList();
 
     void logout(QPoint*);

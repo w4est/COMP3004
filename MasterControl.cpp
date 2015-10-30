@@ -1,46 +1,17 @@
 #include "MasterControl.h"
 
-MasterControl::MasterControl(QWidget* _parent)
+MasterControl::MasterControl(QApplication* _app, QWidget* _parent)
 {
     current_user_profile = 0;
     login_control = 0;
     admin_control = 0;
     student_control = 0;
-    lastPoint = 0;
+    lastPoint = new QPoint(150, 50);
 
     parent = _parent;
+    app = _app;
     storage_control = new StorageManager();
-    /*setUserProfile(storage_control->getProfile("Christine"));
 
-    //createLoginControl();
-
-    Project* temp = new Project();
-    temp->setOwner("Christine");
-    temp->setProjectName("Trial project");
-    temp->setProjectDescription("Nothing");
-    vector<pair<int, int>> p;
-    vector<string> s;
-    for(int i = 0; i < 36; i++)
-    {
-        p.push_back(make_pair<int, int>(i+1, i*88));
-        s.push_back("adasads");
-    }
-    temp->setQualifications(p);
-    temp->setStudents(s);
-
-
-    storage_control->createProject(*temp);
-
-    /*vector<Project*> z = storage_control->getProjectList();
-    std::cout << z.front()->getProjectName() <<std::endl;
-    std::cout << z.front()->getProjectDescription() <<std::endl;
-    std::cout << z.front()->getOwner() <<std::endl;
-    std::cout << z.front()->getQualifications().size() <<std::endl;
-    std::cout << z.front()->getStudents().size() <<std::endl;
-    */
-    //cout << "here " << endl;
-    //createAdminControl();
-    //storage_control = new SimpleFileStorage();
     createLoginControl();
 }
 
@@ -145,4 +116,10 @@ void MasterControl::changePoint(QPoint *_point)
         delete lastPoint;
     }
     lastPoint = _point;
+}
+
+void MasterControl::kill()
+{
+    delete this;
+    app->quit();
 }

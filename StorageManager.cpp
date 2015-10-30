@@ -55,26 +55,25 @@ ProfileEntity& StorageManager::getProfile(string _username)
 void StorageManager::createProject(Project& _project)
 {
     projectList.push_back(&_project);
-    cout << "created project :: " << getProjectCount() << endl;
 }
 
 void StorageManager::modifyProject(Project & _project)
 {
-
+    if(&_project){}
+    //Done by saveProjects Right Now
 }
 
 void StorageManager::removeProject(string)
 {
-
+    //Not Necessary Right Now
 }
 
 void StorageManager::saveProjects()
 {
     dbObject->clearProjects();
-    for(int i = 0; i < projectList.size(); i++){
-        //dbObject->addProject(projectList.at(i));
+    for(unsigned int i = 0; i < projectList.size(); i++){
+        dbObject->addProject(*projectList.at(i));
     }
-
 }
 
 void StorageManager::testClear()

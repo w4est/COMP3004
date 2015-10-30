@@ -44,13 +44,13 @@ void AdminView::on_CreateProject_clicked()
     Window = new CreateProject(control, Window, childPos.x(), childPos.y(), control->getLoggedUser()->getUsername().c_str());
     Window->show();
     //delete(projectHolder);
-    delete(this);
+    this->deleteLater();
 }
 
 void AdminView::on_LogoutButton_clicked()
 {
     control->logout(new QPoint(this->mapToGlobal(QPoint(0,0))));
-    delete(this);
+    this->deleteLater();
 }
 
 void AdminView::on_RunPPID_clicked()
@@ -59,7 +59,7 @@ void AdminView::on_RunPPID_clicked()
     Window = new RunPPID(control, Window, childPos.x(), childPos.y(),  control->getLoggedUser()->getUsername().c_str());
     Window->show();
 
-    delete(this);
+    this->deleteLater();
 }
 
 void AdminView::on_EditProject_clicked()
@@ -68,13 +68,13 @@ void AdminView::on_EditProject_clicked()
         QPoint childPos = this->mapToGlobal(QPoint(0,0));
         Window = new EditProject(control, Window, childPos.x(), childPos.y());
         Window->show();
-        delete(this);
+        this->deleteLater();
     }
 }
 
 void AdminView::on_AdminView_destroyed()
 {
-    delete(this);
+    this->deleteLater();
 }
 
 /*USELESS*/
@@ -84,7 +84,8 @@ void AdminView::on_AdminView_rejected()
 
 void AdminView::reject()
 {
-    delete(this);
+    this->deleteLater();
+    control->shutdown();
 }
 
 void AdminView::buildProjectList()
@@ -116,7 +117,7 @@ void AdminView::on_ProjectList_itemClicked(QListWidgetItem *item)
     control->setSelectedProject(selected);
     vector<string> t = selected->getStudents();
 
-    for(int i = 0; i < t.size(); i++)
+    for(unsigned int i = 0; i < t.size(); i++)
     {
         QListWidgetItem* s = new QListWidgetItem(t.at(i).c_str());
         sList.push_back(s);

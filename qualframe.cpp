@@ -23,8 +23,14 @@ void QualFrame::setId(QString _id)
     ui->qual_id->setText(_id + " :");
 }
 
+void QualFrame::setRange(int _range)
+{
+    ui->horizontalSlider->setRange(-_range, _range);
+}
+
 void QualFrame::wheelEvent(QWheelEvent *e)
 {
+    if(e){}
     ui->horizontalSlider->setValue(ui->horizontalSlider->value());
 }
 
@@ -41,4 +47,9 @@ void QualFrame::on_horizontalSlider_sliderMoved(int position)
 int QualFrame::getSliderValue()
 {
     return ui->horizontalSlider->value();
+}
+
+void QualFrame::on_horizontalSlider_valueChanged(int value)
+{
+    ui->Center_Label->setText(std::to_string(value).c_str());
 }

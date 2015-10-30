@@ -16,6 +16,11 @@ StudentControl::~StudentControl()
     if(student_window) delete student_window;
 }
 
+void StudentControl::shutdown()
+{
+    m_Parent->kill();
+}
+
 void StudentControl::logout(QPoint *_point)
 {
     m_Parent->logout(_point);

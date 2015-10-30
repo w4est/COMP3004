@@ -3,6 +3,7 @@
 
 #include <QPoint>
 #include <QWidget>
+#include <QApplication>
 #include "LoginControl.h"
 #include "AdminControl.h"
 #include "StudentControl.h"
@@ -15,7 +16,7 @@ class StudentControl;
 class MasterControl
 {
 public:
-    MasterControl(QWidget* _parent = 0);
+    MasterControl(QApplication* _app, QWidget* _parent = 0);
 	~MasterControl();
 
 	StorageManager& getStorageAccess();
@@ -38,6 +39,7 @@ private:
 	ProfileEntity* current_user_profile;
     QPoint* lastPoint;
     QWidget *parent;
+    QApplication* app;
 
     void changePoint(QPoint*);
     void createLoginControl();

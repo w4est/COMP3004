@@ -31,8 +31,6 @@ SOURCES += main.cpp\
     StudentControl.cpp \
     LoginControl.cpp \
     qualframe.cpp \
-    login_control.cpp \
-    admincontrol.cpp \
     runppid.cpp \
     createproject.cpp \
     createproject2.cpp \
@@ -61,8 +59,6 @@ HEADERS  += login.h \
     StudentControl.h \
     LoginControl.h \
     qualframe.h \
-    login_control.h \
-    admincontrol.h \
     runppid.h \
     createproject.h \
     createproject2.h \
@@ -80,12 +76,10 @@ FORMS    += login.ui \
     register.ui \
     editqualifications.ui \
     qualframe.ui \
-    admincontrol.ui \
     runppid.ui \
     createproject.ui \
     createproject2.ui \
     editproject.ui \
     adminview.ui \
     profileview.ui \
-    masterwindow.ui \
     projectframe.ui

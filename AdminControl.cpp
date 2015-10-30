@@ -5,7 +5,7 @@ AdminControl::AdminControl(MasterControl* _control, QWidget* _parent)
     m_Parent = _control;
     this->gatherProjects();
 
-    admin_window = new AdminView(this, _parent);
+    admin_window = new AdminView(this, _parent, m_Parent->getLastPoint()->x(), m_Parent->getLastPoint()->y());
     admin_window->show();
 }
 
@@ -14,13 +14,24 @@ AdminControl::~AdminControl()
 {
     m_Parent = 0;
 
-    //if(admin_window) delete admin_window;
+    if(admin_window) admin_window->deleteLater();
+}
+
+void AdminControl::shutdown()
+{
+    m_Parent->kill();
 }
 
 void AdminControl::createProject(Project* _project)
 {
     m_Parent->getStorageAccess().createProject(*_project);
     current_projects.push_back(_project);
+    saveProject();
+}
+
+void AdminControl::saveProject()
+{
+    m_Parent->getStorageAccess().saveProjects();
 }
 
 vector<Qualification*> AdminControl::getQualList()
@@ -47,8 +58,8 @@ void AdminControl::gatherProjects()
 
 Project* AdminControl::getProject(int _index, string _name)
 {
-    if(_index < 0 || _index > current_projects.size()){
-        for(int i = 0; i < current_projects.size(); i++)
+    if(_index < 0 || (unsigned int)_index > current_projects.size()){
+        for(unsigned int i = 0; i < current_projects.size(); i++)
         {
             if(_name.compare(current_projects.at(i)->getProjectName()) == 0)
             {

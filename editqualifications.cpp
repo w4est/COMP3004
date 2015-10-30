@@ -23,18 +23,19 @@ EditQualifications::~EditQualifications()
 {
     while(!frameList.empty())
     {
-        delete frameList.back();
+        QualFrame* temp = frameList.back();
         frameList.pop_back();
+        temp->deleteLater();
     }
-    delete layout;
-    delete widget;
-    delete scrollBoxLayout;
+    layout->deleteLater();
+    widget->deleteLater();
+    scrollBoxLayout->deleteLater();
     delete ui;
 }
 
 void EditQualifications::on_EditQualifications_destroyed()
 {
-    delete(this);
+    this->deleteLater();
 }
 
 void EditQualifications::reject()
@@ -42,7 +43,9 @@ void EditQualifications::reject()
     if(page == 0){
         control->unregisterTempUser(validUsername.toStdString());
     }
-    QDialog::reject();
+
+    this->deleteLater();
+    control->shutdown();
 }
 
 void EditQualifications::on_ContinueButton_clicked()
@@ -55,13 +58,11 @@ void EditQualifications::on_ContinueButton_clicked()
         newVec.push_back(make_tuple(i+1, temp->getSliderValue()));
     }
     if(page == 0){
-        cout << "edit:: register :: " << control->getCurrentUser()<<endl;
         if(control->getCurrentUser()){
             control->getCurrentUser()->setPersonalQual(newVec);
         }
     }
     else if(page == 1){
-        cout << "edit:: register :: " << control->getCurrentUser()<<endl;
         if(control->getCurrentUser()){
             control->getCurrentUser()->setDesiredQual(newVec);
         }
@@ -73,15 +74,14 @@ void EditQualifications::on_ContinueButton_clicked()
     if(page == 0){
         Window = new EditQualifications(control, Window, childPos.x(), childPos.y(), validUsername, 1);
         Window->show();
-        delete(this);
+        this->deleteLater();
     }
     else if(page == 1)
     {
-        cout << control->getCurrentUser()->getPersonalQual().size() << " || " << control->getCurrentUser()->getDesiredQual().size() << " || " << control->getCurrentUser()->getUsername() << endl;
         control->registerUser();
         Window = new Login(control, Window, childPos.x(), childPos.y());
         Window->show();
-        delete(this);
+        this->deleteLater();
     }
 }
 
@@ -97,7 +97,7 @@ void EditQualifications::on_BackButton_clicked()
     }
 
     Window->show();
-    delete(this);
+    this->deleteLater();
 }
 
 //
@@ -152,7 +152,9 @@ QWidget* EditQualifications::buildQualWidget(QString _id, QString _desc, int _ra
     QualFrame* frame = new QualFrame(Window);
     frameList.push_back(frame);
     frame->setDescription(_desc);
-    frame->setId(_id);
+    int a = std::atoi(_id.toStdString().c_str());
+    frame->setId(std::to_string( a + 1).c_str());
+    frame->setRange(_range);
 
     return frame;
 }

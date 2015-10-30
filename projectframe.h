@@ -18,11 +18,16 @@ public:
 
     void setDescription(QString);
     void setChecked();
+    bool isChecked();
+    void setId(int);
+    int getId();
+
 protected:
     void mousePressEvent(QMouseEvent *);
 private:
     Ui::projectFrame *ui;
     AdminControl* control;
+    int id;
 };
 
 #endif // PROJECTFRAME_H

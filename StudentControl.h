@@ -13,6 +13,7 @@ public:
 	~StudentControl();
 
     void logout(QPoint*);
+    void shutdown();
 
 private:
 	MasterControl* m_Parent;

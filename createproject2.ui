@@ -73,10 +73,13 @@
     <enum>QFrame::Panel</enum>
    </property>
    <property name="text">
-    <string>Description goes here.</string>
+    <string>Select Qualification Item to view description</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="CreateButton">

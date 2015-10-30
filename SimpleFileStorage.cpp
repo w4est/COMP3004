@@ -74,7 +74,7 @@ void SimpleFileStorage::clearProjects()
         to_del.push_back(stuNode);
     }
 
-    for(int i = 0; i < to_del.size(); i++)
+    for(unsigned int i = 0; i < to_del.size(); i++)
     {
         proj_root->remove_node(to_del.back());
         to_del.pop_back();
@@ -90,7 +90,70 @@ void SimpleFileStorage::clearProjects()
 
 void SimpleFileStorage::addProject(Project &_project)
 {
+    isProjectModified = true;
+    reloadXMLFile(1);
 
+    rapidxml::xml_node<>* newStu = doc.allocate_node(rapidxml::node_element, "Project");
+    char* newStu_name = doc.allocate_string(_project.getOwner().c_str());
+    char* newStu_title = doc.allocate_string(_project.getProjectName().c_str());
+    rapidxml::xml_attribute<>* newStu_attr = doc.allocate_attribute("owner", newStu_name);
+    rapidxml::xml_attribute<>* newStu_Pro_title = doc.allocate_attribute("name", newStu_title);
+
+    newStu->append_attribute(newStu_attr);
+    newStu->append_attribute(newStu_Pro_title);
+    //
+    proj_root->append_node(newStu);
+    //
+    rapidxml::xml_node<>* newProj_Desc = doc.allocate_node(rapidxml::node_element, "Description");
+    rapidxml::xml_node<>* newProj_Stu = doc.allocate_node(rapidxml::node_element, "Student_List");
+    rapidxml::xml_node<>* newProj_Qual = doc.allocate_node(rapidxml::node_element, "Qualification_List");
+
+    char* desc_value = doc.allocate_string(_project.getProjectDescription().c_str());
+
+    newProj_Desc->value(desc_value);
+
+    newStu->append_node(newProj_Desc);
+
+    vector<string> proStu = _project.getStudents();
+
+    for (unsigned int i = 0; i < proStu.size(); i++){
+        rapidxml::xml_node<>* stuNode = doc.allocate_node(rapidxml::node_element, "Student");
+        char* stu_value = doc.allocate_string(proStu.at(i).c_str());
+
+        stuNode->value(stu_value);
+
+        newProj_Stu->append_node(stuNode);
+    }
+
+    newStu->append_node(newProj_Stu);
+
+    vector<pair<int, int> > proQual = _project.getQualifications();
+
+    for (unsigned int i = 0; i < proQual.size(); i++){
+        rapidxml::xml_node<>* quaNode = doc.allocate_node(rapidxml::node_element, "Qualification");
+
+        char* id_value = doc.allocate_string((to_string(proQual.at(i).first)).c_str());
+        char* value_value = doc.allocate_string(to_string(proQual.at(i).second).c_str());
+
+
+        rapidxml::xml_attribute<>* qual_id = doc.allocate_attribute("id", id_value);
+        quaNode->value(value_value);
+
+        quaNode->append_attribute(qual_id);
+
+        newProj_Qual->append_node(quaNode);
+    }
+
+    newStu->append_node(newProj_Qual);
+
+    //TO_SAVE___
+
+    string text = "\r\n";
+    rapidxml::print(back_inserter(text), doc, 0);
+
+    ofstream out(projectFile);
+    out << doc;
+    out.close();
 }
 
 void SimpleFileStorage::modifyProject(Project &_project)
@@ -153,7 +216,7 @@ void SimpleFileStorage::clearProfiles()
        to_del.push_back(stuNode);
     }
 
-    for(int i = 0; i < to_del.size(); i++)
+    for(unsigned int i = 0; i < to_del.size(); i++)
     {
         prof_root->remove_node(to_del.back());
         to_del.pop_back();
@@ -189,7 +252,7 @@ void SimpleFileStorage::addProfile(ProfileEntity& _profile)
 	//
 
 	vector<tuple<int, int> > perQual = _profile.getPersonalQual();
-	for (int i = 0; i < perQual.size(); i++){
+    for (unsigned int i = 0; i < perQual.size(); i++){
 		rapidxml::xml_node<>* tempNode = doc.allocate_node(rapidxml::node_element, "Qualification");
 		char* id_value = doc.allocate_string((to_string(get<0>(perQual[i]))).c_str());
 		char* value_value = doc.allocate_string((to_string(get<1>(perQual[i]))).c_str());
@@ -205,7 +268,7 @@ void SimpleFileStorage::addProfile(ProfileEntity& _profile)
 	}
 
 	vector<tuple<int, int> > desQual = _profile.getDesiredQual();
-	for (int i = 0; i < perQual.size(); i++){
+    for (unsigned int i = 0; i < perQual.size(); i++){
 		rapidxml::xml_node<>* tempNode = doc.allocate_node(rapidxml::node_element, "Qualification");
 		char* id_value = doc.allocate_string((to_string(get<0>(desQual[i]))).c_str());
 		char* value_value = doc.allocate_string((to_string(get<1>(desQual[i]))).c_str());
@@ -308,7 +371,6 @@ ProfileEntity* SimpleFileStorage::getProfile(string _username)
             {
                 tempDes.push_back(make_tuple(std::stoi(qualNode->first_attribute()->value()), std::stoi(qualNode->last_attribute()->value())));
             }
-            //cout << "type" << tempPers.size() << "||" << tempDes.size() << endl;
 
             newProf->setPersonalQual(tempPers);
             newProf->setDesiredQual(tempDes);
@@ -544,12 +606,11 @@ void SimpleFileStorage::reloadXMLFile(int _which, int _flag) //0 = profile, 1 = 
         std::streampos length(projectStream.tellg());
         projectStream.seekg(0, std::ios::beg);
 
-        cout << length << endl;
         projectBuffer.clear();
 
         projectBuffer.resize(static_cast<std::size_t>(length));
         projectStream.read(&projectBuffer[0], length);
-        cout << projectBuffer.size() << endl;
+
         //projectBuffer = vector<char>(istreambuf_iterator<char>(projectStream), istreambuf_iterator<char>());
 		projectBuffer.push_back('\0');
 
@@ -558,6 +619,6 @@ void SimpleFileStorage::reloadXMLFile(int _which, int _flag) //0 = profile, 1 = 
 
 		doc.parse<0>(&projectBuffer[0]);
 		proj_root = doc.first_node("Project_List");
-        cout << "ending" << proj_root<< endl;
+
 	}
 }

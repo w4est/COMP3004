@@ -25,6 +25,7 @@ private slots:
     void on_CreateProject_destroyed();
 
     void on_NextButton_clicked();
+    void reject();
 
 private:
     Ui::CreateProject *ui;
