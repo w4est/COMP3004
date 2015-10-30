@@ -1,5 +1,23 @@
 -----------------------------------------------------------------
 # COMP3004 
+
+## Merged Log v0.010 2:25am Oct 30th
+
+- fixed flow and change of windows failure
+
+- added true *shutdown* during window _reject_
+
+- added persistance of projects and functions for saving ProfileEntity and Project 
+
+- cleaned working directory a little
+
+- minor memory fixes (doubtful that they work) most memory issues are from rapidxml
+
+**TO DO Rename dialog windows to better represent actions (title) **
+
+**Ready To Merge**
+
+-----------------------------------------------------------------
 ## Merged Log v0.009 3:00am Oct 29th
 
 - fixed some of the glitching windows when changing controllers

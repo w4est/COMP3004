@@ -19,21 +19,30 @@ StorageManager::~StorageManager()
     {
         Qualification* temp = qualList.back();
         qualList.pop_back();
-        delete temp;
+
+        if(temp){
+            delete temp;
+        }
     }
 
     while(!projectList.empty())
     {
         Project* temp = projectList.back();
         projectList.pop_back();
-        delete temp;
+
+        if(temp){
+            delete temp;
+        }
     }
 
     while(!outEntities.empty())
     {
         ProfileEntity* temp = outEntities.back();
         outEntities.pop_back();
-        delete temp;
+
+        if(temp){
+            delete temp;
+        }
     }
 }
 
@@ -49,7 +58,8 @@ int StorageManager::getQualificationCount()
 
 ProfileEntity& StorageManager::getProfile(string _username)
 {
-	return *(dbObject->getProfile(_username));
+    outEntities.push_back(dbObject->getProfile(_username));
+    return *(outEntities.back());
 }
 
 void StorageManager::createProject(Project& _project)
@@ -74,11 +84,6 @@ void StorageManager::saveProjects()
     for(unsigned int i = 0; i < projectList.size(); i++){
         dbObject->addProject(*projectList.at(i));
     }
-}
-
-void StorageManager::testClear()
-{
-    dbObject->clearProfiles();
 }
 
 /**/
@@ -112,11 +117,24 @@ ProfileEntity& StorageManager::setNamePlaceholder(std::string _username)
     return *outEntities.back();
 }
 
+void StorageManager::saveProfile()
+{
+    if(outEntities.size() > 0){
+        dbObject->modifyProfile(*(outEntities.back()));
+    }
+}
+
 /**/
 void StorageManager::removeNamePlaceholder(std::string _username)
 {
     if(userNameExists(_username)){
         removeUser(POST_Placeholder + _username);
+        for(unsigned int i = 0; i < outEntities.size(); i++)
+        {
+            if(_username.compare(outEntities.at(i)->getUsername()) == 0){
+                outEntities.erase(outEntities.begin()+i);
+            }
+        }
     }
     return;
 }

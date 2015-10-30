@@ -27,11 +27,11 @@ public:
     void saveProjects();
 
     /*Profile modification*/
-    void testClear();
     ProfileEntity& getProfile(string);
     void registerUser(ProfileEntity&);
     void modifyUser(ProfileEntity&);
     void removeUser(string);
+    void saveProfile();
 
     /*Testing availability*/
     ProfileEntity& setNamePlaceholder(std::string);
