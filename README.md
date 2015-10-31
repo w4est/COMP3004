@@ -1,6 +1,17 @@
 -----------------------------------------------------------------
 # COMP3004 
 
+## Merged Log v0.011 9:34pm Oct 30th
+
+- tested the persistance of projects (working), but found only the last project was shown (on first load)
+
+- fixed display issue, (was adding to list OUTSIDE of for loop so only the last made was ever added to vector
+
+- fixed crashing on exit, do not delete widget in control Class; use delete_later INSIDE ui class
+
+- still need to rename dialogs (totally forgot)
+
+----------------------------------------------------------------
 ## Merged Log v0.010 2:25am Oct 30th
 
 - fixed flow and change of windows failure
