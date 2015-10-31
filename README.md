@@ -1,7 +1,7 @@
 -----------------------------------------------------------------
 # COMP3004 
 
-## Merged Log v0.011 9:34pm Oct 30th
+## Merged Log vB0.011 9:34pm Oct 30th
 
 - tested the persistance of projects (working), but found only the last project was shown (on first load)
 
@@ -12,7 +12,7 @@
 - still need to rename dialogs (totally forgot)
 
 ----------------------------------------------------------------
-## Merged Log v0.010 2:25am Oct 30th
+## Merged Log vB0.010 2:25am Oct 30th
 
 - fixed flow and change of windows failure
 
@@ -29,7 +29,7 @@
 **Ready To Merge**
 
 -----------------------------------------------------------------
-## Merged Log v0.009 3:00am Oct 29th
+## Merged Log vB0.009 3:00am Oct 29th
 
 - fixed some of the glitching windows when changing controllers
 
@@ -49,7 +49,7 @@
 _something I really don't want to do, but find a way to clean up the lost memory_
 
 -----------------------------------------------------------------
-## Merged Log v0.008
+## Merged Log vB0.008
 
 - Somewhat merged (or moreso adapted) wills admin stuff to the MasterControl and flow entities
 
@@ -62,7 +62,7 @@ _something I really don't want to do, but find a way to clean up the lost memory
 - **TODO** 3 versions of the descriptions of the qualifications
 
 -----------------------------------------------------------------
-## Merged Log v0.007
+## Merged Log vB0.007
 
 Branch Author | version style
 ------------- | -------------
