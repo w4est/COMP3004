@@ -13,7 +13,8 @@ StudentControl::~StudentControl()
 {
     m_Parent = 0;
 
-    if(student_window) delete student_window;
+    //if(student_window) delete student_window;
+    student_window = NULL;
 }
 
 void StudentControl::shutdown()

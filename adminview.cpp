@@ -22,17 +22,20 @@ AdminView::~AdminView()
     control = 0;
     selected = 0;
 
-    while(!sList.empty())
+    ui->ProjectList->clear();
+    ui->StudentList->clear();
+
+    /*while(!sList.empty())
     {
-        delete sList.back();
+        //delete sList.back();
         sList.pop_back();
     }
 
     while(!wList.empty())
     {
-        delete wList.back();
+        //delete wList.back();
         wList.pop_back();
-    }
+    }*/
 
 
     delete ui;
@@ -96,7 +99,7 @@ void AdminView::buildProjectList()
         if(tm){
             if(tm->getOwner().compare(control->getLoggedUser()->getUsername()) == 0){
                 QListWidgetItem* t = new QListWidgetItem(tm->getProjectName().c_str());
-                wList.push_back(t);
+                //wList.push_back(t);
 
                 ui->ProjectList->addItem(t);
             }
@@ -120,7 +123,7 @@ void AdminView::on_ProjectList_itemClicked(QListWidgetItem *item)
     for(unsigned int i = 0; i < t.size(); i++)
     {
         QListWidgetItem* s = new QListWidgetItem(t.at(i).c_str());
-        sList.push_back(s);
+        //sList.push_back(s);
 
         ui->StudentList->addItem(s);
     }

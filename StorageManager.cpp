@@ -182,4 +182,5 @@ void StorageManager::loadQualifications()
 void StorageManager::loadProjects()
 {
     dbObject->getProjectList(&projectList);
+    cout << "projectList::" << projectList.size() << endl;
 }

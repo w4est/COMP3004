@@ -438,9 +438,10 @@ void SimpleFileStorage::getProjectList(vector<Project *> *_pList)
                 newPro->setQualifications(qList);
             }
         }
+    _pList->push_back(newPro);
     }
 
-    _pList->push_back(newPro);
+
 }
 
 void SimpleFileStorage::getQualificationList(vector<Qualification *> *_qList)
@@ -504,7 +505,6 @@ void SimpleFileStorage::getQualificationList(vector<Qualification *> *_qList)
         _qList->push_back(newQual);
     }
 
-    root_node = 0;
     temp.close();
 }
 

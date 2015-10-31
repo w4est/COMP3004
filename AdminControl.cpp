@@ -14,7 +14,8 @@ AdminControl::~AdminControl()
 {
     m_Parent = 0;
 
-    if(admin_window) admin_window->deleteLater();
+    //if(admin_window) admin_window->deleteLater();
+    admin_window = NULL;
 }
 
 void AdminControl::shutdown()
