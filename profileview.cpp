@@ -25,9 +25,10 @@ void ProfileView::on_BackButton_clicked()
 {
     //QPoint childPos = this->mapToGlobal(QPoint(0,0));
     control->logout(new QPoint(this->mapToGlobal(QPoint(0,0))));
+    this->deleteLater();
 }
 
 void ProfileView::reject()
 {
-    delete(this);
+    this->deleteLater();
 }

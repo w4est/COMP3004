@@ -21,7 +21,7 @@
 		<DesiredDescription>...</PersonalDescription>
 		<AdminDescription>...</AdminDescription>
 		<Type>slide_range</Type>
-		<Range>7</Range>
+		<Range>5</Range>
 		<Value>-1</Value>
 	</Qualification>
 	<Qualification id="2">
