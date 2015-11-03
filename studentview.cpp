@@ -11,6 +11,8 @@ StudentView::StudentView(StudentControl *_control, QWidget *parent, int _x, int 
     this->move(_x, _y - 28);
 
     ui->setupUi(this);
+    string title = control->getLoggedUser()->getUsername() + "'s Account";
+    this->setWindowTitle(title.c_str());
 }
 
 StudentView::~StudentView()

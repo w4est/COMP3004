@@ -12,6 +12,8 @@ ProfileView::ProfileView(StudentControl *_control, QWidget *parent, int _x, int 
 
     ui->setupUi(this);
 
+    string title = "View and Edit Profile";
+    this->setWindowTitle(title.c_str());
     buildQualList();
 
 

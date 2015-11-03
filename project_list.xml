@@ -1,11 +1,9 @@
 <Project_List>
-	<Project owner="Christine" name="TESTING TESTING">
-		<Description>It&apos;s a teeeeessssssttttttt, and all that encompases</Description>
+	<Project owner="Christine" name="Test_Project_001">
+		<Description>Description for Test_Project_001</Description>
 		<Student_List>
-			<Student>Lisa</Student>
-			<Student>Brent</Student>
-			<Student>Hagsworth</Student>
-			<Student>Vladamir</Student>
+			<Student>GeorgeJohnson</Student>
+			<Student>IrisHarper</Student>
 		</Student_List>
 		<Qualification_List>
 			<Qualification id="0">0</Qualification>
@@ -16,83 +14,135 @@
 			<Qualification id="27">0</Qualification>
 			<Qualification id="28">0</Qualification>
 			<Qualification id="29">0</Qualification>
-			<Qualification id="30">6</Qualification>
+			<Qualification id="30">3</Qualification>
 			<Qualification id="31">1</Qualification>
 		</Qualification_List>
 	</Project>
-	<Project owner="Christine" name="Trial_001">
-		<Description>This is a test</Description>
-		<Student_List/>
+	<Project owner="Christine" name="Test_002">
+		<Description>Description for project Test_002</Description>
+		<Student_List>
+			<Student>BobThompson</Student>
+			<Student>DevinMcCain</Student>
+			<Student>EveJohnson</Student>
+			<Student>IrisSimon</Student>
+			<Student>BobSmith</Student>
+			<Student>EveMcCain</Student>
+			<Student>GeorgeFreeman</Student>
+			<Student>AliceYoung</Student>
+			<Student>GeorgeJohnson</Student>
+			<Student>HarryFreeman</Student>
+			<Student>AliceSimon</Student>
+			<Student>IrisFreeman</Student>
+			<Student>AliceJones</Student>
+			<Student>BobSimon</Student>
+			<Student>CainSimon</Student>
+		</Student_List>
 		<Qualification_List>
-			<Qualification id="0">1</Qualification>
-			<Qualification id="1">1</Qualification>
-			<Qualification id="5">1</Qualification>
-			<Qualification id="6">1</Qualification>
-			<Qualification id="7">1</Qualification>
-			<Qualification id="8">1</Qualification>
-			<Qualification id="9">1</Qualification>
-			<Qualification id="10">1</Qualification>
-			<Qualification id="11">1</Qualification>
-			<Qualification id="12">1</Qualification>
-			<Qualification id="13">1</Qualification>
-			<Qualification id="14">1</Qualification>
-			<Qualification id="15">1</Qualification>
-			<Qualification id="16">1</Qualification>
-			<Qualification id="17">1</Qualification>
-			<Qualification id="18">1</Qualification>
-			<Qualification id="19">1</Qualification>
-			<Qualification id="20">1</Qualification>
-			<Qualification id="21">1</Qualification>
-			<Qualification id="22">1</Qualification>
-			<Qualification id="23">1</Qualification>
-			<Qualification id="24">1</Qualification>
-			<Qualification id="25">1</Qualification>
-			<Qualification id="26">1</Qualification>
-			<Qualification id="27">1</Qualification>
-			<Qualification id="28">1</Qualification>
-			<Qualification id="29">1</Qualification>
-			<Qualification id="31">1</Qualification>
-			<Qualification id="32">1</Qualification>
+			<Qualification id="0">0</Qualification>
+			<Qualification id="1">0</Qualification>
+			<Qualification id="2">0</Qualification>
+			<Qualification id="3">0</Qualification>
+			<Qualification id="4">0</Qualification>
+			<Qualification id="5">0</Qualification>
+			<Qualification id="8">0</Qualification>
+			<Qualification id="11">0</Qualification>
+			<Qualification id="12">0</Qualification>
+			<Qualification id="13">0</Qualification>
+			<Qualification id="14">0</Qualification>
+			<Qualification id="15">0</Qualification>
+			<Qualification id="16">0</Qualification>
+			<Qualification id="17">0</Qualification>
+			<Qualification id="19">0</Qualification>
+			<Qualification id="20">0</Qualification>
+			<Qualification id="21">0</Qualification>
+			<Qualification id="22">0</Qualification>
+			<Qualification id="23">0</Qualification>
+			<Qualification id="24">0</Qualification>
+			<Qualification id="25">0</Qualification>
+			<Qualification id="26">0</Qualification>
+			<Qualification id="27">0</Qualification>
+			<Qualification id="28">0</Qualification>
+			<Qualification id="29">0</Qualification>
+			<Qualification id="30">-2</Qualification>
 		</Qualification_List>
 	</Project>
-	<Project owner="Christine" name="Trial_002">
-		<Description>Persistance Check</Description>
-		<Student_List/>
+	<Project owner="Christine" name="Test_Project_003">
+		<Description>Test for no grade requirement</Description>
+		<Student_List>
+			<Student>AliceSmith</Student>
+			<Student>CainStevens</Student>
+			<Student>DevinMcCain</Student>
+			<Student>FrankFreeman</Student>
+			<Student>GeorgeHarper</Student>
+			<Student>HarryJones</Student>
+			<Student>IrisSimon</Student>
+			<Student>JeffYoung</Student>
+			<Student>FrankJohnson</Student>
+			<Student>HarryHarper</Student>
+			<Student>IrisJones</Student>
+			<Student>EveStevens</Student>
+			<Student>FrankMcCain</Student>
+			<Student>JeffJones</Student>
+			<Student>DevinSmith</Student>
+			<Student>FrankStevens</Student>
+			<Student>GeorgeMcCain</Student>
+			<Student>HarryJohnson</Student>
+			<Student>AliceJones</Student>
+			<Student>CainYoung</Student>
+			<Student>BobJones</Student>
+			<Student>DevinYoung</Student>
+		</Student_List>
 		<Qualification_List>
-			<Qualification id="0">1</Qualification>
-			<Qualification id="1">1</Qualification>
-			<Qualification id="4">1</Qualification>
-			<Qualification id="6">1</Qualification>
-			<Qualification id="8">1</Qualification>
-			<Qualification id="9">1</Qualification>
-			<Qualification id="10">1</Qualification>
-			<Qualification id="11">1</Qualification>
-			<Qualification id="12">1</Qualification>
-			<Qualification id="13">1</Qualification>
-			<Qualification id="14">1</Qualification>
-			<Qualification id="15">1</Qualification>
-			<Qualification id="16">1</Qualification>
-			<Qualification id="17">1</Qualification>
-			<Qualification id="18">1</Qualification>
-			<Qualification id="19">1</Qualification>
-			<Qualification id="20">1</Qualification>
-			<Qualification id="21">1</Qualification>
-			<Qualification id="22">1</Qualification>
-			<Qualification id="23">1</Qualification>
-			<Qualification id="24">1</Qualification>
-			<Qualification id="25">1</Qualification>
-			<Qualification id="26">1</Qualification>
-			<Qualification id="27">1</Qualification>
-			<Qualification id="28">1</Qualification>
-			<Qualification id="29">1</Qualification>
-			<Qualification id="30">1</Qualification>
-			<Qualification id="31">1</Qualification>
-			<Qualification id="32">1</Qualification>
+			<Qualification id="0">0</Qualification>
+			<Qualification id="1">0</Qualification>
+			<Qualification id="2">0</Qualification>
+			<Qualification id="3">0</Qualification>
+			<Qualification id="4">0</Qualification>
+			<Qualification id="5">0</Qualification>
+			<Qualification id="6">0</Qualification>
+			<Qualification id="7">0</Qualification>
+			<Qualification id="8">0</Qualification>
+			<Qualification id="9">0</Qualification>
+			<Qualification id="10">0</Qualification>
+			<Qualification id="11">0</Qualification>
+			<Qualification id="12">0</Qualification>
+			<Qualification id="13">0</Qualification>
+			<Qualification id="14">0</Qualification>
+			<Qualification id="15">0</Qualification>
+			<Qualification id="16">0</Qualification>
+			<Qualification id="17">0</Qualification>
+			<Qualification id="18">0</Qualification>
+			<Qualification id="19">0</Qualification>
+			<Qualification id="20">0</Qualification>
+			<Qualification id="21">0</Qualification>
+			<Qualification id="22">0</Qualification>
+			<Qualification id="23">0</Qualification>
+			<Qualification id="24">0</Qualification>
+			<Qualification id="25">0</Qualification>
+			<Qualification id="26">0</Qualification>
+			<Qualification id="27">0</Qualification>
+			<Qualification id="28">0</Qualification>
+			<Qualification id="29">0</Qualification>
 		</Qualification_List>
 	</Project>
 	<Project owner="Christine" name="Test_004">
-		<Description>Testing new ProjectFrame</Description>
-		<Student_List/>
+		<Description>Test for all 3 grade requirements </Description>
+		<Student_List>
+			<Student>GeorgeHarper</Student>
+			<Student>HarryJones</Student>
+			<Student>EveMcCain</Student>
+			<Student>FrankJohnson</Student>
+			<Student>DevinThompson</Student>
+			<Student>EveStevens</Student>
+			<Student>FrankMcCain</Student>
+			<Student>GeorgeJohnson</Student>
+			<Student>BobYoung</Student>
+			<Student>DevinSmith</Student>
+			<Student>BobSimon</Student>
+			<Student>EveSmith</Student>
+			<Student>FrankThompson</Student>
+			<Student>CainSimon</Student>
+		</Student_List>
 		<Qualification_List>
 			<Qualification id="0">0</Qualification>
 			<Qualification id="1">0</Qualification>
@@ -124,12 +174,121 @@
 			<Qualification id="27">0</Qualification>
 			<Qualification id="28">0</Qualification>
 			<Qualification id="29">0</Qualification>
-			<Qualification id="30">1</Qualification>
+			<Qualification id="30">-3</Qualification>
+			<Qualification id="31">-3</Qualification>
+			<Qualification id="32">-3</Qualification>
+		</Qualification_List>
+	</Project>
+	<Project owner="Christine" name="Test_Project_005">
+		<Description>Test for Open COMP2804</Description>
+		<Student_List>
+			<Student>AliceSmith</Student>
+			<Student>BobThompson</Student>
+			<Student>CainStevens</Student>
+			<Student>EveJohnson</Student>
+			<Student>HarryJones</Student>
+			<Student>BobSmith</Student>
+			<Student>CainThompson</Student>
+			<Student>HarryHarper</Student>
+			<Student>CainSmith</Student>
+			<Student>JeffJones</Student>
+			<Student>HarryJohnson</Student>
+			<Student>IrisFreeman</Student>
+			<Student>JeffHarper</Student>
+			<Student>BobSimon</Student>
+			<Student>CainYoung</Student>
+			<Student>EveSmith</Student>
+			<Student>GeorgeStevens</Student>
+			<Student>HarryMcCain</Student>
+			<Student>IrisJohnson</Student>
+			<Student>JeffFreeman</Student>
+			<Student>AliceHarper</Student>
+		</Student_List>
+		<Qualification_List>
+			<Qualification id="0">0</Qualification>
+			<Qualification id="1">0</Qualification>
+			<Qualification id="2">0</Qualification>
+			<Qualification id="3">0</Qualification>
+			<Qualification id="4">0</Qualification>
+			<Qualification id="5">0</Qualification>
+			<Qualification id="6">0</Qualification>
+			<Qualification id="7">0</Qualification>
+			<Qualification id="8">0</Qualification>
+			<Qualification id="9">0</Qualification>
+			<Qualification id="10">0</Qualification>
+			<Qualification id="11">0</Qualification>
+			<Qualification id="12">0</Qualification>
+			<Qualification id="13">0</Qualification>
+			<Qualification id="14">0</Qualification>
+			<Qualification id="15">0</Qualification>
+			<Qualification id="16">0</Qualification>
+			<Qualification id="17">0</Qualification>
+			<Qualification id="18">0</Qualification>
+			<Qualification id="19">0</Qualification>
+			<Qualification id="20">0</Qualification>
+			<Qualification id="21">0</Qualification>
+			<Qualification id="22">0</Qualification>
+			<Qualification id="23">0</Qualification>
+			<Qualification id="24">0</Qualification>
+			<Qualification id="25">0</Qualification>
+			<Qualification id="26">0</Qualification>
+			<Qualification id="27">0</Qualification>
+			<Qualification id="28">0</Qualification>
+			<Qualification id="29">0</Qualification>
 			<Qualification id="31">-7</Qualification>
 		</Qualification_List>
 	</Project>
-	<Project owner="Christine" name="New PRoject">
-		<Description>A new project with exclusively high standards</Description>
+	<Project owner="Christine" name="Test_006">
+		<Description>Test for minimum B+ COMP1805</Description>
+		<Student_List>
+			<Student>CainThompson</Student>
+			<Student>EveMcCain</Student>
+			<Student>DevinThompson</Student>
+			<Student>EveStevens</Student>
+			<Student>GeorgeJohnson</Student>
+			<Student>IrisHarper</Student>
+			<Student>AliceSimon</Student>
+			<Student>GeorgeMcCain</Student>
+			<Student>AliceJones</Student>
+			<Student>HarryMcCain</Student>
+			<Student>CainSimon</Student>
+		</Student_List>
+		<Qualification_List>
+			<Qualification id="0">0</Qualification>
+			<Qualification id="1">0</Qualification>
+			<Qualification id="2">0</Qualification>
+			<Qualification id="3">0</Qualification>
+			<Qualification id="4">0</Qualification>
+			<Qualification id="5">0</Qualification>
+			<Qualification id="6">0</Qualification>
+			<Qualification id="7">0</Qualification>
+			<Qualification id="8">0</Qualification>
+			<Qualification id="9">0</Qualification>
+			<Qualification id="10">0</Qualification>
+			<Qualification id="11">0</Qualification>
+			<Qualification id="12">0</Qualification>
+			<Qualification id="13">0</Qualification>
+			<Qualification id="14">0</Qualification>
+			<Qualification id="15">0</Qualification>
+			<Qualification id="16">0</Qualification>
+			<Qualification id="17">0</Qualification>
+			<Qualification id="18">0</Qualification>
+			<Qualification id="19">0</Qualification>
+			<Qualification id="20">0</Qualification>
+			<Qualification id="21">0</Qualification>
+			<Qualification id="22">0</Qualification>
+			<Qualification id="23">0</Qualification>
+			<Qualification id="24">0</Qualification>
+			<Qualification id="25">0</Qualification>
+			<Qualification id="26">0</Qualification>
+			<Qualification id="27">0</Qualification>
+			<Qualification id="28">0</Qualification>
+			<Qualification id="29">0</Qualification>
+			<Qualification id="30">3</Qualification>
+		</Qualification_List>
+	</Project>
+	<Project owner="Christine" name="Test_Project_007">
+		<Description>Test minmum A in COMP 2404</Description>
 		<Student_List/>
 		<Qualification_List>
 			<Qualification id="0">0</Qualification>
@@ -162,9 +321,79 @@
 			<Qualification id="27">0</Qualification>
 			<Qualification id="28">0</Qualification>
 			<Qualification id="29">0</Qualification>
-			<Qualification id="30">0</Qualification>
-			<Qualification id="31">0</Qualification>
-			<Qualification id="32">4</Qualification>
+			<Qualification id="32">5</Qualification>
+		</Qualification_List>
+	</Project>
+	<Project owner="Christine" name="FULL_OPEN_PROJECT">
+		<Description>Anyone can join this project so long as they have taken the three courses</Description>
+		<Student_List>
+			<Student>AliceSmith</Student>
+			<Student>BobThompson</Student>
+			<Student>CainStevens</Student>
+			<Student>EveJohnson</Student>
+			<Student>FrankFreeman</Student>
+			<Student>GeorgeHarper</Student>
+			<Student>HarryJones</Student>
+			<Student>JeffYoung</Student>
+			<Student>DevinStevens</Student>
+			<Student>EveMcCain</Student>
+			<Student>GeorgeFreeman</Student>
+			<Student>HarryHarper</Student>
+			<Student>FrankMcCain</Student>
+			<Student>HarryFreeman</Student>
+			<Student>IrisHarper</Student>
+			<Student>DevinSmith</Student>
+			<Student>EveThompson</Student>
+			<Student>FrankStevens</Student>
+			<Student>GeorgeMcCain</Student>
+			<Student>HarryJohnson</Student>
+			<Student>JeffHarper</Student>
+			<Student>CainYoung</Student>
+			<Student>EveSmith</Student>
+			<Student>FrankThompson</Student>
+			<Student>GeorgeStevens</Student>
+			<Student>HarryMcCain</Student>
+			<Student>IrisJohnson</Student>
+			<Student>JeffFreeman</Student>
+			<Student>AliceHarper</Student>
+			<Student>BobJones</Student>
+			<Student>CainSimon</Student>
+			<Student>DevinYoung</Student>
+		</Student_List>
+		<Qualification_List>
+			<Qualification id="0">0</Qualification>
+			<Qualification id="1">0</Qualification>
+			<Qualification id="2">0</Qualification>
+			<Qualification id="3">0</Qualification>
+			<Qualification id="4">0</Qualification>
+			<Qualification id="5">0</Qualification>
+			<Qualification id="6">0</Qualification>
+			<Qualification id="7">0</Qualification>
+			<Qualification id="8">0</Qualification>
+			<Qualification id="9">0</Qualification>
+			<Qualification id="10">0</Qualification>
+			<Qualification id="11">0</Qualification>
+			<Qualification id="12">0</Qualification>
+			<Qualification id="13">0</Qualification>
+			<Qualification id="14">0</Qualification>
+			<Qualification id="15">0</Qualification>
+			<Qualification id="16">0</Qualification>
+			<Qualification id="17">0</Qualification>
+			<Qualification id="18">0</Qualification>
+			<Qualification id="19">0</Qualification>
+			<Qualification id="20">0</Qualification>
+			<Qualification id="21">0</Qualification>
+			<Qualification id="22">0</Qualification>
+			<Qualification id="23">0</Qualification>
+			<Qualification id="24">0</Qualification>
+			<Qualification id="25">0</Qualification>
+			<Qualification id="26">0</Qualification>
+			<Qualification id="27">0</Qualification>
+			<Qualification id="28">0</Qualification>
+			<Qualification id="29">0</Qualification>
+			<Qualification id="30">-7</Qualification>
+			<Qualification id="31">-7</Qualification>
+			<Qualification id="32">-7</Qualification>
 		</Qualification_List>
 	</Project>
 </Project_List>
