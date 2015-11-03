@@ -5,6 +5,7 @@
 #include "profileview.h"
 #include "studentview.h"
 #include "ProfileEntity.h"
+#include "StorageManager.h"
 
 class MasterControl;
 
@@ -20,6 +21,7 @@ public:
     void shutdown();
     const vector<Qualification*>& getQualList();
     ProfileEntity* getLoggedUser();
+    StorageManager& getStorageAccess();
 
 private:
 	MasterControl* m_Parent;

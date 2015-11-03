@@ -7,6 +7,7 @@
 #include <QVBoxLayout>
 #include "StudentControl.h"
 #include "qualframe.h"
+#include "StorageManager.h"
 
 class StudentControl;
 

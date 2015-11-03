@@ -74,7 +74,7 @@ void ProfileView::buildQualList()
    QWidget *form;
    widget = new QWidget();
    layout = new QVBoxLayout();
-   std::cout << get<1>(tupleList.at(0)) << endl;
+
     Qualification* temp;
 
     for(unsigned int i = 0; i < qualList.size(); i++)
@@ -126,7 +126,23 @@ QWidget* ProfileView::buildQualWidget(QString _id, QString _desc, int _range, in
  * */
 void ProfileView::on_SaveButton_clicked()
 {
+    //Save current page.
+    if (page == 0){
+        for (int i = 0; i < qualSize; i++){
+            get<1>(personalTupleList.at(i)) = frameList.at(i)->getSliderValue();
 
+        }
+    }
+    else{
+        for (int i = 0; i < qualSize; i++){
+            get<1>(desiredTupleList.at(i)) = frameList.at(i)->getSliderValue();
+
+        }
+    }
+    //Save to manager.
+    Account->setPersonalQual(personalTupleList);
+    Account->setDesiredQual(desiredTupleList);
+    control->getStorageAccess().saveProfile();
 }
 
 /*
@@ -140,7 +156,7 @@ void ProfileView::on_DesiredButton_clicked()
 
 
     for (int i = 0; i < qualSize; i++){
-        get<1>(personalTupleList<i>) = frameList.at(i)->getSliderValue();
+        get<1>(personalTupleList.at(i)) = frameList.at(i)->getSliderValue();
         frameList.at(i)->setValue(get<1>(desiredTupleList.at(i)));
     }
 
@@ -157,7 +173,7 @@ void ProfileView::on_PersonalButton_clicked()
 
 
     for (int i = 0; i < qualSize; i++){
-        get<1>(desiredTupleList<i>) = frameList.at(i)->getSliderValue();
+        get<1>(desiredTupleList.at(i)) = frameList.at(i)->getSliderValue();
         frameList.at(i)->setValue(get<1>(personalTupleList.at(i)));
     }
 

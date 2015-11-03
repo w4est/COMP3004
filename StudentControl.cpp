@@ -68,3 +68,8 @@ ProfileEntity* StudentControl::getLoggedUser()
 {
     return m_Parent->getLoggedUser();
 }
+
+StorageManager& StudentControl::getStorageAccess(){
+
+    return m_Parent->getStorageAccess();
+}
