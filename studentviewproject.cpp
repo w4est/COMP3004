@@ -46,7 +46,7 @@ void studentViewProject::reject()
 
 void studentViewProject::on_ProjectList_itemClicked(QListWidgetItem *item)
 {
-    ui->StudentList->clear();
+    ui->ProjectList->clear();
 
 
     selected = control->getProject(-1, item->text().toStdString());
@@ -57,7 +57,7 @@ void studentViewProject::on_ProjectList_itemClicked(QListWidgetItem *item)
     {
         QListWidgetItem* s = new QListWidgetItem(t.at(i).c_str());
 
-        ui->StudentList->addItem(s);
+        ui->ProjectList->addItem(s);
     }
 }
 

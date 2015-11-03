@@ -124,3 +124,4 @@ void MasterControl::kill()
     delete this;
     app->quit();
 }
+

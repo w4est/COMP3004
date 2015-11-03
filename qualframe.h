@@ -22,6 +22,7 @@ public:
     void setRange(int);
     void setType(int);
     int getSliderValue();
+    void setValue(int);
 
 
 protected:
