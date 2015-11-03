@@ -1,310 +1,271 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <Types>
-	slide_range
-	list_range
-	true_false
-	grade
+slide_range
+grade
 </Types>
-
 <Qualification_List>
-	<Qualification id="0">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>THIS IS A RIGID TEst</AdminDescription>
-		<Type>grade</Type>
-		<Range>5</Range>
-		<Value>0</Value>
-	</Qualification>
-	<Qualification id="1">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>5</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="2">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="3">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="4">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="5">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="6">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="7">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="8">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="9">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="10">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="11">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="12">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="13">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="14">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="15">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="16">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="17">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="18">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="19">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="20">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="21">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="22">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="23">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="24">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="25">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="26">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="27">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="28">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="29">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="30">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="31">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="32">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="33">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>slide_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="34">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="35">
-		<PersonalDescription>...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>list_range</Type>
-		<Range>7</Range>
-		<Value>-1</Value>
-	</Qualification>
-	<Qualification id="36">
-		<PersonalDescription>And In The Beginning...</PersonalDescription>
-		<DesiredDescription>...</PersonalDescription>
-		<AdminDescription>...</AdminDescription>
-		<Type>true_false</Type>
-		<Range>99</Range>
-		<Value>-1</Value>
-	</Qualification>
+<Qualification id="0">
+<PersonalDescription>You try to respond to your e-mails as soon as possible and cannot stand a messy inbox.</PersonalDescription>
+<DesiredDescription>You try to respond to your e-mails as soon as possible and cannot stand a messy inbox.</DesiredDescription>
+<AdminDescription>You try to respond to your e-mails as soon as possible and cannot stand a messy inbox.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="1">
+<PersonalDescription>You find it easy to stay relaxed and focused even when there is some pressure.</PersonalDescription>
+<DesiredDescription>You find it easy to stay relaxed and focused even when there is some pressure.</DesiredDescription>
+<AdminDescription>You find it easy to stay relaxed and focused even when there is some pressure.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="2">
+<PersonalDescription>You don’t usually initiate conversations.</PersonalDescription>
+<DesiredDescription>You don’t usually initiate conversations.</DesiredDescription>
+<AdminDescription>You don’t usually initiate conversations.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="3">
+<PersonalDescription>Being adaptable is more important to you than being organized.</PersonalDescription>
+<DesiredDescription>Being adaptable is more important to you than being organized.</DesiredDescription>
+<AdminDescription>Being adaptable is more important to you than being organized.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="4">
+<PersonalDescription>Winning a debate is more important to you than making sure no one gets upset.</PersonalDescription>
+<DesiredDescription>Winning a debate is more important to you than making sure no one gets upset.</DesiredDescription>
+<AdminDescription>Winning a debate is more important to you than making sure no one gets upset.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="5">
+<PersonalDescription>You often feel as if you have to justify yourself to other people.</PersonalDescription>
+<DesiredDescription>You often feel as if you have to justify yourself to other people.</DesiredDescription>
+<AdminDescription>You often feel as if you have to justify yourself to other people.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="6">
+<PersonalDescription>Your home and work environments are quite tidy.</PersonalDescription>
+<DesiredDescription>Your home and work environments are quite tidy.</DesiredDescription>
+<AdminDescription>Your home and work environments are quite tidy.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="7">
+<PersonalDescription>You feel anxious if you have several equally good options to choose from.</PersonalDescription>
+<DesiredDescription>You feel anxious if you have several equally good options to choose from.</DesiredDescription>
+<AdminDescription>You feel anxious if you have several equally good options to choose from.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="8">
+<PersonalDescription>Your travel plans are usually well thought out.</PersonalDescription>
+<DesiredDescription>Your travel plans are usually well thought out.</DesiredDescription>
+<AdminDescription>Your travel plans are usually well thought out.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="9">
+<PersonalDescription>It is often difficult for you to relate to other people’s feelings.</PersonalDescription>
+<DesiredDescription>It is often difficult for you to relate to other people’s feelings.</DesiredDescription>
+<AdminDescription>It is often difficult for you to relate to other people’s feelings.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="10">
+<PersonalDescription>In a discussion, truth should be more important than people’s sensitivities.</PersonalDescription>
+<DesiredDescription>In a discussion, truth should be more important than people’s sensitivities.</DesiredDescription>
+<AdminDescription>In a discussion, truth should be more important than people’s sensitivities.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="11">
+<PersonalDescription>You rarely worry about how your actions affect other people.</PersonalDescription>
+<DesiredDescription>You rarely worry about how your actions affect other people.</DesiredDescription>
+<AdminDescription>You rarely worry about how your actions affect other people.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="12">
+<PersonalDescription>Your work style is closer to random energy spikes than to a methodical and organized approach.</PersonalDescription>
+<DesiredDescription>Your work style is closer to random energy spikes than to a methodical and organized approach.</DesiredDescription>
+<AdminDescription>Your work style is closer to random energy spikes than to a methodical and organized approach.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="13">
+<PersonalDescription>An interesting book or a video game is often better than a social event.</PersonalDescription>
+<DesiredDescription>An interesting book or a video game is often better than a social event.</DesiredDescription>
+<AdminDescription>An interesting book or a video game is often better than a social event.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="14">
+<PersonalDescription>Being able to develop a plan and stick to it is the most important part of every project.</PersonalDescription>
+<DesiredDescription>Being able to develop a plan and stick to it is the most important part of every project.</DesiredDescription>
+<AdminDescription>Being able to develop a plan and stick to it is the most important part of every project.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="15">
+<PersonalDescription>It does not take you much time to start getting involved in social activities at your new workplace.</PersonalDescription>
+<DesiredDescription>It does not take you much time to start getting involved in social activities at your new workplace.</DesiredDescription>
+<AdminDescription>It does not take you much time to start getting involved in social activities at your new workplace.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="16">
+<PersonalDescription>You are more of a natural improviser than a careful planner.</PersonalDescription>
+<DesiredDescription>You are more of a natural improviser than a careful planner.</DesiredDescription>
+<AdminDescription>You are more of a natural improviser than a careful planner.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="17">
+<PersonalDescription>It is hard for you to make up your mind, even about small things – like what to eat or wear.</PersonalDescription>
+<DesiredDescription>It is hard for you to make up your mind, even about small things – like what to eat or wear.</DesiredDescription>
+<AdminDescription>It is hard for you to make up your mind, even about small things – like what to eat or wear.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="18">
+<PersonalDescription>You often spend time exploring unrealistic and impractical yet intriguing ideas.</PersonalDescription>
+<DesiredDescription>You often spend time exploring unrealistic and impractical yet intriguing ideas.</DesiredDescription>
+<AdminDescription>You often spend time exploring unrealistic and impractical yet intriguing ideas.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="19">
+<PersonalDescription>You are a relatively reserved and quiet person.</PersonalDescription>
+<DesiredDescription>You are a relatively reserved and quiet person.</DesiredDescription>
+<AdminDescription>You are a relatively reserved and quiet person.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="20">
+<PersonalDescription>If you had a business, you would find it very difficult to fire loyal but underperforming employees.</PersonalDescription>
+<DesiredDescription>If you had a business, you would find it very difficult to fire loyal but underperforming employees.</DesiredDescription>
+<AdminDescription>If you had a business, you would find it very difficult to fire loyal but underperforming employees.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="21">
+<PersonalDescription>Logic is usually more important than heart when it comes to making important decisions.</PersonalDescription>
+<DesiredDescription>Logic is usually more important than heart when it comes to making important decisions.</DesiredDescription>
+<AdminDescription>Logic is usually more important than heart when it comes to making important decisions.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="22">
+<PersonalDescription>Keeping your options open is more important than having a to-do list.</PersonalDescription>
+<DesiredDescription>Keeping your options open is more important than having a to-do list.</DesiredDescription>
+<AdminDescription>Keeping your options open is more important than having a to-do list.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="23">
+<PersonalDescription>Being right is more important than being cooperative when it comes to teamwork.</PersonalDescription>
+<DesiredDescription>Being right is more important than being cooperative when it comes to teamwork.</DesiredDescription>
+<AdminDescription>Being right is more important than being cooperative when it comes to teamwork.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="24">
+<PersonalDescription>You feel more energetic after spending time with a group of people.</PersonalDescription>
+<DesiredDescription>You feel more energetic after spending time with a group of people.</DesiredDescription>
+<AdminDescription>You feel more energetic after spending time with a group of people.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="25">
+<PersonalDescription>You usually find it difficult to relax when talking in front of many people.</PersonalDescription>
+<DesiredDescription>You usually find it difficult to relax when talking in front of many people.</DesiredDescription>
+<AdminDescription>You usually find it difficult to relax when talking in front of many people.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="26">
+<PersonalDescription>You get easily bored with the usual way of doing things.</PersonalDescription>
+<DesiredDescription>You get easily bored with the usual way of doing things.</DesiredDescription>
+<AdminDescription>You get easily bored with the usual way of doing things.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="27">
+<PersonalDescription>When writing something, you spend most of the time searching for ideas.</PersonalDescription>
+<DesiredDescription>When writing something, you spend most of the time searching for ideas.</DesiredDescription>
+<AdminDescription>When writing something, you spend most of the time searching for ideas.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="28">
+<PersonalDescription>You focus on the possibilities rather than the realities.</PersonalDescription>
+<DesiredDescription>You focus on the possibilities rather than the realities.</DesiredDescription>
+<AdminDescription>You focus on the possibilities rather than the realities.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="29">
+<PersonalDescription>You often take initiative in social situations.</PersonalDescription>
+<DesiredDescription>You often take initiative in social situations.</DesiredDescription>
+<AdminDescription>You often take initiative in social situations.</AdminDescription>
+<Type>slide_range</Type>
+<Range>5</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="0">
+<PersonalDescription>1805</PersonalDescription>
+<DesiredDescription>1805</DesiredDescription>
+<AdminDescription>1805</AdminDescription>
+<Type>slide_range</Type>
+<Range>7</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="1">
+<PersonalDescription>2804</PersonalDescription>
+<DesiredDescription>2804</DesiredDescription>
+<AdminDescription>2804</AdminDescription>
+<Type>slide_range</Type>
+<Range>7</Range>
+<Value>0</Value>
+</Qualification>
+<Qualification id="2">
+<PersonalDescription>2404</PersonalDescription>
+<DesiredDescription>2404</DesiredDescription>
+<AdminDescription>2404</AdminDescription>
+<Type>slide_range</Type>
+<Range>7</Range>
+<Value>0</Value>
+</Qualification>
 </Qualification_List>
-
-
 

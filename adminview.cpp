@@ -11,8 +11,10 @@ AdminView::AdminView(AdminControl *_control, QWidget *parent, int _x, int _y) :
     control = _control;
 
     this->move(_x, _y - 28);
+    string title = _control->getLoggedUser()->getUsername() + "'s Account Page";
 
     ui->setupUi(this);
+    this->setWindowTitle(title.c_str());
 
     buildProjectList();
 }
@@ -104,16 +106,13 @@ void AdminView::buildProjectList()
                 ui->ProjectList->addItem(t);
             }
         }
+        tm = 0;
     }
 }
 
 void AdminView::on_ProjectList_itemClicked(QListWidgetItem *item)
 {
-    while(!sList.empty())
-    {
-        delete sList.back();
-        sList.pop_back();
-    }
+    ui->StudentList->clear();
 
 
     selected = control->getProject(-1, item->text().toStdString());
@@ -123,7 +122,6 @@ void AdminView::on_ProjectList_itemClicked(QListWidgetItem *item)
     for(unsigned int i = 0; i < t.size(); i++)
     {
         QListWidgetItem* s = new QListWidgetItem(t.at(i).c_str());
-        //sList.push_back(s);
 
         ui->StudentList->addItem(s);
     }

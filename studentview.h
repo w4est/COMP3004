@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "StudentControl.h"
 
+
 namespace Ui {
 class StudentView;
 }

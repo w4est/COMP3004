@@ -41,7 +41,10 @@ SOURCES += main.cpp\
     profileview.cpp \
     sqlstorage.cpp \
     projectframe.cpp \
-    studentview.cpp
+    studentview.cpp \
+    studentviewproject.cpp \
+    stuprojectframe.cpp
+
 
 HEADERS  += login.h \
     loggedin.h \
@@ -70,7 +73,10 @@ HEADERS  += login.h \
     profileview.h \
     sqlstorage.h \
     projectframe.h \
-    studentview.h
+    studentview.h \
+    studentviewproject.h \
+    stuprojectframe.h
+
 
 
 FORMS    += login.ui \
@@ -85,4 +91,7 @@ FORMS    += login.ui \
     adminview.ui \
     profileview.ui \
     projectframe.ui \
-    studentview.ui
+    studentview.ui \
+    studentviewproject.ui \
+    stuprojectframe.ui
+

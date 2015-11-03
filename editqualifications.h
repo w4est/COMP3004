@@ -50,7 +50,7 @@ private:
     int qualSize;
 
     void buildQualList();
-    QWidget* buildQualWidget(QString, QString, int);
+    QWidget* buildQualWidget(QString, QString, int, int);
 };
 
 #endif // EDITQUALIFICATIONS_H

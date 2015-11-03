@@ -36,7 +36,7 @@ void StudentView::on_StudentView_destroyed()
  * */
 void StudentView::on_ViewProjectButton_clicked()
 {
-    control->ViewProfile(Window,this->x(),this->y());
+    control->ViewProject(Window,this->x(),this->y());
     this->deleteLater();
 }
 

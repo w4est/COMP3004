@@ -14,8 +14,17 @@ EditQualifications::EditQualifications(LoginControl *_control, QWidget *parent, 
     page = _page;
 
     this->move(_x, _y - 28);
+    string title;
+
+    if(page == 0){
+        title = "Register Personal Qualifications";
+    }
+    else{
+        title = "Register Desired Qualifications";
+    }
 
     ui->setupUi(this);
+    this->setWindowTitle(title.c_str());
     buildQualList();
 }
 
@@ -128,10 +137,10 @@ void EditQualifications::buildQualList()
         temp = qualList[i];
 
         if(page == 0){
-            form = buildQualWidget(QString(std::to_string(temp->getId()).c_str()), QString(temp->getPersonalDescription().c_str()), temp->getRange());
+            form = buildQualWidget(QString(std::to_string(temp->getId()).c_str()), QString(temp->getPersonalDescription().c_str()), temp->getRange(), temp->getType());
         }
         else if(page == 1){
-            form = buildQualWidget(QString(std::to_string(temp->getId()).c_str()), QString(temp->getDesiredDescription().c_str()), temp->getRange());
+            form = buildQualWidget(QString(std::to_string(temp->getId()).c_str()), QString(temp->getDesiredDescription().c_str()), temp->getRange(), temp->getType());
         }
 
         layout->addWidget(form);
@@ -147,7 +156,7 @@ void EditQualifications::buildQualList()
     ui->scrollArea->setLayout(scrollBoxLayout);
 }
 
-QWidget* EditQualifications::buildQualWidget(QString _id, QString _desc, int _range)
+QWidget* EditQualifications::buildQualWidget(QString _id, QString _desc, int _range, int type)
 {
     QualFrame* frame = new QualFrame(Window);
     frameList.push_back(frame);
@@ -155,6 +164,7 @@ QWidget* EditQualifications::buildQualWidget(QString _id, QString _desc, int _ra
     int a = std::atoi(_id.toStdString().c_str());
     frame->setId(std::to_string( a + 1).c_str());
     frame->setRange(_range);
+    frame->setType(type);
 
     return frame;
 }

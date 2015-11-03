@@ -11,7 +11,10 @@ Login::Login(LoginControl *_control, QWidget *parent, int _x, int _y) :
     control = _control;
 
     this->move(_x, _y - 28);
+    string title = "Login";
+
     ui->setupUi(this);
+    this->setWindowTitle(title.c_str());
 }
 
 Login::~Login()
