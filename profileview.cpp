@@ -82,12 +82,11 @@ void ProfileView::buildQualList()
         temp = qualList[i];
 
         if(page == 0){
-            form = buildQualWidget(QString(std::to_string(temp->getId()).c_str()), QString(temp->getPersonalDescription().c_str()), temp->getRange(), get<1>(personalTupleList.at(i)));
+            form = buildQualWidget(QString(std::to_string(temp->getId()).c_str()), QString(temp->getPersonalDescription().c_str()), temp->getRange(), get<1>(personalTupleList.at(i)),temp->getType());
         }
         else if(page == 1){
-            form = buildQualWidget(QString(std::to_string(temp->getId()).c_str()), QString(temp->getDesiredDescription().c_str()), temp->getRange(), get<1>(desiredTupleList.at(i)));
+            form = buildQualWidget(QString(std::to_string(temp->getId()).c_str()), QString(temp->getDesiredDescription().c_str()), temp->getRange(), get<1>(desiredTupleList.at(i)),temp->getType());
         }
-
         layout->addWidget(form);
     }
 
@@ -106,7 +105,7 @@ void ProfileView::buildQualList()
  *
  * */
 
-QWidget* ProfileView::buildQualWidget(QString _id, QString _desc, int _range, int value)
+QWidget* ProfileView::buildQualWidget(QString _id, QString _desc, int _range, int value, int type)
 {
     QualFrame* frame = new QualFrame(Window);
     frameList.push_back(frame);
@@ -115,6 +114,7 @@ QWidget* ProfileView::buildQualWidget(QString _id, QString _desc, int _range, in
     frame->setId(std::to_string( a + 1).c_str());
     frame->setRange(_range);
     frame->setValue(value);
+    frame->setType(type);
 
     return frame;
 }

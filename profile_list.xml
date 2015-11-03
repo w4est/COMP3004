@@ -3632,10 +3632,10 @@
 			<Qualification id="27" value="0"/>
 			<Qualification id="28" value="0"/>
 			<Qualification id="29" value="0"/>
-			<Qualification id="30" value="0"/>
-			<Qualification id="31" value="0"/>
-			<Qualification id="32" value="0"/>
-			<Qualification id="33" value="0"/>
+			<Qualification id="30" value="3"/>
+			<Qualification id="31" value="4"/>
+			<Qualification id="32" value="5"/>
+			<Qualification id="33" value="6"/>
 		</PersonalQualifications>
 		<DesiredQualifications>
 			<Qualification id="1" value="-2"/>

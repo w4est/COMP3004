@@ -30,7 +30,7 @@ private slots:
 
     void on_ProfileView_destroyed();
 
-    QWidget* buildQualWidget(QString _id, QString _desc, int _range, int);
+    QWidget* buildQualWidget(QString _id, QString _desc, int _range, int,int);
     void buildQualList();
 
     void on_SaveButton_clicked();

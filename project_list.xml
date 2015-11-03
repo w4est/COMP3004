@@ -128,5 +128,44 @@
 			<Qualification id="31">-7</Qualification>
 		</Qualification_List>
 	</Project>
+	<Project owner="Christine" name="New PRoject">
+		<Description>A new project with exclusively high standards</Description>
+		<Student_List/>
+		<Qualification_List>
+			<Qualification id="0">0</Qualification>
+			<Qualification id="1">0</Qualification>
+			<Qualification id="2">0</Qualification>
+			<Qualification id="3">0</Qualification>
+			<Qualification id="4">0</Qualification>
+			<Qualification id="5">0</Qualification>
+			<Qualification id="6">0</Qualification>
+			<Qualification id="7">0</Qualification>
+			<Qualification id="8">0</Qualification>
+			<Qualification id="9">0</Qualification>
+			<Qualification id="10">0</Qualification>
+			<Qualification id="11">0</Qualification>
+			<Qualification id="12">0</Qualification>
+			<Qualification id="13">0</Qualification>
+			<Qualification id="14">0</Qualification>
+			<Qualification id="15">0</Qualification>
+			<Qualification id="16">0</Qualification>
+			<Qualification id="17">0</Qualification>
+			<Qualification id="18">0</Qualification>
+			<Qualification id="19">0</Qualification>
+			<Qualification id="20">0</Qualification>
+			<Qualification id="21">0</Qualification>
+			<Qualification id="22">0</Qualification>
+			<Qualification id="23">0</Qualification>
+			<Qualification id="24">0</Qualification>
+			<Qualification id="25">0</Qualification>
+			<Qualification id="26">0</Qualification>
+			<Qualification id="27">0</Qualification>
+			<Qualification id="28">0</Qualification>
+			<Qualification id="29">0</Qualification>
+			<Qualification id="30">0</Qualification>
+			<Qualification id="31">0</Qualification>
+			<Qualification id="32">4</Qualification>
+		</Qualification_List>
+	</Project>
 </Project_List>
 
