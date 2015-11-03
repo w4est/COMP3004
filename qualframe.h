@@ -20,6 +20,7 @@ public:
     void setDescription(QString);
     void setId(QString);
     void setRange(int);
+    void setType(int);
     int getSliderValue();
 
 
@@ -35,6 +36,7 @@ private slots:
 
 private:
     Ui::QualFrame *ui;
+    int type = -1;
 
 };
 

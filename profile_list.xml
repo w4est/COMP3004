@@ -321,5 +321,9 @@
 			<Qualification id="37" value="0"/>
 		</DesiredQualifications>
 	</Student>
+	<Student name="~~Ralut">
+		<PersonalQualifications/>
+		<DesiredQualifications/>
+	</Student>
 </Profile_List>
 

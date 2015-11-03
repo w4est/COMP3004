@@ -14,8 +14,10 @@ CreateProject2::CreateProject2(AdminControl* _control, QWidget *parent, int _x, 
     projectDescription = Description.toStdString();
     projectName = Name.toStdString();
     username = _username.toStdString(); //Pass the current user.
+    string title = "Create Project part 2";
 
     ui->setupUi(this);
+    this->setWindowTitle(title.c_str());
 
     buildPage();
 }

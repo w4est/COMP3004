@@ -9,9 +9,10 @@ RunPPID::RunPPID(AdminControl* _control, QWidget *parent, int _x, int _y, QStrin
     control = _control;
 
     this->move(_x,_y-28);
-
+    string title = "PPID Control";
 
     ui->setupUi(this);
+    this->setWindowTitle(title.c_str());
     ui->ProjectName->setText(_projectName);
     ui->RunPPIDButton->setEnabled(false);
 }

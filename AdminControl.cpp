@@ -59,6 +59,7 @@ void AdminControl::gatherProjects()
 
 Project* AdminControl::getProject(int _index, string _name)
 {
+    this->gatherProjects();
     if(_index < 0 || (unsigned int)_index > current_projects.size()){
         for(unsigned int i = 0; i < current_projects.size(); i++)
         {

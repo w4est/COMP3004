@@ -11,8 +11,10 @@ CreateProject::CreateProject(AdminControl* _control, QWidget *parent, int _x, in
     username = _username.toStdString();
 
     this->move(_x,_y-28);
-    ui->setupUi(this);
+    string title = "Create Project part 1";
 
+    ui->setupUi(this);
+    this->setWindowTitle(title.c_str());
 }
 
 CreateProject::CreateProject(AdminControl* _control, QWidget *parent, int _x, int _y, QString _username, QString Name, QString Description) :

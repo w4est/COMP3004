@@ -11,7 +11,10 @@ Login::Login(LoginControl *_control, QWidget *parent, int _x, int _y) :
     control = _control;
 
     this->move(_x, _y - 28);
+    string title = "Login";
+
     ui->setupUi(this);
+    this->setWindowTitle(title.c_str());
 }
 
 Login::~Login()
@@ -38,7 +41,7 @@ void Login::on_LoginButton_clicked()
                                         QMessageBox::Ok);
 
         control->loginUser(name, new QPoint(this->mapToGlobal(QPoint(0,0))));
-        //this->deleteLater();
+        this->deleteLater();
     }
     else
     {

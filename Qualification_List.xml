@@ -13,7 +13,7 @@
 		<DesiredDescription>...</PersonalDescription>
 		<AdminDescription>THIS IS A RIGID TEst</AdminDescription>
 		<Type>grade</Type>
-		<Range>5</Range>
+		<Range>6</Range>
 		<Value>0</Value>
 	</Qualification>
 	<Qualification id="1">
