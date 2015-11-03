@@ -26,6 +26,7 @@ private slots:
 
     void on_LogoutButton_clicked();
 
+    void reject();
 
 
 private:

@@ -28,6 +28,11 @@ void StudentView::on_StudentView_destroyed()
     this->deleteLater();
 }
 
+void StudentView::reject()
+{
+    this->deleteLater();
+    control->shutdown();
+}
 
 /*
  * Open StudetnViewProject

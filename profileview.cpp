@@ -39,6 +39,7 @@ void ProfileView::on_BackButton_clicked()
 void ProfileView::reject()
 {
     this->deleteLater();
+    control->shutdown();
 }
 
 /*
