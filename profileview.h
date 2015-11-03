@@ -29,10 +29,14 @@ private slots:
 
     void on_ProfileView_destroyed();
 
-    QWidget* buildQualWidget(QString _id, QString _desc, int _range);
+    QWidget* buildQualWidget(QString _id, QString _desc, int _range, int);
     void buildQualList();
 
     void on_SaveButton_clicked();
+
+    void on_DesiredButton_clicked();
+
+    void on_PersonalButton_clicked();
 
 private:
     Ui::ProfileView *ui;
@@ -45,6 +49,9 @@ private:
     QLayout* layout;
     QWidget* widget;
     QVBoxLayout* scrollBoxLayout;
+    ProfileEntity *Account;
+    vector<tuple<int,int>> personalTupleList;
+    vector<tuple<int,int>> desiredTupleList;
 
 };
 

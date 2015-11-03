@@ -53,3 +53,7 @@ void QualFrame::on_horizontalSlider_valueChanged(int value)
 {
     ui->Center_Label->setText(std::to_string(value).c_str());
 }
+
+void QualFrame::setValue(int x){
+    ui->horizontalSlider->setValue(x);
+}

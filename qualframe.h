@@ -21,6 +21,7 @@ public:
     void setId(QString);
     void setRange(int);
     int getSliderValue();
+    void setValue(int);
 
 
 protected:
