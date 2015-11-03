@@ -2,7 +2,11 @@
 #define PROFILEVIEW_H
 
 #include <QDialog>
+#include <QListWidgetItem>
+#include <QScrollBar>
+#include <QVBoxLayout>
 #include "StudentControl.h"
+#include "qualframe.h"
 
 class StudentControl;
 
@@ -23,11 +27,25 @@ private slots:
 
     void reject();
 
+    void on_ProfileView_destroyed();
+
+    QWidget* buildQualWidget(QString _id, QString _desc, int _range);
+    void buildQualList();
+
+    void on_SaveButton_clicked();
+
 private:
     Ui::ProfileView *ui;
     QWidget *Window;
 
     StudentControl *control;
+    int page;
+    int qualSize;
+    vector<QualFrame*> frameList;
+    QLayout* layout;
+    QWidget* widget;
+    QVBoxLayout* scrollBoxLayout;
+
 };
 
 #endif // PROFILEVIEW_H

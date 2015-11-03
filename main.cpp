@@ -7,16 +7,16 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QWidget *Window;
-    Window = NULL;
+    Window = NULL; //Was used for debugging.
 
     //Window->show();
     //Window.show();
     MasterControl* control = new MasterControl(&a, Window);
 
 
-    //TODO UNDO THIS
+
     return a.exec();
-    //return 0;
+
 
     delete (Window);
     delete (control);

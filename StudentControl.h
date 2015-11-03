@@ -3,6 +3,8 @@
 
 #include "MasterControl.h"
 #include "profileview.h"
+#include "studentview.h"
+#include "ProfileEntity.h"
 
 class MasterControl;
 
@@ -13,7 +15,11 @@ public:
 	~StudentControl();
 
     void logout(QPoint*);
+    void ViewProfile(QWidget*,int,int);
+    void StudentPage(QWidget*,int,int);
     void shutdown();
+    const vector<Qualification*>& getQualList();
+    ProfileEntity* getLoggedUser();
 
 private:
 	MasterControl* m_Parent;
