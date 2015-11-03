@@ -71,9 +71,18 @@ void EditProject::buildPage()
 
         frame->setDescription(qualList.at(i)->getAdminDescription().c_str());
 
+        bool grade = false;
+        if(qualList.at(i)->getType() == 3){
+            grade = true;
+            frame->setGrade(-7);
+        }
+
         for(unsigned j = 0; j < projQualList.size(); j++){
             if(int(i) == projQualList.at(j).first){
                 frame->setChecked();
+                if(grade){
+                    frame->setGrade(projQualList.at(j).second);
+                }
             }
         }
         frame->setId(i);
@@ -117,7 +126,7 @@ void EditProject::on_SaveButton_clicked()
     {
         if(frameList.at(i)->isChecked())
         {
-            tm.push_back(make_pair<int, int>(frameList.at(i)->getId(), 1));
+            tm.push_back(make_pair<int, int>(frameList.at(i)->getId(), frameList.at(i)->getGrade()));
         }
     }
 

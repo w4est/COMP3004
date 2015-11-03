@@ -12,6 +12,9 @@ studentViewProject::studentViewProject(StudentControl *_control, QWidget *parent
     this->move(_x, _y -28);
     ui->setupUi(this);
 
+    string title = "Available Projects List";
+    this->setWindowTitle(title.c_str());
+
     buildProjectList();
 }
 
@@ -19,6 +22,7 @@ studentViewProject::~studentViewProject()
 {
     control = 0;
     selected = 0;
+    itemSelected = 0;
 
     ui->ProjectList->clear();
 
@@ -35,7 +39,69 @@ void studentViewProject::on_BackButton_clicked()
 
 void studentViewProject::on_JoinButton_clicked()
 {
-    //save later TODO
+    vector<string> temp_list = selected->getStudents();
+    bool isRegistered = false;
+    string user = control->getLoggedUser()->getUsername();
+
+    for(unsigned int i = 0; i < temp_list.size(); i++){
+        if(user.compare(temp_list.at(i)) == 0){
+            isRegistered = true;
+        }
+    }
+
+    if(!isRegistered){
+        temp_list.push_back(user);
+        selected->setStudents(temp_list);
+        control->getStorageAccess().saveProjects();
+
+        std::string Message = "User: " + user + " is now registered in Project " + selected->getProjectName();
+
+        QMessageBox::information(this, "Register Complete", Message.c_str() ,
+                                        QMessageBox::Ok);
+
+        itemSelected->setBackgroundColor(QColor(204, 51, 102));
+    }
+    else{
+        std::string Message = "User: " + user + " is already registered in Project " + selected->getProjectName();
+
+        QMessageBox::information(this, "Register Failed", Message.c_str() ,
+                                        QMessageBox::Ok);
+    }
+}
+
+void studentViewProject::on_pushButton_clicked()
+{
+    vector<string> temp_list = selected->getStudents();
+    bool isRegistered = false;
+    int pos = 0;
+    string user = control->getLoggedUser()->getUsername();
+
+    for(unsigned int i = 0; i < temp_list.size(); i++){
+        if(user.compare(temp_list.at(i)) == 0){
+            isRegistered = true;
+            pos = i;
+        }
+    }
+
+    if(isRegistered){
+        temp_list.erase(temp_list.begin()+pos);
+
+        selected->setStudents(temp_list);
+        control->getStorageAccess().saveProjects();
+
+        std::string Message = "User: " + user + " has left Project " + selected->getProjectName();
+
+        QMessageBox::information(this, "Removal Complete", Message.c_str() ,
+                                        QMessageBox::Ok);
+
+        itemSelected->setBackgroundColor(QColor(0, 204, 51));
+    }
+    else{
+        std::string Message = "User: " + user + " is not registered in Project " + selected->getProjectName();
+
+        QMessageBox::information(this, "Removal Failed", Message.c_str() ,
+                                        QMessageBox::Ok);
+    }
 }
 
 void studentViewProject::reject()
@@ -44,36 +110,81 @@ void studentViewProject::reject()
     control->shutdown();
 }
 
+void studentViewProject::on_studentViewProject_destroyed()
+{
+    this->deleteLater();
+}
+
 void studentViewProject::on_ProjectList_itemClicked(QListWidgetItem *item)
 {
-    ui->ProjectList->clear();
-
-
     selected = control->getProject(-1, item->text().toStdString());
     control->setSelectedProject(selected);
-    vector<string> t = selected->getStudents();
-
-    for(unsigned int i = 0; i < t.size(); i++)
-    {
-        QListWidgetItem* s = new QListWidgetItem(t.at(i).c_str());
-
-        ui->ProjectList->addItem(s);
-    }
+    itemSelected = item;
 }
 
 void studentViewProject::buildProjectList()
 {
-    for(int i = 0; i < control->getListSize(); i++){
+    vector<Qualification*> qList = control->getQualList();
+    vector<tuple<int, int>> perList = control->getLoggedUser()->getPersonalQual();
+
+    for(int i = 0; i < control->getListSize(); i++){ //for each project
+
         Project* tm = control->getProject(i);
 
-        if(tm){
-            if(tm->getOwner().compare(control->getLoggedUser()->getUsername()) == 0){
-                QListWidgetItem* t = new QListWidgetItem(tm->getProjectName().c_str());
-                //wList.push_back(t);
+        vector<pair<int, int>> pqList = tm->getQualifications();
+        vector<int> QualId_grade;
+        vector<int> perId_grade;
 
-                ui->ProjectList->addItem(t);
+        for(unsigned int j = 0; j < qList.size(); j++){
+            if(qList.at(j)->getType() == 3){
+                QualId_grade.push_back(j);
             }
         }
+
+        for(unsigned int j = 0; j < pqList.size(); j++){
+            for(unsigned int k = 0; k < QualId_grade.size(); k++){
+                if(pqList.at(j).first == QualId_grade.at(k)){
+                    perId_grade.push_back(j);
+                }
+            }
+        }
+
+        bool passed = true;
+
+        for(unsigned int j = 0; j < perId_grade.size(); j++){
+            int toPass = pqList.at(perId_grade.at(j)).second;
+            int currGrade = get<1>(perList.at(QualId_grade.at(j)));
+
+            if(currGrade < toPass){
+                passed = false;
+            }
+        }
+
+        if(passed){
+            vector<string> temp_list = tm->getStudents();
+            bool isRegistered = false;
+            string user = control->getLoggedUser()->getUsername();
+
+            for(unsigned int z = 0; z < temp_list.size(); z++){
+                if(user.compare(temp_list.at(z)) == 0){
+                    isRegistered = true;
+                }
+            }
+
+            QListWidgetItem* t = new QListWidgetItem(tm->getProjectName().c_str());
+
+            if(!isRegistered){
+                t->setBackgroundColor(QColor(0, 204, 51));
+            }
+            else{
+                t->setBackgroundColor(QColor(204, 51, 102));
+            }
+
+            ui->ProjectList->addItem(t);
+        }
+        ui->ProjectList->setSpacing(2);
         tm = 0;
     }
 }
+
+

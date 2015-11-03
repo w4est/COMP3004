@@ -27,7 +27,11 @@ private slots:
 
     void reject();
 
+    void on_studentViewProject_destroyed();
+
     void on_ProjectList_itemClicked(QListWidgetItem *item);
+
+    void on_pushButton_clicked();
 
 private:
     Ui::studentViewProject *ui;
@@ -36,7 +40,7 @@ private:
 
     Project* selected = 0;
 
-    vector<QListWidgetItem*> wList;
+    QListWidgetItem* itemSelected = 0;
 
     void buildProjectList();
 };

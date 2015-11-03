@@ -58,6 +58,11 @@ int StorageManager::getQualificationCount()
 
 ProfileEntity& StorageManager::getProfile(string _username)
 {
+    if(outEntities.size() > 0){
+        ProfileEntity* temp = outEntities.back();
+        outEntities.pop_back();
+        delete temp;
+    }
     outEntities.push_back(dbObject->getProfile(_username));
     return *(outEntities.back());
 }
@@ -80,9 +85,10 @@ void StorageManager::removeProject(string)
 
 void StorageManager::saveProjects()
 {
-    dbObject->clearProjects();
+    //dbObject->clearProjects();
     for(unsigned int i = 0; i < projectList.size(); i++){
-        dbObject->addProject(*projectList.at(i));
+        //dbObject->addProject(*projectList.at(i));
+        dbObject->modifyProject(*projectList.at(i));
     }
 }
 
@@ -132,7 +138,10 @@ void StorageManager::removeNamePlaceholder(std::string _username)
         for(unsigned int i = 0; i < outEntities.size(); i++)
         {
             if(_username.compare(outEntities.at(i)->getUsername()) == 0){
-                outEntities.erase(outEntities.begin()+i);
+                ProfileEntity* temp = outEntities.back();
+                outEntities.pop_back();
+                delete temp;
+                //outEntities.erase(outEntities.begin()+i);
             }
         }
     }

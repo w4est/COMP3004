@@ -19,7 +19,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         login.cpp \
-    loggedin.cpp \
     register.cpp \
     editqualifications.cpp \
     ProfileEntity.cpp \
@@ -47,7 +46,6 @@ SOURCES += main.cpp\
 
 
 HEADERS  += login.h \
-    loggedin.h \
     register.h \
     rapidxml.hpp \
     rapidxml_iterators.hpp \
@@ -80,7 +78,6 @@ HEADERS  += login.h \
 
 
 FORMS    += login.ui \
-    loggedin.ui \
     register.ui \
     editqualifications.ui \
     qualframe.ui \

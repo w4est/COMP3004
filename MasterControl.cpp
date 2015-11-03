@@ -86,7 +86,7 @@ void MasterControl::logout(QPoint* _point)
 
         bool admin = current_user_profile->isAdmin();
 
-        if(current_user_profile) delete current_user_profile;
+        //if(current_user_profile) delete current_user_profile;
         current_user_profile = 0;
 
         if(admin){

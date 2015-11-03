@@ -4,6 +4,7 @@
 StudentControl::StudentControl(MasterControl* _control, QWidget* _parent)
 {
     m_Parent = _control;
+    this->gatherProjects();
 
     student_window = new StudentView(this, _parent, m_Parent->getLastPoint()->x(), m_Parent->getLastPoint()->y());
     student_window->show();

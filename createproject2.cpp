@@ -71,7 +71,7 @@ void CreateProject2::on_CreateButton_clicked()
     for(unsigned int i = 0; i < frameList.size(); i++)
     {
         if(frameList.at(i)->isChecked()){
-            qual.push_back(make_pair<int, int>(frameList.at(i)->getId(), 1));
+            qual.push_back(make_pair<int, int>(frameList.at(i)->getId(), frameList.at(i)->getGrade()));
         }
     }
 
@@ -102,6 +102,10 @@ void CreateProject2::buildPage()
         frameList.push_back(frame);
         frame->setDescription(qualList.at(i)->getAdminDescription().c_str());
         frame->setId(qualList.at(i)->getId());
+
+        if(qualList.at(i)->getType() == 3){
+            frame->setGrade(-7);
+        }
 
         frame->setChecked();
         layout->addWidget(frame);

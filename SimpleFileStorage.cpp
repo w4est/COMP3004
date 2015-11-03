@@ -48,11 +48,11 @@ SimpleFileStorage::~SimpleFileStorage()
         proNode->remove_all_nodes();
     }
 
-    proj_root->remove_all_nodes();
+    //proj_root->remove_all_nodes();
 
 
-    prof_root->remove_all_nodes();
-    root_node->remove_all_nodes();
+    //prof_root->remove_all_nodes();
+    //root_node->remove_all_nodes();
 
 
     projectBuffer.clear();
@@ -160,25 +160,14 @@ void SimpleFileStorage::modifyProject(Project &_project)
 {
     removeProject(_project.getProjectName());
     addProject(_project);
+
+    isProjectModified = true;
 }
 
 void SimpleFileStorage::removeProject(string _name)
 {
-    ifstream temp(projectFile);
-
-    if (!temp.is_open())
-    {
-        cout << "ERROR: Project_List.xml non-existant" << endl;
-        return;
-    }
-
-    vector<char> proBuffer;
-    proBuffer = vector<char>(istreambuf_iterator<char>(temp), istreambuf_iterator<char>());
-    proBuffer.push_back('\0');
-
-    doc.parse<0>(&proBuffer[0]);
-    proj_root = doc.first_node("Project_List");
-
+    isProjectModified = true;
+    reloadXMLFile(1);
 
     rapidxml::xml_node<> *to_del = 0;
 

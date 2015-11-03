@@ -243,27 +243,27 @@ grade
 <Range>5</Range>
 <Value>0</Value>
 </Qualification>
-<Qualification id="0">
+<Qualification id="30">
 <PersonalDescription>1805</PersonalDescription>
 <DesiredDescription>1805</DesiredDescription>
 <AdminDescription>1805</AdminDescription>
-<Type>slide_range</Type>
+<Type>grade</Type>
 <Range>7</Range>
 <Value>0</Value>
 </Qualification>
-<Qualification id="1">
+<Qualification id="31">
 <PersonalDescription>2804</PersonalDescription>
 <DesiredDescription>2804</DesiredDescription>
 <AdminDescription>2804</AdminDescription>
-<Type>slide_range</Type>
+<Type>grade</Type>
 <Range>7</Range>
 <Value>0</Value>
 </Qualification>
-<Qualification id="2">
+<Qualification id="32">
 <PersonalDescription>2404</PersonalDescription>
 <DesiredDescription>2404</DesiredDescription>
 <AdminDescription>2404</AdminDescription>
-<Type>slide_range</Type>
+<Type>grade</Type>
 <Range>7</Range>
 <Value>0</Value>
 </Qualification>
