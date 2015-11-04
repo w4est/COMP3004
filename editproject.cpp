@@ -134,9 +134,9 @@ void EditProject::on_SaveButton_clicked()
 
     control->saveProject();
 
-    std::string Message = ">>>" + control->getSelectedProject()->getProjectName() + " saved. \nNo survivors. <<<";
+
     //QMessageBox::StandardButton reply;
-      /*reply =*/QMessageBox::information(this, "kz//select>ndataextract1;", Message.c_str() ,
+      /*reply =*/QMessageBox::information(this, "Save Complete", "Project Saved" ,
                                     QMessageBox::Ok);
 
     on_BackButton_clicked();

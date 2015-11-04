@@ -62,6 +62,18 @@ void CreateProject::on_NextButton_clicked()
     projectName = ui->NameEdit->text().toStdString();
     projectDescription = ui->DescriptionEdit->toPlainText().toStdString();
 
+    Project* tm;
+    for(int i = 0; i < control->getListSize(); i++){
+        Project* tm = control->getProject(i);
+        if (tm->getProjectName().compare(projectName) == 0)
+        {
+            QMessageBox::information(this, "Alert", "Sorry, This Project name is already taken" ,
+                                                    QMessageBox::Ok);
+            return;
+        }
+    }
+
+
     //make next window
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     Window = new CreateProject2(control, Window, childPos.x(), childPos.y(), username.c_str(), projectName.c_str(), projectDescription.c_str());
