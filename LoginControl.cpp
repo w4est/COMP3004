@@ -60,8 +60,9 @@ ProfileEntity* LoginControl::getCurrentUser()
 void LoginControl::registerUser()
 {
     if(user){
-        m_Parent->getStorageAccess().removeNamePlaceholder(user->getUsername());
+
         m_Parent->getStorageAccess().registerUser(*user);
+        m_Parent->getStorageAccess().removeNamePlaceholder(user->getUsername());
     }
 }
 
