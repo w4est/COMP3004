@@ -11,8 +11,10 @@ CreateProject::CreateProject(AdminControl* _control, QWidget *parent, int _x, in
     username = _username.toStdString();
 
     this->move(_x,_y-28);
-    ui->setupUi(this);
+    string title = "Create Project part 1";
 
+    ui->setupUi(this);
+    this->setWindowTitle(title.c_str());
 }
 
 CreateProject::CreateProject(AdminControl* _control, QWidget *parent, int _x, int _y, QString _username, QString Name, QString Description) :
@@ -59,6 +61,18 @@ void CreateProject::on_NextButton_clicked()
     //Get input
     projectName = ui->NameEdit->text().toStdString();
     projectDescription = ui->DescriptionEdit->toPlainText().toStdString();
+
+    Project* tm;
+    for(int i = 0; i < control->getListSize(); i++){
+        Project* tm = control->getProject(i);
+        if (tm->getProjectName().compare(projectName) == 0)
+        {
+            QMessageBox::information(this, "Alert", "Sorry, This Project name is already taken" ,
+                                                    QMessageBox::Ok);
+            return;
+        }
+    }
+
 
     //make next window
     QPoint childPos = this->mapToGlobal(QPoint(0,0));

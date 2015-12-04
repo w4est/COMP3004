@@ -14,7 +14,8 @@ AdminControl::~AdminControl()
 {
     m_Parent = 0;
 
-    if(admin_window) admin_window->deleteLater();
+    //if(admin_window) admin_window->deleteLater();
+    admin_window = NULL;
 }
 
 void AdminControl::shutdown()
@@ -58,6 +59,7 @@ void AdminControl::gatherProjects()
 
 Project* AdminControl::getProject(int _index, string _name)
 {
+    this->gatherProjects();
     if(_index < 0 || (unsigned int)_index > current_projects.size()){
         for(unsigned int i = 0; i < current_projects.size(); i++)
         {

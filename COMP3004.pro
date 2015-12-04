@@ -19,7 +19,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         login.cpp \
-    loggedin.cpp \
     register.cpp \
     editqualifications.cpp \
     ProfileEntity.cpp \
@@ -40,10 +39,13 @@ SOURCES += main.cpp\
     adminview.cpp \
     profileview.cpp \
     sqlstorage.cpp \
-    projectframe.cpp
+    projectframe.cpp \
+    studentview.cpp \
+    studentviewproject.cpp \
+    stuprojectframe.cpp
+
 
 HEADERS  += login.h \
-    loggedin.h \
     register.h \
     rapidxml.hpp \
     rapidxml_iterators.hpp \
@@ -68,11 +70,14 @@ HEADERS  += login.h \
     adminview.h \
     profileview.h \
     sqlstorage.h \
-    projectframe.h
+    projectframe.h \
+    studentview.h \
+    studentviewproject.h \
+    stuprojectframe.h
+
 
 
 FORMS    += login.ui \
-    loggedin.ui \
     register.ui \
     editqualifications.ui \
     qualframe.ui \
@@ -82,4 +87,8 @@ FORMS    += login.ui \
     editproject.ui \
     adminview.ui \
     profileview.ui \
-    projectframe.ui
+    projectframe.ui \
+    studentview.ui \
+    studentviewproject.ui \
+    stuprojectframe.ui
+

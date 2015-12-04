@@ -18,7 +18,8 @@ MasterControl::MasterControl(QApplication* _app, QWidget* _parent)
 
 MasterControl::~MasterControl()
 {
-    if (current_user_profile) delete current_user_profile;
+    current_user_profile = 0;
+    //if (current_user_profile) delete current_user_profile;
     if (login_control) delete login_control;
     if (admin_control) delete admin_control;
     if (student_control) delete student_control;
@@ -85,7 +86,7 @@ void MasterControl::logout(QPoint* _point)
 
         bool admin = current_user_profile->isAdmin();
 
-        if(current_user_profile) delete current_user_profile;
+        //if(current_user_profile) delete current_user_profile;
         current_user_profile = 0;
 
         if(admin){
@@ -123,3 +124,4 @@ void MasterControl::kill()
     delete this;
     app->quit();
 }
+

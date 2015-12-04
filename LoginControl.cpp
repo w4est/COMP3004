@@ -16,8 +16,8 @@ LoginControl::~LoginControl()
 {
     m_Parent = 0;
 	user = 0;
-    if(login_window) login_window->deleteLater();
-    login_window = NULL;
+    //if(login_window) login_window->deleteLater();
+    //login_window = NULL;
 }
 
 void LoginControl::shutdown()
@@ -36,7 +36,8 @@ void LoginControl::loginUser(string _username, QPoint* _point)
          user = &(m_Parent->getStorageAccess().getProfile(_username));
 		 m_Parent->setUserProfile(*user);
          m_Parent->completeLogin(_point);
-         (login_window)->deleteLater();
+         //login_window = NULL;
+         //(login_window)->deleteLater();
 	}
 }
 
@@ -59,8 +60,9 @@ ProfileEntity* LoginControl::getCurrentUser()
 void LoginControl::registerUser()
 {
     if(user){
-        m_Parent->getStorageAccess().removeNamePlaceholder(user->getUsername());
+
         m_Parent->getStorageAccess().registerUser(*user);
+        m_Parent->getStorageAccess().removeNamePlaceholder(user->getUsername());
     }
 }
 
