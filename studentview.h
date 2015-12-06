@@ -5,6 +5,9 @@
 #include "StudentControl.h"
 
 
+class StudentControl;
+
+
 namespace Ui {
 class StudentView;
 }
@@ -14,7 +17,9 @@ class StudentView : public QDialog
     Q_OBJECT
 
 public:
-    explicit StudentView(StudentControl *_control, QWidget *parent = 0, int _x = 150, int _y = 50);
+
+    explicit StudentView(StudentControl* _control, QWidget *parent = 0, int _x = 150, int _y = 50);
+
     ~StudentView();
 
 private slots:

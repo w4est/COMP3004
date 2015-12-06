@@ -44,7 +44,11 @@ SOURCES += main.cpp\
     studentviewproject.cpp \
     stuprojectframe.cpp \
     resultswindow.cpp \
-    resultframe.cpp
+    resultframe.cpp \
+    interfacefacade.cpp
+
+
+
 
 
 HEADERS  += login.h \
@@ -77,7 +81,11 @@ HEADERS  += login.h \
     studentviewproject.h \
     stuprojectframe.h \
     resultswindow.h \
-    resultframe.h
+    resultframe.h \
+    interfacefacade.h
+
+
+
 
 
 

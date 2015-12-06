@@ -83,7 +83,6 @@
   </layout>
   <zorder>scrollArea</zorder>
   <zorder>page_title</zorder>
-  <zorder>layoutWidget_2</zorder>
  </widget>
  <resources/>
  <connections/>

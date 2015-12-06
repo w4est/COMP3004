@@ -11,6 +11,7 @@ MasterControl::MasterControl(QApplication* _app, QWidget* _parent)
     parent = _parent;
     app = _app;
     storage_control = new StorageManager();
+    InterfaceControl = new InterfaceFacade(this);
 
     createLoginControl();
 }
@@ -124,4 +125,30 @@ void MasterControl::kill()
     delete this;
     app->quit();
 }
+
+
+
+
+QWidget* MasterControl::GetForm(int id, LoginControl* pointer, int x, int y){
+    return InterfaceControl->GetForm(id, pointer,x,y);
+}
+
+QWidget* MasterControl::GetForm(int id, LoginControl* pointer, int x, int y, QString username, int page){
+    return InterfaceControl->GetForm(id, pointer,x,y,username,page);
+}
+
+QWidget* MasterControl::GetForm(int id, StudentControl* pointer, int x, int y){
+    return InterfaceControl->GetForm(id, pointer,x,y);
+}
+
+
+
+QWidget* MasterControl::GetForm(int id, AdminControl* pointer , int x,int y){
+    return InterfaceControl->GetForm(id, pointer,x,y);
+}
+
+QWidget* MasterControl::GetForm(int id, AdminControl* pointer , int x,int y, QString username, QString Name, QString Description){
+    return InterfaceControl->GetForm(id, pointer,x,y,username,Name,Description);
+}
+
 

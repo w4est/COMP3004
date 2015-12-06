@@ -81,15 +81,17 @@ void EditQualifications::on_ContinueButton_clicked()
     //
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     if(page == 0){
-        Window = new EditQualifications(control, Window, childPos.x(), childPos.y(), validUsername, 1);
-        Window->show();
+        Window = control->getMParent()->GetForm(2,control,childPos.x(), childPos.y(), validUsername, 1);
+                //new EditQualifications(control, Window, childPos.x(), childPos.y(), validUsername, 1);
+        //Window->show();
         this->deleteLater();
     }
     else if(page == 1)
     {
         control->registerUser();
-        Window = new Login(control, Window, childPos.x(), childPos.y());
-        Window->show();
+        Window = control->getMParent()->GetForm(0,control,childPos.x(), childPos.y());
+                //new Login(control, Window, childPos.x(), childPos.y());
+        //Window->show();
         this->deleteLater();
     }
 }
@@ -99,13 +101,15 @@ void EditQualifications::on_BackButton_clicked()
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     if(page == 0){
         control->unregisterTempUser(validUsername.toStdString());
-        Window = new Register(control, Window, childPos.x(), childPos.y(), validUsername);
+        Window = control->getMParent()->GetForm(1,control,childPos.x(), childPos.y(), validUsername,0);
+                //new Register(control, Window, childPos.x(), childPos.y(), validUsername);
     }
     else{
-        Window = new EditQualifications(control, Window, childPos.x(), childPos.y(), validUsername, 0);
+        Window = control->getMParent()->GetForm(2,control,childPos.x(), childPos.y(), validUsername,0);
+                //new EditQualifications(control, Window, childPos.x(), childPos.y(), validUsername, 0);
     }
 
-    Window->show();
+    //Window->show();
     this->deleteLater();
 }
 

@@ -46,8 +46,9 @@ AdminView::~AdminView()
 void AdminView::on_CreateProject_clicked()
 {
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new CreateProject(control, Window, childPos.x(), childPos.y(), control->getLoggedUser()->getUsername().c_str());
-    Window->show();
+    Window = control->getMParent()->GetForm(8,control,childPos.x(), childPos.y(), control->getLoggedUser()->getUsername().c_str(),NULL,NULL);
+            //new CreateProject(control, Window, childPos.x(), childPos.y(), control->getLoggedUser()->getUsername().c_str());
+    //Window->show();
     //delete(projectHolder);
     this->deleteLater();
 }
@@ -61,8 +62,9 @@ void AdminView::on_LogoutButton_clicked()
 void AdminView::on_RunPPID_clicked()
 {
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new RunPPID(control, Window, childPos.x(), childPos.y(),  control->getLoggedUser()->getUsername().c_str());
-    Window->show();
+    Window = control->getMParent()->GetForm(11,control, childPos.x(), childPos.y(),  control->getLoggedUser()->getUsername().c_str() , NULL, NULL);
+            //new RunPPID(control, Window, childPos.x(), childPos.y(),  control->getLoggedUser()->getUsername().c_str());
+    //Window->show();
 
     this->deleteLater();
 }
@@ -71,8 +73,9 @@ void AdminView::on_EditProject_clicked()
 {
     if(control->getSelectedProject()){
         QPoint childPos = this->mapToGlobal(QPoint(0,0));
-        Window = new EditProject(control, Window, childPos.x(), childPos.y());
-        Window->show();
+        Window = control->getMParent()->GetForm(10,control,childPos.x(), childPos.y());
+                //new EditProject(control, Window, childPos.x(), childPos.y());
+        //Window->show();
         this->deleteLater();
     }
 }

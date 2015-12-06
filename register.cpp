@@ -51,8 +51,9 @@ void Register::on_BackButton_clicked()
     }
 
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new Login(control, Window, childPos.x(), childPos.y());
-    Window->show();
+    Window = control->getMParent()->GetForm(0,control,childPos.x(), childPos.y());
+            //new Login(control, Window, childPos.x(), childPos.y());
+    //Window->show();
     this->deleteLater();
 }
 
@@ -67,8 +68,9 @@ void Register::on_ContinueButton_clicked()
 
    if(comp){
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new EditQualifications(control, Window, childPos.x(), childPos.y(), ui->UsernameEdit->text());
-    Window->show();
+    Window = control->getMParent()->GetForm(2,control,childPos.x(), childPos.y(), ui->UsernameEdit->text(),0);
+            //new EditQualifications(control, Window, childPos.x(), childPos.y(), ui->UsernameEdit->text());
+    //Window->show();
     this->deleteLater();
    }
    else{

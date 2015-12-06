@@ -36,6 +36,9 @@ public:
     void setCurrentFrame(stuProjectFrame*);
     stuProjectFrame* getCurrentFrame();
 
+    MasterControl* getMParent();
+
+
 private:
 	MasterControl* m_Parent;
     QWidget *student_window;

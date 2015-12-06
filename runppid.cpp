@@ -58,8 +58,9 @@ void RunPPID::on_groupSize_valueChanged(int arg1)
 void RunPPID::on_BackButton_clicked()
 {
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new AdminView(control, Window, childPos.x(), childPos.y());
-    Window->show();
+    Window = control->getMParent()->GetForm(7,control,childPos.x(), childPos.y());
+            //AdminView(control, Window, childPos.x(), childPos.y());
+    //Window->show();
     this->deleteLater();
 }
 

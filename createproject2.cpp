@@ -48,8 +48,9 @@ void CreateProject2::on_BackButton_clicked(){
     control->setCurrentFrame(0);
     //Go back
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new CreateProject(control, Window, childPos.x(), childPos.y(), username.c_str(), projectName.c_str(),projectDescription.c_str()); //Pass back parameters
-    Window->show();
+    Window = control->getMParent()->GetForm(8,control,childPos.x(), childPos.y(), username.c_str(), projectName.c_str(),projectDescription.c_str());
+            //new CreateProject(control, Window, childPos.x(), childPos.y(), username.c_str(), projectName.c_str(),projectDescription.c_str()); //Pass back parameters
+    //Window->show();
    this->deleteLater();
 
 }
@@ -79,8 +80,9 @@ void CreateProject2::on_CreateButton_clicked()
     control->setCurrentFrame(0);
     control->createProject(tm);
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new AdminView(control, Window, childPos.x(), childPos.y());
-    Window->show();
+    Window = control->getMParent()->GetForm(7,control,childPos.x(), childPos.y());
+            //new AdminView(control, Window, childPos.x(), childPos.y());
+    //Window->show();
     this->deleteLater();
 }
 
