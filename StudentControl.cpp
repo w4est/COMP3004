@@ -110,6 +110,8 @@ void StudentControl::gatherProjects()
 }
 
 
+
+
 /*
  * Get a project's details
  *
@@ -173,3 +175,9 @@ stuProjectFrame* StudentControl::getCurrentFrame()
     return selected_Frame;
 }
 
+/*
+ *
+ **/
+MasterControl* StudentControl::getMParent(){
+    return m_Parent;
+}

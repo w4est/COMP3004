@@ -14,9 +14,9 @@ InterfaceFacade::InterfaceFacade(MasterControl* _control)
  * 01 = Register
  * 02 = EditQualifications
  * 03 = StudentView
- * 04 = StudentViewProfile
- * 05 = ProfileView
- * 06 = StudentViewProject
+ * 04 = ProfileView
+ * 05 = studentViewProject
+ * 06 = Nothing
  * 07 = AdminView
  * 08 = AdminCreateProject
  * 09 = AdminCreateProject2
@@ -82,18 +82,56 @@ QWidget* InterfaceFacade::GetForm(int id, StudentControl* pointer, int x, int y)
         CurrentUI->show();
 
     }
-    else if (id == 6){
 
-
-    }
     return CurrentUI;
 }
 
 
 
-QWidget* InterfaceFacade::GetForm(int, AdminControl*, int, int){
+QWidget* InterfaceFacade::GetForm(int id, AdminControl* pointer, int x, int y){
+    if (id == 7){
+        QWidget* CurrentUI = new AdminView(pointer, NULL, x, y);
+        CurrentUI->show();
+    }
+    else if (id == 10){
+        QWidget* CurrentUI = new EditProject(pointer, NULL, x, y);
+        CurrentUI->show();
 
+    }
+    else if (id == 9){
+        //QWidget* CurrentUI = new studentViewProject(pointer, NULL, x, y);
+        //CurrentUI->show();
+
+    }
+    else if (id == 10){
+        //QWidget* CurrentUI = new studentViewProject(pointer, NULL, x, y);
+        //CurrentUI->show();
+
+    }
+
+    return CurrentUI;
 }
 
 
-
+QWidget* InterfaceFacade::GetForm(int id, AdminControl* pointer, int x, int y, QString username, QString Name, QString Description){
+    if (id == 8 && Name == NULL){
+        QWidget* CurrentUI = new CreateProject(pointer, NULL, x, y, username);
+        CurrentUI->show();
+    }
+    else if (id == 8)
+    {
+        QWidget* CurrentUI = new CreateProject(pointer, NULL, x, y, username, Name, Description);
+        CurrentUI->show();
+    }
+    else if (id == 9)
+    {
+        QWidget* CurrentUI = new CreateProject2(pointer, NULL, x, y, username, Name, Description);
+        CurrentUI->show();
+    }
+    else if (id == 11)
+    {
+        QWidget* CurrentUI = new RunPPID(pointer, NULL, x, y, username);
+        CurrentUI->show();
+    }
+    return CurrentUI;
+}

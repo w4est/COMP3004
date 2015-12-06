@@ -39,6 +39,7 @@ public:
 
 
     QWidget* GetForm(int, AdminControl*, int, int);
+    QWidget* GetForm(int, AdminControl *, int, int, QString, QString, QString);
 
 private:
     StorageManager* storage_control;

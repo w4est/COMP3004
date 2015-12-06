@@ -29,7 +29,7 @@ public:
     QWidget* GetForm(int, StudentControl*, int, int);
 
     QWidget* GetForm(int, AdminControl*, int, int);
-
+    QWidget* GetForm(int, AdminControl *, int, int, QString, QString, QString);
 
 private:
     MasterControl *m_Parent;

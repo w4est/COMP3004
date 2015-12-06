@@ -142,6 +142,11 @@ QWidget* MasterControl::GetForm(int id, StudentControl* pointer, int x, int y){
 
 
 
-QWidget* MasterControl::GetForm(int, AdminControl*, int, int){
-
+QWidget* MasterControl::GetForm(int id, AdminControl* pointer , int x,int y){
+    return InterfaceControl->GetForm(id, pointer,x,y);
 }
+
+QWidget* MasterControl::GetForm(int id, AdminControl* pointer , int x,int y, QString username, QString Name, QString Description){
+    return InterfaceControl->GetForm(id, pointer,x,y,username,Name,Description);
+}
+
