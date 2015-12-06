@@ -4,6 +4,10 @@
 #include <QWidget>
 #include "login.h"
 #include "register.h"
+#include "editqualifications.h"
+#include "studentview.h"
+#include "profileview.h"
+#include "studentviewproject.h"
 
 
 #include "LoginControl.h"
@@ -20,6 +24,7 @@ public:
     InterfaceFacade(MasterControl*);
 
     QWidget* GetForm(int, LoginControl*, int, int);
+    QWidget* GetForm(int, LoginControl*, int, int, QString, int);
 
     QWidget* GetForm(int, StudentControl*, int, int);
 

@@ -33,6 +33,7 @@ public:
 
 
     QWidget* GetForm(int, LoginControl*, int, int);
+    QWidget* GetForm(int, LoginControl*, int, int, QString, int);
 
     QWidget* GetForm(int, StudentControl*, int, int);
 

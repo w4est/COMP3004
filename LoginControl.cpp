@@ -8,8 +8,7 @@ LoginControl::LoginControl(MasterControl* _control, QWidget* _parent)
     user = 0;
 
     login_window = _control->GetForm(0,this, m_Parent->getLastPoint()->x(), m_Parent->getLastPoint()->y());
-    if (login_window != NULL)
-           std::cout << "This is not null" << std::endl;
+
             //new Login(this, _parent, m_Parent->getLastPoint()->x(), m_Parent->getLastPoint()->y());
     //login_window->show();
 }
