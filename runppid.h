@@ -37,6 +37,8 @@ private:
     Ui::RunPPID *ui;
     QWidget *Window;
     AdminControl* control;
+
+    int groupSize;
 };
 
 #endif // RUNPPID_H

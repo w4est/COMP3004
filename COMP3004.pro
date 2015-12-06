@@ -42,7 +42,9 @@ SOURCES += main.cpp\
     projectframe.cpp \
     studentview.cpp \
     studentviewproject.cpp \
-    stuprojectframe.cpp
+    stuprojectframe.cpp \
+    resultswindow.cpp \
+    resultframe.cpp
 
 
 HEADERS  += login.h \
@@ -73,7 +75,9 @@ HEADERS  += login.h \
     projectframe.h \
     studentview.h \
     studentviewproject.h \
-    stuprojectframe.h
+    stuprojectframe.h \
+    resultswindow.h \
+    resultframe.h
 
 
 
@@ -90,5 +94,7 @@ FORMS    += login.ui \
     projectframe.ui \
     studentview.ui \
     studentviewproject.ui \
-    stuprojectframe.ui
+    stuprojectframe.ui \
+    resultswindow.ui \
+    resultframe.ui
 
