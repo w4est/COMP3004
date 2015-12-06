@@ -1,5 +1,7 @@
 #include "runppid.h"
 #include "ui_runppid.h"
+#include "ppid.h"
+#include "StorageManager.h"
 
 RunPPID::RunPPID(AdminControl* _control, QWidget *parent, int _x, int _y, QString _projectName) :
     QDialog(parent),
@@ -64,5 +66,10 @@ void RunPPID::on_RunPPIDButton_clicked()
     //QMessageBox::StandardButton reply;
       /*reply = */QMessageBox::information(this, "Something Feels Errie...", Message.c_str() ,
                                     QMessageBox::Ok);
+    std::vector<ProfileEntity> studentList;
+    for (int i =0; i< control->getSelectedProject()->getStudents()).size(); i++{
+        control->getMParent
+    }
+    std::vector< std::vector<ProfileEntity> > sList = ppid::RunAlgorithmStudents(control->getSelectedProject()->getStudents(), control->getSelectedProject()->getStudents().size(), ui->groupSize );
 
 }

@@ -5,6 +5,7 @@
 #include <QWidget>
 #include "AdminControl.h"
 #include "adminview.h"
+#include "ppid.h"
 
 class AdminControl;
 

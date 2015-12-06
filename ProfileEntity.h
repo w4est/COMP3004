@@ -12,6 +12,7 @@ using namespace std;
 class ProfileEntity
 {
 public:
+    ProfileEntity();
 	ProfileEntity(string _username);
 	~ProfileEntity();
 
