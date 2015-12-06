@@ -42,7 +42,10 @@ SOURCES += main.cpp\
     projectframe.cpp \
     studentview.cpp \
     studentviewproject.cpp \
-    stuprojectframe.cpp
+    stuprojectframe.cpp \
+    interfacefacade.cpp
+
+
 
 
 HEADERS  += login.h \
@@ -73,7 +76,10 @@ HEADERS  += login.h \
     projectframe.h \
     studentview.h \
     studentviewproject.h \
-    stuprojectframe.h
+    stuprojectframe.h \
+    interfacefacade.h
+
+
 
 
 

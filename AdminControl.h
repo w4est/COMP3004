@@ -35,6 +35,8 @@ public:
     void setCurrentFrame(projectFrame*);
     projectFrame* getCurrentFrame();
 
+    MasterControl* getMParent();
+
 private:
 	MasterControl *m_Parent;
     QWidget *admin_window;

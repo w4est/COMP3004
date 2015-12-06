@@ -5,8 +5,9 @@ AdminControl::AdminControl(MasterControl* _control, QWidget* _parent)
     m_Parent = _control;
     this->gatherProjects();
 
-    admin_window = new AdminView(this, _parent, m_Parent->getLastPoint()->x(), m_Parent->getLastPoint()->y());
-    admin_window->show();
+    admin_window = m_Parent->GetForm(7,this,m_Parent->getLastPoint()->x(), m_Parent->getLastPoint()->y());
+            //new AdminView(this, _parent, m_Parent->getLastPoint()->x(), m_Parent->getLastPoint()->y());
+    //admin_window->show();
 }
 
 
@@ -99,4 +100,9 @@ void AdminControl::setCurrentFrame(projectFrame *_frame)
 projectFrame* AdminControl::getCurrentFrame()
 {
     return selected_Frame;
+}
+
+MasterControl* AdminControl::getMParent()
+{
+    return m_Parent;
 }

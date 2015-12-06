@@ -47,8 +47,9 @@ void EditProject::on_BackButton_clicked()
 {
     //make next window
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    Window = new AdminView(control, Window, childPos.x(), childPos.y());
-    Window->show();
+    Window = control->getMParent()->GetForm(7,control,childPos.x(), childPos.y());
+            //new AdminView(control, Window, childPos.x(), childPos.y());
+    //Window->show();
     this->deleteLater();
 }
 
