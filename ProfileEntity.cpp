@@ -1,5 +1,13 @@
 #include "ProfileEntity.h"
 
+ProfileEntity::ProfileEntity()
+{
+    m_username = "";
+    adminPriv = false;
+    personalQual = vector<tuple<int, int>>();
+    desiredQual = vector<tuple<int, int>>();
+}
+
 
 ProfileEntity::ProfileEntity(string _username)
 {
