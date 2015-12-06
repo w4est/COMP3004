@@ -1,5 +1,6 @@
 #include "runppid.h"
 #include "ui_runppid.h"
+#include "resultswindow.h"
 
 RunPPID::RunPPID(AdminControl* _control, QWidget *parent, int _x, int _y, QString _projectName) :
     QDialog(parent),
@@ -10,11 +11,12 @@ RunPPID::RunPPID(AdminControl* _control, QWidget *parent, int _x, int _y, QStrin
 
     this->move(_x,_y-28);
     string title = "PPID Control";
+    groupSize = 0;
 
     ui->setupUi(this);
     this->setWindowTitle(title.c_str());
     ui->ProjectName->setText(_projectName);
-    ui->RunPPIDButton->setEnabled(false);
+    ui->RunPPIDButton->setEnabled(true);
 }
 
 RunPPID::~RunPPID()
@@ -39,15 +41,18 @@ void RunPPID::on_comboBox_activated(int index)
     if(index==0){
         //student
     }
-    else{
+    else if(index == 1)
+    {
         //project
+    }
+    else{
+        //something
     }
 }
 
 void RunPPID::on_groupSize_valueChanged(int arg1)
 {
-    if(arg1){}
-    //set group size to arg1
+    groupSize = arg1;
 }
 
 void RunPPID::on_BackButton_clicked()
@@ -65,5 +70,9 @@ void RunPPID::on_RunPPIDButton_clicked()
     //QMessageBox::StandardButton reply;
       /*reply = */QMessageBox::information(this, "Something Feels Errie...", Message.c_str() ,
                                     QMessageBox::Ok);
+
+    QPoint childPos = this->mapToGlobal(QPoint(0,0));
+    QWidget *result = new ResultsWindow(0);
+    result->show();
 
 }

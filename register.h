@@ -40,6 +40,7 @@ private:
     LoginControl *control;
 
     bool preventReturn_back;
+    bool firstLoad;
 };
 
 #endif // REGISTER_H

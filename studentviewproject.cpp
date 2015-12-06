@@ -62,6 +62,11 @@ void studentViewProject::on_JoinButton_clicked()
                                         QMessageBox::Ok);
 
         itemSelected->setBackgroundColor(QColor(204, 51, 102));
+
+        ui->Register_Framess->setStyleSheet("background-color: rgb(204, 51, 102); color: white;");
+        ui->RegisterValue->setText("Already Registered");
+
+
     }
     else{
         std::string Message = "User: " + user + " is already registered in Project " + selected->getProjectName();
@@ -97,6 +102,9 @@ void studentViewProject::on_pushButton_clicked()
                                         QMessageBox::Ok);
 
         itemSelected->setBackgroundColor(QColor(0, 204, 51));
+
+        ui->Register_Framess->setStyleSheet("background-color: rgb(0, 204, 51)");
+        ui->RegisterValue->setText("Available To Register In");
     }
     else{
         std::string Message = "User: " + user + " is not registered in Project " + selected->getProjectName();
@@ -122,6 +130,17 @@ void studentViewProject::on_ProjectList_itemClicked(QListWidgetItem *item)
     selected = control->getProject(-1, item->text().toStdString());
     control->setSelectedProject(selected);
     itemSelected = item;
+
+    ui->ProjectName->setText(selected->getProjectName().c_str());
+    if(itemSelected->backgroundColor() != QColor(0, 204, 51))
+    {
+        ui->Register_Framess->setStyleSheet("background-color: rgb(204, 51, 102); color: white;");
+        ui->RegisterValue->setText("Already Registered");
+    }
+    else{
+        ui->Register_Framess->setStyleSheet("background-color: rgb(0, 204, 51)");
+        ui->RegisterValue->setText("Available To Register In");
+    }
 }
 
 void studentViewProject::buildProjectList()

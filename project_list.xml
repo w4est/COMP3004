@@ -142,6 +142,7 @@
 			<Student>EveSmith</Student>
 			<Student>FrankThompson</Student>
 			<Student>CainSimon</Student>
+			<Student>AliceSmith</Student>
 		</Student_List>
 		<Qualification_List>
 			<Qualification id="0">0</Qualification>
@@ -182,7 +183,6 @@
 	<Project owner="Christine" name="Test_Project_005">
 		<Description>Test for Open COMP2804</Description>
 		<Student_List>
-			<Student>AliceSmith</Student>
 			<Student>BobThompson</Student>
 			<Student>CainStevens</Student>
 			<Student>EveJohnson</Student>

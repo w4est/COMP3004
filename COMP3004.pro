@@ -43,7 +43,10 @@ SOURCES += main.cpp\
     studentview.cpp \
     studentviewproject.cpp \
     stuprojectframe.cpp \
+    resultswindow.cpp \
+    resultframe.cpp \
     interfacefacade.cpp
+
 
 
 
@@ -77,7 +80,10 @@ HEADERS  += login.h \
     studentview.h \
     studentviewproject.h \
     stuprojectframe.h \
+    resultswindow.h \
+    resultframe.h \
     interfacefacade.h
+
 
 
 
@@ -96,5 +102,7 @@ FORMS    += login.ui \
     projectframe.ui \
     studentview.ui \
     studentviewproject.ui \
-    stuprojectframe.ui
+    stuprojectframe.ui \
+    resultswindow.ui \
+    resultframe.ui
 

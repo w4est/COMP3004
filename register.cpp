@@ -12,6 +12,14 @@ Register::Register(LoginControl *_control, QWidget *parent, int _x, int _y, QStr
     control = _control;
     preventReturn_back = false;
 
+    if(_username.isEmpty())
+    {
+        firstLoad = true;
+    }
+    else{
+        firstLoad = false;
+    }
+
     this->move(_x, _y - 28);
 
     ui->setupUi(this);
@@ -88,6 +96,33 @@ void Register::on_ContinueButton_clicked()
 void Register::on_CheckButton_clicked()
 {
     std::string name = ui->UsernameEdit->text().toStdString();
+
+    string cleaner = name;
+    bool isClean = false;
+
+    if(!firstLoad){
+        while(!isClean)
+        {
+            size_t s = cleaner.find_first_of(' ');
+
+            if(s == std::string::npos)
+            {
+              isClean = true;
+            }
+            else{
+                cleaner.erase(s, s+1);
+            }
+        }
+
+        if(cleaner.size() == 0){
+            QMessageBox::information(this, "Alert", "Name Cannot Be Empty" ,
+                                                    QMessageBox::Ok);
+            return;
+        }
+    }
+    else{
+        firstLoad = false;
+    }
 
     if(name.compare("") == 0){
 
