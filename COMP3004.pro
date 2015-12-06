@@ -46,6 +46,8 @@ SOURCES += main.cpp\
     interfacefacade.cpp
 
 
+
+
 HEADERS  += login.h \
     register.h \
     rapidxml.hpp \
@@ -76,6 +78,8 @@ HEADERS  += login.h \
     studentviewproject.h \
     stuprojectframe.h \
     interfacefacade.h
+
+
 
 
 

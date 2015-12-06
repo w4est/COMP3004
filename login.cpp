@@ -54,9 +54,11 @@ void Login::on_LoginButton_clicked()
 void Login::on_RegisterButton_clicked()
 {
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
+
     Window = control->getMParent()->GetForm(1,control,childPos.x(),childPos.y());
             //new Register(control, Window, childPos.x(), childPos.y());
     //Window->show();
+
     this->deleteLater();
 
 }

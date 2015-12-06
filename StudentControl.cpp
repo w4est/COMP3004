@@ -6,9 +6,11 @@ StudentControl::StudentControl(MasterControl* _control, QWidget* _parent)
     m_Parent = _control;
     this->gatherProjects();
 
+
     student_window = m_Parent->GetForm(3,this,m_Parent->getLastPoint()->x(), m_Parent->getLastPoint()->y());
             //new StudentView(this, _parent, m_Parent->getLastPoint()->x(), m_Parent->getLastPoint()->y());
     //student_window->show();
+
 }
 
 StudentControl::~StudentControl()
@@ -37,9 +39,11 @@ void StudentControl::logout(QPoint *_point)
 void StudentControl::ViewProfile(QWidget *_parent, int x, int y)
 {
 
+
     student_window = m_Parent->GetForm(4,this,x,y);
             //new ProfileView(this, _parent, x, y);
     //student_window->show();
+
 }
 
 /*
@@ -50,9 +54,11 @@ void StudentControl::ViewProfile(QWidget *_parent, int x, int y)
 void StudentControl::StudentPage(QWidget *_parent, int x, int y)
 {
 
+
     student_window = m_Parent->GetForm(3,this,x,y);
             //new StudentView(this, _parent, x, y);
     //student_window->show();
+
 }
 
 
@@ -64,9 +70,11 @@ void StudentControl::StudentPage(QWidget *_parent, int x, int y)
 void StudentControl::ViewProject(QWidget *_parent, int x, int y)
 {
 
+
     student_window = m_Parent->GetForm(5,this,x,y);
             //new studentViewProject(this, _parent, x, y);
     //student_window->show();
+
 }
 
 
@@ -108,7 +116,6 @@ void StudentControl::gatherProjects()
 {
     current_projects = m_Parent->getStorageAccess().getProjectList();
 }
-
 
 
 
@@ -175,9 +182,11 @@ stuProjectFrame* StudentControl::getCurrentFrame()
     return selected_Frame;
 }
 
+
 /*
  *
  **/
 MasterControl* StudentControl::getMParent(){
     return m_Parent;
 }
+

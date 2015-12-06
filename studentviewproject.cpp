@@ -35,6 +35,7 @@ void studentViewProject::on_BackButton_clicked()
     Window = control->getMParent()->GetForm(3,control,childPos.x(), childPos.y());
             //new StudentView(control, Window, childPos.x(), childPos.y());
     //Window->show();
+
     this->deleteLater();
 }
 

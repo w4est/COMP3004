@@ -35,7 +35,9 @@ public:
     void setSelectedProject(Project*);
     void setCurrentFrame(stuProjectFrame*);
     stuProjectFrame* getCurrentFrame();
+
     MasterControl* getMParent();
+
 
 private:
 	MasterControl* m_Parent;
