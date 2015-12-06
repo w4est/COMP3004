@@ -62,6 +62,28 @@ void CreateProject::on_NextButton_clicked()
     projectName = ui->NameEdit->text().toStdString();
     projectDescription = ui->DescriptionEdit->toPlainText().toStdString();
 
+    string cleaner = projectName;
+    bool isClean = false;
+
+    while(!isClean)
+    {
+        size_t s = cleaner.find_first_of(' ');
+
+        if(s == std::string::npos)
+        {
+          isClean = true;
+        }
+        else{
+            cleaner.erase(s, s+1);
+        }
+    }
+
+    if(cleaner.size() == 0){
+        QMessageBox::information(this, "Alert", "Project Name Cannot Be Empty" ,
+                                                QMessageBox::Ok);
+        return;
+    }
+
     Project* tm;
     for(int i = 0; i < control->getListSize(); i++){
         Project* tm = control->getProject(i);
