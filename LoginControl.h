@@ -15,6 +15,7 @@ public:
     LoginControl(MasterControl*, QWidget*);
 	~LoginControl();
     void shutdown();
+    MasterControl* getMParent();
 
     int userExists(string);
     void loginUser(string, QPoint*);

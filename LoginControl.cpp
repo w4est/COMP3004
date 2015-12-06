@@ -7,8 +7,11 @@ LoginControl::LoginControl(MasterControl* _control, QWidget* _parent)
     m_Parent = _control;
     user = 0;
 
-    login_window = new Login(this, _parent, m_Parent->getLastPoint()->x(), m_Parent->getLastPoint()->y());
-    login_window->show();
+    login_window = _control->GetForm(0,this, m_Parent->getLastPoint()->x(), m_Parent->getLastPoint()->y());
+    if (login_window != NULL)
+           std::cout << "This is not null" << std::endl;
+            //new Login(this, _parent, m_Parent->getLastPoint()->x(), m_Parent->getLastPoint()->y());
+    //login_window->show();
 }
 
 
@@ -74,4 +77,8 @@ void LoginControl::unregisterTempUser(string _username)
 const vector<Qualification*>& LoginControl::getQualList()
 {
     return m_Parent->getStorageAccess().getQualificationList();
+}
+
+MasterControl* LoginControl::getMParent(){
+    return m_Parent;
 }
