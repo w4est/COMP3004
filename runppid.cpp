@@ -16,7 +16,7 @@ RunPPID::RunPPID(AdminControl* _control, QWidget *parent, int _x, int _y, QStrin
 
     this->move(_x,_y-28);
     string title = "PPID Control";
-    groupSize = 0;
+    groupSize = 2;
 
     ui->setupUi(this);
     this->setWindowTitle(title.c_str());
@@ -76,7 +76,8 @@ void RunPPID::on_RunPPIDButton_clicked()
       /*reply = */QMessageBox::information(this, "Something Feels Errie...", Message.c_str() ,QMessageBox::Ok);
     std::vector<ProfileEntity> *nList= new vector<ProfileEntity>;
     for(int i = 0; i < control->getSelectedProject()->getStudents().size(); i++){
-      // nList->push_back(control->getMParent()->getStorageAccess().getProfile(control->getSelectedProject()->getStudents().at(i)));
+
+         nList->push_back((*control->getMParent()->getStorageAccess().getProfile(0, control->getSelectedProject()->getStudents().at(i))));
     }
     std::vector<std::vector<ProfileEntity>> sList =  RunAlgorithmStudents(nList, (*nList).size(), groupSize);
     //std::vector<std::vector<ProfileEntity>> sList = ppid::RunAlgorithmStudents(nList, nList.size(), groupSize);
@@ -89,13 +90,13 @@ void RunPPID::on_RunPPIDButton_clicked()
 //moved due to complications
  int* RunPPID::MinOfTwo(int **studentList, int numStudents)
 {//returns the index of the most compatible pair
-    int minValue = 999;
+    int minValue = 24999;
     int * pair = new int[2];
     pair[0]=-1;
     pair[1]=-1;
     for(int i=0; i<numStudents; i++){
         for(int j = i+1; j<numStudents; j++){
-            if(studentList[i][j]==1000||studentList[j][i]==1000){}
+            if(studentList[i][j]==25000||studentList[j][i]==25000){}
             else if(minValue>studentList[i][j]){
                 pair[0]=i;
                 pair[1]=j;
@@ -103,11 +104,15 @@ void RunPPID::on_RunPPIDButton_clicked()
             }
         }
     }
+    if(pair[0]==-1){
+        int as = 2*2;
+        as+1;
+    }
     return pair;
 }
 int RunPPID::GetMinStudent(int** studentList, int *currentGroup,  int studentsInGroup, int numStudents)
 {//returns the most compatible student for the current group
-    int minValue = 999;
+    int minValue = 24999;
     int res = -1;
     for(int i = 0; i<numStudents; i++){
         int NV= 0;
@@ -133,8 +138,8 @@ int RunPPID::GetMinStudent(int** studentList, int *currentGroup,  int studentsIn
     gVals2[i] = new int[numStudents];//new values
 }
 
-
-int numberOfGroups = (int)ceil(numStudents/groupSize);
+int fullgroup = numStudents/groupSize;
+int numberOfGroups = (int)ceil((double)numStudents/(double)groupSize);
 for(int i=0; i<numStudents; i++)
 {
     for (int j=i; j<numStudents; j++){
@@ -144,8 +149,8 @@ for(int i=0; i<numStudents; i++)
         }
         gVals[i][j]=sumQual;
         gVals[j][i] =sumQual;
-        gVals2[i][j] = 1000;//dummy value
-        gVals2[j][i] = 1000;
+        gVals2[i][j] = 25000;//dummy value
+        gVals2[j][i] = 25000;
     }
 }
 
@@ -167,11 +172,11 @@ for(int i = 0; i<numberOfGroups; i++){
         gVals2[sG[1]][j] = gVals[sG[1]][j];
         gVals2[j][sG[1]] = gVals[j][sG[1]];
         //clear the gVal values
-        gVals[sG[0]][j] = 1000;
-        gVals[j][sG[0]] = 1000;
+        gVals[sG[0]][j] = 25000;
+        gVals[j][sG[0]] = 25000;
 
-        gVals[sG[1]][j] = 1000;
-        gVals[j][sG[1]] = 1000;
+        gVals[sG[1]][j] = 25000;
+        gVals[j][sG[1]] = 25000;
     }
     pList[i]=cG;
 }
@@ -179,13 +184,14 @@ for(int j = 0; j<groupSize-2; j++){
     for(int i=0; i<numberOfGroups; i++){
         int a = GetMinStudent(gVals2, pList[i], j+2, numStudents);
         if(a ==-1){
-            i=numberOfGroups;
-            j=groupSize;
+            //i=numberOfGroups;
+           // j=groupSize;
+            pList[i][j+2]=-1;
         }else{
-            pList[i][j]=a;
+            pList[i][j+2]=a;
             for(int k=0; k<numStudents; k++){
-                gVals2[a][k] = 1000;
-                gVals2[k][a] = 1000;
+                gVals2[a][k] = 25000;
+                gVals2[k][a] = 25000;
             }
         }
     }
@@ -201,9 +207,18 @@ for(int i =0; i<numberOfGroups; i++){
 std::vector<ProfileEntity> res;
 
     for(int j = 0; j<groupSize; j++){
-        ProfileEntity temp = (ProfileEntity) (*students)[pList[i][j]];
-        res.push_back(temp);
-    }
+
+
+        if(i>=fullgroup&&j>=(groupSize-1)){}
+        else{
+            if (pList[i][j]==-1){}
+            else{
+        ProfileEntity *temp = &((*students).at(pList[i][j]));//&(ProfileEntity) ((*students).at(pList[i][j]));
+
+        res.push_back(*temp);
+            }
+       }
+}
     ret.push_back(res);
     //get<0>ret = i;
     //get<1>(ret)=res;
@@ -233,8 +248,8 @@ for(int i=0; i<numStudents; i++)
         }
         gVals[i][j]=sumQual;
         //gVals[j][i] =sumQual;
-        gVals2[i][j] = 1000;//dummy value
-        //gVals2[j][i] = 1000;
+        gVals2[i][j] = 25000;//dummy value
+        //gVals2[j][i] = 25000;
     }
 }
 
@@ -256,11 +271,11 @@ for(int i = 0; i<numberOfGroups; i++){
         gVals2[sG[1]][j] = gVals[sG[1]][j];
         gVals2[j][sG[1]] = gVals[j][sG[1]];
         //clear the gVal values
-        gVals[sG[0]][j] = 1000;
-        gVals[j][sG[0]] = 1000;
+        gVals[sG[0]][j] = 25000;
+        gVals[j][sG[0]] = 25000;
 
-        gVals[sG[1]][j] = 1000;
-        gVals[j][sG[1]] = 1000;
+        gVals[sG[1]][j] = 25000;
+        gVals[j][sG[1]] = 25000;
     }
     pList[i]=cG;
 }
@@ -273,8 +288,8 @@ for(int j = 0; j<groupSize-2; j++){
         }else{
             pList[i][j]=a;
             for(int k=0; k<numStudents; k++){
-                gVals2[a][k] = 1000;
-                gVals2[k][a] = 1000;
+                gVals2[a][k] = 25000;
+                gVals2[k][a] = 25000;
             }
         }
     }

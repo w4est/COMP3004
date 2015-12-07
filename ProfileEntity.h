@@ -15,7 +15,7 @@ public:
 
     ProfileEntity(string _username = "");
 
-    ProfileEntity();
+   // ProfileEntity();
 
 	~ProfileEntity();
 
