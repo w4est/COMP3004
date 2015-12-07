@@ -71,8 +71,27 @@ void RunPPID::on_RunPPIDButton_clicked()
       /*reply = */QMessageBox::information(this, "Something Feels Errie...", Message.c_str() ,
                                     QMessageBox::Ok);
 
+    std::vector<ProfileEntity*> nList;
+    std::vector<std::string> sList = control->getSelectedProject()->getStudents();
+
+    int size = sList.size();
+
+    for(int i = 0; i < size; i++)
+    {
+        nList.push_back(control->getMParent()->getStorageAccess().getProfile(0, sList.at(i)));
+    }
+    testVector(nList);
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     QWidget *result = new ResultsWindow(0);
     result->show();
 
+}
+
+void RunPPID::testVector(std::vector<ProfileEntity *> & _test)
+{
+    for(int i = 0; i < _test.size(); i++)
+    {
+        ProfileEntity* temp = _test.at(i);
+        cout <<  temp->getUsername() << endl;
+    }
 }

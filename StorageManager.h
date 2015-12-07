@@ -41,6 +41,7 @@ public:
 
     /*Lists*/
     Project* getProject(int _index, string _name);
+    ProfileEntity* getProfile(int _index, string _name);
     vector<Qualification*>& getQualificationList();
     vector<Project*>& getProjectList();
 
@@ -48,6 +49,7 @@ private:
 	StorageObject* dbObject;
 
     vector<ProfileEntity*> outEntities;
+    vector<ProfileEntity*> redundantProfileList;
     vector<Project*> projectList;
     vector<Qualification*> qualList;
 

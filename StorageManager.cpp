@@ -44,6 +44,16 @@ StorageManager::~StorageManager()
             delete temp;
         }
     }
+
+    while(!redundantProfileList.empty())
+    {
+        ProfileEntity* temp = redundantProfileList.back();
+        redundantProfileList.pop_back();
+
+        if(temp){
+            delete temp;
+        }
+    }
 }
 
 int StorageManager::getProjectCount()
@@ -171,6 +181,24 @@ Project* StorageManager::getProject(int _index, string _name)
     {
         return projectList.at(_index);
     }
+}
+
+ProfileEntity* StorageManager::getProfile(int _index, string _name)
+{
+    if(redundantProfileList.size() == 0){
+        dbObject->getProfileList(redundantProfileList);
+    }
+
+    for(int i = 0; i < redundantProfileList.size(); i++)
+    {
+        ProfileEntity* tEnt = redundantProfileList.at(i);
+        if(tEnt->getUsername().compare(_name) == 0)
+        {
+            return tEnt;
+        }
+    }
+
+    return NULL;
 }
 
 vector<Qualification*>& StorageManager::getQualificationList()
