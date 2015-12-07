@@ -29,6 +29,10 @@ public:
 
 
     std::vector<std::vector<ProfileEntity>> RunAlgorithmStudents(std::vector<ProfileEntity>* students, int numStudents, int groupSize);//run the student algorithm
+
+    std::vector<std::vector<ProfileEntity>> RunAlgorithmProjects(std::vector<ProfileEntity>* students, int numStudents, int groupSize);//run the student algorithm
+
+    std::vector<std::vector<ProfileEntity>> RunAlgorithmGrades(std::vector<ProfileEntity>* students, int numStudents, int groupSize);//run the student algorithm
     ~RunPPID();
 
 private slots:
