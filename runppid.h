@@ -3,13 +3,18 @@
 
 #include <QDialog>
 #include <QWidget>
+#include <vector>
 #include "AdminControl.h"
 #include "adminview.h"
+
+#include "ProfileEntity.h"
+
 #include <math.h>
 #include <stdlib.h>
 #include <vector>
 #include "ProfileEntity.h"
 #include "project.h"
+
 
 class AdminControl;
 
@@ -54,6 +59,7 @@ private:
     AdminControl* control;
 
     int groupSize;
+
 };
 
 #endif // RUNPPID_H

@@ -324,9 +324,40 @@ void SimpleFileStorage::removeProfile(string _username)
 	out.close();
 }
 
-void SimpleFileStorage::getProfileList(vector<ProfileEntity*>&)
+void SimpleFileStorage::getProfileList(vector<ProfileEntity*>& _ret)
 {
-    cout << "getProfileList() does not exist" << endl;
+    ProfileEntity* newProf;
+    vector<qualLayout> tempPers, tempDes;
+
+    for(rapidxml::xml_node<> * adminNode = prof_root->first_node("Admin"); adminNode; adminNode = adminNode->next_sibling("Admin"))
+    {
+        newProf = new ProfileEntity(adminNode->first_attribute("name")->value());
+           newProf->setAdminPrivilege(true);
+           _ret.push_back(newProf);
+    }
+
+    for (rapidxml::xml_node<> * stuNode = prof_root->first_node("Student"); stuNode; stuNode = stuNode->next_sibling("Student"))
+    {
+        newProf = new ProfileEntity(stuNode->first_attribute("name")->value());
+
+            rapidxml::xml_node<> * typeNode = stuNode->first_node("PersonalQualifications");
+
+            for(rapidxml::xml_node<> * qualNode = typeNode->first_node("Qualification"); qualNode; qualNode = qualNode->next_sibling())
+            {
+                tempPers.push_back(make_tuple(std::stoi(qualNode->first_attribute()->value()), std::stoi(qualNode->last_attribute()->value())));
+            }
+
+            typeNode = stuNode->first_node("DesiredQualifications");
+            for(rapidxml::xml_node<> * qualNode = typeNode->first_node(); qualNode; qualNode = qualNode->next_sibling())
+            {
+                tempDes.push_back(make_tuple(std::stoi(qualNode->first_attribute()->value()), std::stoi(qualNode->last_attribute()->value())));
+            }
+
+            newProf->setPersonalQual(tempPers);
+            newProf->setDesiredQual(tempDes);
+
+            _ret.push_back(newProf);
+    }
 }
 
 ProfileEntity* SimpleFileStorage::getProfile(string _username)

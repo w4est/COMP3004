@@ -73,15 +73,14 @@ void RunPPID::on_RunPPIDButton_clicked()
 {
     std::string Message = "We'd better turn back now.";
     //QMessageBox::StandardButton reply;
-      /*reply = */QMessageBox::information(this, "Something Feels Errie...", Message.c_str() ,
-
-                                           QMessageBox::Ok);
+      /*reply = */QMessageBox::information(this, "Something Feels Errie...", Message.c_str() ,QMessageBox::Ok);
     std::vector<ProfileEntity> *nList= new vector<ProfileEntity>;
     for(int i = 0; i < control->getSelectedProject()->getStudents().size(); i++){
       // nList->push_back(control->getMParent()->getStorageAccess().getProfile(control->getSelectedProject()->getStudents().at(i)));
     }
     std::vector<std::vector<ProfileEntity>> sList =  RunAlgorithmStudents(nList, (*nList).size(), groupSize);
     //std::vector<std::vector<ProfileEntity>> sList = ppid::RunAlgorithmStudents(nList, nList.size(), groupSize);
+
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
     QWidget *result = new ResultsWindow(0);
     result->show();

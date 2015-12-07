@@ -12,10 +12,14 @@ using namespace std;
 class ProfileEntity
 {
 public:
+
+    ProfileEntity(string _username = "");
+
     ProfileEntity();
-	ProfileEntity(string _username);
+
 	~ProfileEntity();
 
+    void setUsername(string);
 	void setPersonalQual(vector<qualLayout>&);
 	void setDesiredQual(vector<qualLayout>&);
     void setAdminPrivilege(bool);

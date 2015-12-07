@@ -30,6 +30,11 @@ void ProfileEntity::setPersonalQual(vector<tuple<int, int>>& _perQualList)
 }
 
 /**/
+void ProfileEntity::setUsername(string _name)
+{
+    m_username = _name;
+}
+
 void ProfileEntity::setDesiredQual(vector<qualLayout>& _desQualList)
 {
     desiredQual = _desQualList;
