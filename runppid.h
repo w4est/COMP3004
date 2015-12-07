@@ -57,8 +57,8 @@ private:
     Ui::RunPPID *ui;
     QWidget *Window;
     AdminControl* control;
-
-    int groupSize;
+    int mode=0;
+    int groupSize=0;
 
 };
 

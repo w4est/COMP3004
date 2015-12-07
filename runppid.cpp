@@ -43,16 +43,7 @@ void RunPPID::on_RunPPID_destroyed()
 
 void RunPPID::on_comboBox_activated(int index)
 {
-    if(index==0){
-        //student
-    }
-    else if(index == 1)
-    {
-        //project
-    }
-    else{
-        //something
-    }
+    mode = index;
 }
 
 void RunPPID::on_groupSize_valueChanged(int arg1)
@@ -71,15 +62,28 @@ void RunPPID::on_BackButton_clicked()
 
 void RunPPID::on_RunPPIDButton_clicked()
 {
-    std::string Message = "We'd better turn back now.";
+    std::string Message = "Running PPID.";
+    if(control->getSelectedProject()==NULL){
+        Message = "Nonexistant Project";
+        /*reply = */QMessageBox::information(this, "Nonexistant project", Message.c_str() ,QMessageBox::Ok);
+        return;}
+    if(control->getSelectedProject()->getStudents().size()==0){
+        Message = "No students in project";
+        /*reply = */QMessageBox::information(this, "No students in project", Message.c_str() ,QMessageBox::Ok);
+        return;}
     //QMessageBox::StandardButton reply;
-      /*reply = */QMessageBox::information(this, "Something Feels Errie...", Message.c_str() ,QMessageBox::Ok);
+
     std::vector<ProfileEntity> *nList= new vector<ProfileEntity>;
     for(int i = 0; i < control->getSelectedProject()->getStudents().size(); i++){
 
          nList->push_back((*control->getMParent()->getStorageAccess().getProfile(0, control->getSelectedProject()->getStudents().at(i))));
     }
-    std::vector<std::vector<ProfileEntity>> sList =  RunAlgorithmStudents(nList, (*nList).size(), groupSize);
+    std::vector<std::vector<ProfileEntity>> sList;
+    if(mode ==0){
+        sList=  RunAlgorithmStudents(nList, (*nList).size(), groupSize);
+    }else{
+        sList=  RunAlgorithmProjects(nList, (*nList).size(), groupSize);
+    }
     //std::vector<std::vector<ProfileEntity>> sList = ppid::RunAlgorithmStudents(nList, nList.size(), groupSize);
 
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
@@ -105,8 +109,7 @@ void RunPPID::on_RunPPIDButton_clicked()
         }
     }
     if(pair[0]==-1){
-        int as = 2*2;
-        as+1;
+
     }
     return pair;
 }
@@ -116,8 +119,11 @@ int RunPPID::GetMinStudent(int** studentList, int *currentGroup,  int studentsIn
     int res = -1;
     for(int i = 0; i<numStudents; i++){
         int NV= 0;
-        for(int j = 0; j< studentsInGroup; j++){
+        for(int j = 0; j< 2; j++){
+           // int p= currentGroup[j];
+
             NV+=studentList[currentGroup[j]][i];
+
 
         }
         if(minValue>NV){
@@ -184,9 +190,18 @@ for(int j = 0; j<groupSize-2; j++){
     for(int i=0; i<numberOfGroups; i++){
         int a = GetMinStudent(gVals2, pList[i], j+2, numStudents);
         if(a ==-1){
-            //i=numberOfGroups;
-           // j=groupSize;
-            pList[i][j+2]=-1;
+            for(int q = i; q<numberOfGroups; q++){
+                for(int w = j; w<groupSize-2; w++){
+
+
+                pList[q][w+2]=-1;
+                }
+            }
+
+
+            i=numberOfGroups;
+            j=groupSize;
+
         }else{
             pList[i][j+2]=a;
             for(int k=0; k<numStudents; k++){
@@ -237,8 +252,8 @@ std::vector<std::vector<ProfileEntity>> RunPPID::RunAlgorithmProjects(std::vecto
     gVals2[i] = new int[numStudents];//new values
 }
 
-
-int numberOfGroups = (int)ceil(numStudents/groupSize);
+int fullgroup = numStudents/groupSize;
+int numberOfGroups = (int)ceil((double)numStudents/(double)groupSize);
 for(int i=0; i<numStudents; i++)
 {
     for (int j=0; j<numStudents; j++){
@@ -247,9 +262,9 @@ for(int i=0; i<numStudents; i++)
             sumQual += abs(get<1>(students->at(i).getPersonalQual().at(k))+get<1>(students->at(i).getDesiredQual().at(k)));
         }
         gVals[i][j]=sumQual;
-        //gVals[j][i] =sumQual;
+        gVals[j][i] =sumQual;
         gVals2[i][j] = 25000;//dummy value
-        //gVals2[j][i] = 25000;
+        gVals2[j][i] = 25000;
     }
 }
 
@@ -283,10 +298,20 @@ for(int j = 0; j<groupSize-2; j++){
     for(int i=0; i<numberOfGroups; i++){
         int a = GetMinStudent(gVals2, pList[i], j+2, numStudents);
         if(a ==-1){
+            for(int q = i; q<numberOfGroups; q++){
+                for(int w = j; w<groupSize-2; w++){
+
+
+                pList[q][w+2]=-1;
+                }
+            }
+
+
             i=numberOfGroups;
             j=groupSize;
+
         }else{
-            pList[i][j]=a;
+            pList[i][j+2]=a;
             for(int k=0; k<numStudents; k++){
                 gVals2[a][k] = 25000;
                 gVals2[k][a] = 25000;
@@ -305,9 +330,18 @@ for(int i =0; i<numberOfGroups; i++){
 std::vector<ProfileEntity> res;
 
     for(int j = 0; j<groupSize; j++){
-        ProfileEntity temp = (ProfileEntity) (*students)[pList[i][j]];
-        res.push_back(temp);
-    }
+
+
+        if(i>=fullgroup&&j>=(groupSize-1)){}
+        else{
+            if (pList[i][j]==-1){}
+            else{
+        ProfileEntity *temp = &((*students).at(pList[i][j]));//&(ProfileEntity) ((*students).at(pList[i][j]));
+
+        res.push_back(*temp);
+            }
+       }
+}
     ret.push_back(res);
     //get<0>ret = i;
     //get<1>(ret)=res;
