@@ -6,7 +6,15 @@
 #include <vector>
 #include "AdminControl.h"
 #include "adminview.h"
+
 #include "ProfileEntity.h"
+
+#include <math.h>
+#include <stdlib.h>
+#include <vector>
+#include "ProfileEntity.h"
+#include "project.h"
+
 
 class AdminControl;
 
@@ -20,6 +28,16 @@ class RunPPID : public QDialog
 
 public:
     explicit RunPPID(AdminControl* _control, QWidget *parent = 0, int _x = 150, int _y = 50, QString _projectName = "");
+
+    int* MinOfTwo(int **studentList, int numStudents);//returns the index of the most compatible pair
+    int GetMinStudent(int** studentList, int *currentGroup, int studentsInGroup, int numStudents);//returns the most compatible student for the current group
+
+
+    std::vector<std::vector<ProfileEntity>> RunAlgorithmStudents(std::vector<ProfileEntity>* students, int numStudents, int groupSize);//run the student algorithm
+
+    std::vector<std::vector<ProfileEntity>> RunAlgorithmProjects(std::vector<ProfileEntity>* students, int numStudents, int groupSize);//run the student algorithm
+
+    std::vector<std::vector<ProfileEntity>> RunAlgorithmGrades(std::vector<ProfileEntity>* students, int numStudents, int groupSize);//run the student algorithm
     ~RunPPID();
 
 private slots:
@@ -41,7 +59,7 @@ private:
     AdminControl* control;
 
     int groupSize;
-    void testVector(std::vector<ProfileEntity*>&);
+
 };
 
 #endif // RUNPPID_H
