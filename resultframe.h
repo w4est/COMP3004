@@ -12,7 +12,7 @@ class ResultFrame : public QWidget
     Q_OBJECT
 
 public:
-    explicit ResultFrame(QWidget *parent = 0);
+    explicit ResultFrame(QWidget *parent = 0, int _team = -1);
     ~ResultFrame();
 
     void addStudent(QString);

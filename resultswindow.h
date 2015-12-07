@@ -7,9 +7,10 @@
 #include <QVBoxLayout>
 #include <vector>
 #include "resultframe.h"
+#include "ProfileEntity.h"
 
-#define vectorIntern int
-#define vectorTotal int
+#define vectorIntern std::vector<ProfileEntity>
+#define vectorTotal std::vector<std::vector<ProfileEntity>>
 
 namespace Ui {
 class ResultsWindow;
@@ -20,7 +21,7 @@ class ResultsWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit ResultsWindow(vectorTotal, QWidget *parent = 0, int _x = 150, int _y = 50);
+    explicit ResultsWindow(vectorTotal, int groupSize, string projectName,QWidget *parent = 0, int _x = 150, int _y = 50);
     ~ResultsWindow();
 
 private:
@@ -30,8 +31,10 @@ private:
     QWidget *widget;
     std::vector<ResultFrame*> frameList;
 
+    int maxSize;
+
     void buildSubLists(vectorTotal);
-    QWidget* buildResultFrame(vectorIntern);
+    QWidget* buildResultFrame(vectorIntern, int);
 };
 
 #endif // RESULTSWINDOW_H

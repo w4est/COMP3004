@@ -83,7 +83,7 @@ void RunPPID::on_RunPPIDButton_clicked()
     //std::vector<std::vector<ProfileEntity>> sList = ppid::RunAlgorithmStudents(nList, nList.size(), groupSize);
 
     QPoint childPos = this->mapToGlobal(QPoint(0,0));
-    QWidget *result = new ResultsWindow(0);
+    QWidget *result = new ResultsWindow(sList, groupSize, control->getSelectedProject()->getProjectName(), 0, childPos.x(), childPos.y()); //DO NOT MESS WITH THIS ON THREAT OF YOUR LIFE
     result->show();
 
 }
