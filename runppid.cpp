@@ -110,7 +110,13 @@ void RunPPID::on_RunPPIDButton_clicked()
         }
     }
     if(pair[0]==-1){
-
+        for(int i=0; i<numStudents; i++){
+            for(int j = i; j<numStudents; j++){
+                if(studentList[i][j]!=25000){
+                    pair[1] = i;
+                }
+            }
+        }
     }
     return pair;
 }
@@ -174,6 +180,12 @@ for(int i=0;i<numberOfGroups; i++){
 for(int i = 0; i<numberOfGroups; i++){
     int * cG = new int[groupSize];
     int * sG =  MinOfTwo(gVals, numStudents);
+    if (sG[0] == -1 && groupSize == 2){
+        cG[0] = sG[1];
+        cG[1] = -1;
+        pList[i]=cG;
+        break;
+    }
     cG[0] = sG[0];
     cG[1]=sG[1];
     for(int j=0; j<numStudents;j++){
@@ -234,9 +246,15 @@ std::vector<ProfileEntity> res;
         else{
             if (pList[i][j]==-1){}
             else{
-        ProfileEntity *temp = &((*students).at(pList[i][j]));//&(ProfileEntity) ((*students).at(pList[i][j]));
 
-        res.push_back(*temp);
+                if (i == numberOfGroups-1 && j == 1 && pList[i][j] == -1){
+
+                }
+                else{
+                ProfileEntity *temp = &((*students).at(pList[i][j]));//&(ProfileEntity) ((*students).at(pList[i][j]));
+
+                res.push_back(*temp);
+                }
             }
        }
 }
@@ -290,6 +308,12 @@ for(int i=0;i<numberOfGroups; i++){
 for(int i = 0; i<numberOfGroups; i++){
     int * cG = new int[groupSize];
     int * sG =  MinOfTwo(gVals, numStudents);
+    if (sG[0] == -1 && groupSize == 2){
+        cG[0] = sG[1];
+        cG[1] = -1;
+        pList[i]=cG;
+        break;
+    }
     cG[0] = sG[0];
     cG[1]=sG[1];
     for(int j=0; j<numStudents;j++){
@@ -351,9 +375,14 @@ std::vector<ProfileEntity> res;
         else{
             if (pList[i][j]==-1){}
             else{
-        ProfileEntity *temp = &((*students).at(pList[i][j]));//&(ProfileEntity) ((*students).at(pList[i][j]));
+                if (i == numberOfGroups-1 && j == 1 && pList[i][j] == -1){
 
-        res.push_back(*temp);
+                }
+                else{
+                ProfileEntity *temp = &((*students).at(pList[i][j]));//&(ProfileEntity) ((*students).at(pList[i][j]));
+
+                res.push_back(*temp);
+                }
             }
        }
 }
