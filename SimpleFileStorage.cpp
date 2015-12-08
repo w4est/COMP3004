@@ -357,6 +357,8 @@ void SimpleFileStorage::getProfileList(vector<ProfileEntity*>& _ret)
             newProf->setDesiredQual(tempDes);
 
             _ret.push_back(newProf);
+            tempDes.clear();
+            tempPers.clear();
     }
 }
 

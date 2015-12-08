@@ -98,16 +98,7 @@ QWidget* InterfaceFacade::GetForm(int id, AdminControl* pointer, int x, int y){
         CurrentUI->show();
 
     }
-    else if (id == 9){
-        //QWidget* CurrentUI = new studentViewProject(pointer, NULL, x, y);
-        //CurrentUI->show();
 
-    }
-    else if (id == 10){
-        //QWidget* CurrentUI = new studentViewProject(pointer, NULL, x, y);
-        //CurrentUI->show();
-
-    }
 
     return CurrentUI;
 }

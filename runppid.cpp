@@ -44,6 +44,7 @@ void RunPPID::on_RunPPID_destroyed()
 void RunPPID::on_comboBox_activated(int index)
 {
     mode = index;
+
 }
 
 void RunPPID::on_groupSize_valueChanged(int arg1)
@@ -74,7 +75,7 @@ void RunPPID::on_RunPPIDButton_clicked()
     //QMessageBox::StandardButton reply;
 
     std::vector<ProfileEntity> *nList= new vector<ProfileEntity>;
-    for(int i = 0; i < control->getSelectedProject()->getStudents().size(); i++){
+    for(int i = 0; i < (int)control->getSelectedProject()->getStudents().size(); i++){
 
          nList->push_back((*control->getMParent()->getStorageAccess().getProfile(0, control->getSelectedProject()->getStudents().at(i))));
     }
@@ -144,21 +145,26 @@ int RunPPID::GetMinStudent(int** studentList, int *currentGroup,  int studentsIn
     gVals2[i] = new int[numStudents];//new values
 }
 
+//Quantify the matrix
+
 int fullgroup = numStudents/groupSize;
 int numberOfGroups = (int)ceil((double)numStudents/(double)groupSize);
 for(int i=0; i<numStudents; i++)
 {
     for (int j=i; j<numStudents; j++){
         int sumQual =0;
-        for(int k =0; k<students->at(i).getPersonalQual().size(); k++){
-            sumQual += abs(get<1>(students->at(i).getPersonalQual().at(k))+get<1>(students->at(i).getPersonalQual().at(k)));
+        int value = students->at(i).getPersonalQual().size();
+        for(int k =0; k<(value); k++){
+            sumQual += abs(get<1>(students->at(i).getPersonalQual().at(k))-get<1>(students->at(j).getPersonalQual().at(k)));
         }
         gVals[i][j]=sumQual;
         gVals[j][i] =sumQual;
         gVals2[i][j] = 25000;//dummy value
         gVals2[j][i] = 25000;
+
     }
 }
+
 
 int** pList = new int*[numberOfGroups];
 for(int i=0;i<numberOfGroups; i++){
@@ -252,21 +258,29 @@ std::vector<std::vector<ProfileEntity>> RunPPID::RunAlgorithmProjects(std::vecto
     gVals2[i] = new int[numStudents];//new values
 }
 
+//Quantify the matrix
+
 int fullgroup = numStudents/groupSize;
 int numberOfGroups = (int)ceil((double)numStudents/(double)groupSize);
 for(int i=0; i<numStudents; i++)
 {
     for (int j=0; j<numStudents; j++){
         int sumQual =0;
-        for(int k =0; k<students->at(i).getPersonalQual().size(); k++){
-            sumQual += abs(get<1>(students->at(i).getPersonalQual().at(k))+get<1>(students->at(i).getDesiredQual().at(k)));
+        int value = students->at(i).getPersonalQual().size();
+        for(int k =0; k<(value); k++){
+
+            int stu1 = get<1>(students->at(i).getPersonalQual().at(k));
+            int stu2 = get<1>(students->at(j).getDesiredQual().at(k));
+            sumQual += abs(stu1-stu2);
         }
         gVals[i][j]=sumQual;
-        gVals[j][i] =sumQual;
+        //gVals[j][i] =sumQual;
         gVals2[i][j] = 25000;//dummy value
-        gVals2[j][i] = 25000;
+        //gVals2[j][i] = 25000;
     }
 }
+
+
 
 int** pList = new int*[numberOfGroups];
 for(int i=0;i<numberOfGroups; i++){
@@ -298,6 +312,7 @@ for(int j = 0; j<groupSize-2; j++){
     for(int i=0; i<numberOfGroups; i++){
         int a = GetMinStudent(gVals2, pList[i], j+2, numStudents);
         if(a ==-1){
+
             for(int q = i; q<numberOfGroups; q++){
                 for(int w = j; w<groupSize-2; w++){
 
